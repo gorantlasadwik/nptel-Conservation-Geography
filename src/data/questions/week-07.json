@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-07-q001",
+    "week": 7,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Which soils are generally sandy, saline, low in moisture and commonly found in Rajasthan and Gujarat?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Forest soils"
+      },
+      {
+        "id": "B",
+        "text": "Arid soils"
+      },
+      {
+        "id": "C",
+        "text": "Peaty soils"
+      },
+      {
+        "id": "D",
+        "text": "Red and yellow soils"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q002",
+    "week": 7,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Cryofracturing is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "chemical weathering"
+      },
+      {
+        "id": "B",
+        "text": "physical weathering"
+      },
+      {
+        "id": "C",
+        "text": "biological weathering"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q003",
+    "week": 7,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Bangar is a type of",
+    "options": [
+      {
+        "id": "A",
+        "text": "black cotton soil"
+      },
+      {
+        "id": "B",
+        "text": "alluvial soil"
+      },
+      {
+        "id": "C",
+        "text": "saline soil"
+      },
+      {
+        "id": "D",
+        "text": "red and yellow soil"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q004",
+    "week": 7,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "\"the diversity that exists within an ecosystem\" is",
+    "options": [
+      {
+        "id": "A",
+        "text": "alpha (α) biodiversity"
+      },
+      {
+        "id": "B",
+        "text": "beta (β) biodiversity"
+      },
+      {
+        "id": "C",
+        "text": "gamma (γ) biodiversity"
+      },
+      {
+        "id": "D",
+        "text": "delta (δ) biodiversity"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q005",
+    "week": 7,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "A climax caused by wildfires is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "climatic climax"
+      },
+      {
+        "id": "B",
+        "text": "edaphic climax"
+      },
+      {
+        "id": "C",
+        "text": "disclimax"
+      },
+      {
+        "id": "D",
+        "text": "catastrophic climax"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q006",
+    "week": 7,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "For more biodiversity, the level of disturbance should be",
+    "options": [
+      {
+        "id": "A",
+        "text": "less"
+      },
+      {
+        "id": "B",
+        "text": "intermediate"
+      },
+      {
+        "id": "C",
+        "text": "more"
+      },
+      {
+        "id": "D",
+        "text": "none of these"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q007",
+    "week": 7,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "\"the diversity that exists among different geographies\" is",
+    "options": [
+      {
+        "id": "A",
+        "text": "alpha (α) biodiversity"
+      },
+      {
+        "id": "B",
+        "text": "beta (β) biodiversity"
+      },
+      {
+        "id": "C",
+        "text": "gamma (γ) biodiversity"
+      },
+      {
+        "id": "D",
+        "text": "delta (δ) biodiversity"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q008",
+    "week": 7,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Vertical arrangement of soil horizons is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "soil texture"
+      },
+      {
+        "id": "B",
+        "text": "soil structure"
+      },
+      {
+        "id": "C",
+        "text": "soil profile"
+      },
+      {
+        "id": "D",
+        "text": "soil science"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q009",
+    "week": 7,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Carbonation is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "chemical weathering"
+      },
+      {
+        "id": "B",
+        "text": "physical weathering"
+      },
+      {
+        "id": "C",
+        "text": "biological weathering"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q010",
+    "week": 7,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Which soil property refers to the arrangement of solid soil parts and pore spaces between them?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Soil fertility"
+      },
+      {
+        "id": "B",
+        "text": "Soil texture"
+      },
+      {
+        "id": "C",
+        "text": "Soil horizon"
+      },
+      {
+        "id": "D",
+        "text": "Soil structure"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 7 Solutions.pdf"
+  }
+]

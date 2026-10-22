@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-09-q001",
+    "week": 9,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Sex ratio is calculated as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Female population divided by male population multiplied by 1000"
+      },
+      {
+        "id": "B",
+        "text": "Male population divided by female population multiplied by 1000"
+      },
+      {
+        "id": "C",
+        "text": "Total population divided by female population multiplied by 1000"
+      },
+      {
+        "id": "D",
+        "text": "Working population divided by dependent population multiplied by 1000"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q002",
+    "week": 9,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Which of these is commonly observed during humanising of nature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "environmental determinism"
+      },
+      {
+        "id": "B",
+        "text": "possibilism"
+      },
+      {
+        "id": "C",
+        "text": "neodeterminism"
+      },
+      {
+        "id": "D",
+        "text": "stop and go determinism"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q003",
+    "week": 9,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "The age dependency ratio compares dependent population with:",
+    "options": [
+      {
+        "id": "A",
+        "text": "total female population"
+      },
+      {
+        "id": "B",
+        "text": "working-age population"
+      },
+      {
+        "id": "C",
+        "text": "urban population"
+      },
+      {
+        "id": "D",
+        "text": "migrant population"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q004",
+    "week": 9,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "The logistic growth equation curve is",
+    "options": [
+      {
+        "id": "A",
+        "text": "I-shaped"
+      },
+      {
+        "id": "B",
+        "text": "J-shaped"
+      },
+      {
+        "id": "C",
+        "text": "S-shaped"
+      },
+      {
+        "id": "D",
+        "text": "U-shaped"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q005",
+    "week": 9,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Which of these is a positive check according to Malthus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "late marriage"
+      },
+      {
+        "id": "B",
+        "text": "war"
+      },
+      {
+        "id": "C",
+        "text": "celibacy"
+      },
+      {
+        "id": "D",
+        "text": "moral restraint"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q006",
+    "week": 9,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Economic development is often measured in terms of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "age dependency ratio"
+      },
+      {
+        "id": "B",
+        "text": "total land area"
+      },
+      {
+        "id": "C",
+        "text": "GDP per capita"
+      },
+      {
+        "id": "D",
+        "text": "sex ratio"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q007",
+    "week": 9,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Which of these is not a pillar of sustainability?",
+    "options": [
+      {
+        "id": "A",
+        "text": "environmental sustainability"
+      },
+      {
+        "id": "B",
+        "text": "economic sustainability"
+      },
+      {
+        "id": "C",
+        "text": "trans-boundary sustainability"
+      },
+      {
+        "id": "D",
+        "text": "social sustainability"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q008",
+    "week": 9,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "The demographic transition sees a society move from",
+    "options": [
+      {
+        "id": "A",
+        "text": "high birth rate, low death rate to low birth rate, high death rate"
+      },
+      {
+        "id": "B",
+        "text": "low birth rate, high death rate to low birth rate, low death rate"
+      },
+      {
+        "id": "C",
+        "text": "high birth rate, high death rate to low birth rate, low death rate"
+      },
+      {
+        "id": "D",
+        "text": "high birth rate, high death rate to low birth rate, high death rate"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q009",
+    "week": 9,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Which of these is a preventive check according to Malthus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "foresight"
+      },
+      {
+        "id": "B",
+        "text": "vice"
+      },
+      {
+        "id": "C",
+        "text": "misery"
+      },
+      {
+        "id": "D",
+        "text": "flood"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q010",
+    "week": 9,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Which population group is generally treated as the working population?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0-15 years"
+      },
+      {
+        "id": "B",
+        "text": "15-64 years"
+      },
+      {
+        "id": "C",
+        "text": "65 years and above"
+      },
+      {
+        "id": "D",
+        "text": "0-15 and 65 years and above"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 9 Solutions.pdf"
+  }
+]

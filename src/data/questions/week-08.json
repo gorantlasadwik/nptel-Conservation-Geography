@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-08-q001",
+    "week": 8,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Which of the following is listed as an ex-situ conservation method?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Wildlife sanctuary"
+      },
+      {
+        "id": "B",
+        "text": "National park"
+      },
+      {
+        "id": "C",
+        "text": "Seed bank"
+      },
+      {
+        "id": "D",
+        "text": "Biosphere reserve"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q002",
+    "week": 8,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Which factor makes smaller populations especially vulnerable due to mating among close relatives?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Habitat displacement"
+      },
+      {
+        "id": "B",
+        "text": "Eutrophication"
+      },
+      {
+        "id": "C",
+        "text": "Inbreeding depression"
+      },
+      {
+        "id": "D",
+        "text": "Carbon storage"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q003",
+    "week": 8,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Which type of species plays a much greater ecological role than expected from its abundance?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Umbrella species"
+      },
+      {
+        "id": "B",
+        "text": "Flagship species"
+      },
+      {
+        "id": "C",
+        "text": "Least concern species"
+      },
+      {
+        "id": "D",
+        "text": "Keystone species"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q004",
+    "week": 8,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "A species found only in a single lake is rare mainly because of",
+    "options": [
+      {
+        "id": "A",
+        "text": "high birth rate"
+      },
+      {
+        "id": "B",
+        "text": "limited geographical range"
+      },
+      {
+        "id": "C",
+        "text": "high adaptability"
+      },
+      {
+        "id": "D",
+        "text": "large home range"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q005",
+    "week": 8,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Which of the following is a disadvantage of ex-situ conservation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It always protects the natural habitat of the species"
+      },
+      {
+        "id": "B",
+        "text": "Captive-bred individuals may find reintroduction difficult"
+      },
+      {
+        "id": "C",
+        "text": "It prevents all inbreeding risks automatically"
+      },
+      {
+        "id": "D",
+        "text": "It can be planned for all species at the same time"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q006",
+    "week": 8,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "In the species-area relationship, what does \"S\" represent?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Size of the habitat"
+      },
+      {
+        "id": "B",
+        "text": "Species richness"
+      },
+      {
+        "id": "C",
+        "text": "Survival rate"
+      },
+      {
+        "id": "D",
+        "text": "Stochastic pressure"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q007",
+    "week": 8,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "In the Clear Lake example, DDD concentration increased from water to plankton, fish, and piscivorous birds. This illustrates",
+    "options": [
+      {
+        "id": "A",
+        "text": "ecological redundancy"
+      },
+      {
+        "id": "B",
+        "text": "habitat selection"
+      },
+      {
+        "id": "C",
+        "text": "biomagnification"
+      },
+      {
+        "id": "D",
+        "text": "ex-situ management"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q008",
+    "week": 8,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "We prefer those areas for the creation of a conservation reserve where the level of threat is",
+    "options": [
+      {
+        "id": "A",
+        "text": "very high"
+      },
+      {
+        "id": "B",
+        "text": "medium"
+      },
+      {
+        "id": "C",
+        "text": "very low"
+      },
+      {
+        "id": "D",
+        "text": "non-existent"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q009",
+    "week": 8,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "The acronym HIPPO does not include",
+    "options": [
+      {
+        "id": "A",
+        "text": "habitat loss"
+      },
+      {
+        "id": "B",
+        "text": "invasive species"
+      },
+      {
+        "id": "C",
+        "text": "pollination"
+      },
+      {
+        "id": "D",
+        "text": "pollution"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q010",
+    "week": 8,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "The elephant has a home range of several square kilometres, regulates the ecosystem by its habit of destructive feeding, and people can relate to this animal which is important for conservation. Given this background, the elephant can be called as",
+    "options": [
+      {
+        "id": "A",
+        "text": "umbrella species"
+      },
+      {
+        "id": "B",
+        "text": "keystone species"
+      },
+      {
+        "id": "C",
+        "text": "flagship species"
+      },
+      {
+        "id": "D",
+        "text": "all of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 8 Solutions.pdf"
+  }
+]

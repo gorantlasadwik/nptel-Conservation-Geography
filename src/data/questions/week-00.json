@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-00-q001",
+    "week": 0,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "The geographical area within which a species can naturally be found is its:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tolerance"
+      },
+      {
+        "id": "B",
+        "text": "Abundance"
+      },
+      {
+        "id": "C",
+        "text": "Range"
+      },
+      {
+        "id": "D",
+        "text": "Affluence"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q002",
+    "week": 0,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Excess nitrogen fertilizer enters a pond, causes algal growth, and later creates oxygen-poor conditions. This process shows disturbance in:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Political geography"
+      },
+      {
+        "id": "B",
+        "text": "Biogeochemical cycles"
+      },
+      {
+        "id": "C",
+        "text": "Cartographic methods"
+      },
+      {
+        "id": "D",
+        "text": "Habitat selection"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q003",
+    "week": 0,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "The discipline of Demography is most closely related to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Phytogeography"
+      },
+      {
+        "id": "B",
+        "text": "Zoogeography"
+      },
+      {
+        "id": "C",
+        "text": "Population Geography"
+      },
+      {
+        "id": "D",
+        "text": "Economic Geography"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q004",
+    "week": 0,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "A dam traps sediment upstream, reducing the amount of silt reaching a delta. The likely result is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Expansion of the ozone layer"
+      },
+      {
+        "id": "B",
+        "text": "Increase in coral shell formation"
+      },
+      {
+        "id": "C",
+        "text": "Change in the geomorphology of the delta"
+      },
+      {
+        "id": "D",
+        "text": "Increase in ultraviolet radiation"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q005",
+    "week": 0,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "The quantum of human impacts can be written as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "I = P + A + T"
+      },
+      {
+        "id": "B",
+        "text": "I = P X A + T"
+      },
+      {
+        "id": "C",
+        "text": "I = P X A X T"
+      },
+      {
+        "id": "D",
+        "text": "I = P + A X T"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q006",
+    "week": 0,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "A large continuous forest is split by a highway into two smaller patches, each too small to support wide-ranging animals. This is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Habitat degradation"
+      },
+      {
+        "id": "B",
+        "text": "Habitat displacement"
+      },
+      {
+        "id": "C",
+        "text": "Habitat loss"
+      },
+      {
+        "id": "D",
+        "text": "Habitat fragmentation"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q007",
+    "week": 0,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Increased atmospheric carbon dioxide dissolves into oceans and makes survival difficult for organisms with calcium carbonate shells. This is mainly due to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nitrogen fixation"
+      },
+      {
+        "id": "B",
+        "text": "Ozone formation"
+      },
+      {
+        "id": "C",
+        "text": "Ocean acidification"
+      },
+      {
+        "id": "D",
+        "text": "Soil waterlogging"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q008",
+    "week": 0,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "The Trinity explosion of 1945 is taken as the beginning of the:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Holocene"
+      },
+      {
+        "id": "B",
+        "text": "Cenocene"
+      },
+      {
+        "id": "C",
+        "text": "Anthropocene"
+      },
+      {
+        "id": "D",
+        "text": "Eocene"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q009",
+    "week": 0,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "The movement of individuals away from their place of birth or hatching or seed production into a new habitat or area to survive and reproduce is called:",
+    "options": [
+      {
+        "id": "A",
+        "text": "translocation"
+      },
+      {
+        "id": "B",
+        "text": "migration"
+      },
+      {
+        "id": "C",
+        "text": "dispersal"
+      },
+      {
+        "id": "D",
+        "text": "drifting"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q010",
+    "week": 0,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Sustainable harvest of resources falls under the category of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "conservation"
+      },
+      {
+        "id": "B",
+        "text": "preservation"
+      },
+      {
+        "id": "C",
+        "text": "environmentalism"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Correct answer confirmed from official NPTEL answer key.",
+    "assets": [],
+    "source": "week 0.txt"
+  }
+]

@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-06-q001",
+    "week": 6,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "The Western Ghats act as a water divide because",
+    "options": [
+      {
+        "id": "A",
+        "text": "they prevent all rivers from reaching the sea"
+      },
+      {
+        "id": "B",
+        "text": "water on opposite sides flows in different directions"
+      },
+      {
+        "id": "C",
+        "text": "they cause all rivers to become seasonal"
+      },
+      {
+        "id": "D",
+        "text": "they convert rivers into lakes"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q002",
+    "week": 6,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "A river network that follows the structure and slope of the land is best described as",
+    "options": [
+      {
+        "id": "A",
+        "text": "discordant"
+      },
+      {
+        "id": "B",
+        "text": "antecedent"
+      },
+      {
+        "id": "C",
+        "text": "accordant"
+      },
+      {
+        "id": "D",
+        "text": "centripetal"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q003",
+    "week": 6,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "A tree-like river network in which smaller streams join a main channel is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "trellis drainage"
+      },
+      {
+        "id": "B",
+        "text": "dendritic drainage"
+      },
+      {
+        "id": "C",
+        "text": "centripetal drainage"
+      },
+      {
+        "id": "D",
+        "text": "rectangular drainage"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q004",
+    "week": 6,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "A river system that does not match the present structure and relief of the landscape is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "discordant drainage"
+      },
+      {
+        "id": "B",
+        "text": "dendritic drainage"
+      },
+      {
+        "id": "C",
+        "text": "radial drainage"
+      },
+      {
+        "id": "D",
+        "text": "parallel drainage"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q005",
+    "week": 6,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "The Himalayas are primarily comprised of",
+    "options": [
+      {
+        "id": "A",
+        "text": "sedimentary rocks"
+      },
+      {
+        "id": "B",
+        "text": "igneous rocks"
+      },
+      {
+        "id": "C",
+        "text": "metamorphic rocks"
+      },
+      {
+        "id": "D",
+        "text": "b and c"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q006",
+    "week": 6,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Which pair of rivers is described as flowing westwards into the Arabian Sea?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ganga and Yamuna"
+      },
+      {
+        "id": "B",
+        "text": "Mahanadi and Godavari"
+      },
+      {
+        "id": "C",
+        "text": "Narmada and Tapi"
+      },
+      {
+        "id": "D",
+        "text": "Krishna and Kaveri"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q007",
+    "week": 6,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Which of these are factors determining the climate of India?",
+    "options": [
+      {
+        "id": "A",
+        "text": "distance from the sea"
+      },
+      {
+        "id": "B",
+        "text": "altitude"
+      },
+      {
+        "id": "C",
+        "text": "relief"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q008",
+    "week": 6,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Peninsular rivers usually have fixed courses mainly because",
+    "options": [
+      {
+        "id": "A",
+        "text": "they flow through newly formed mountains"
+      },
+      {
+        "id": "B",
+        "text": "they carry very high sediment loads"
+      },
+      {
+        "id": "C",
+        "text": "they are controlled only by monsoon winds"
+      },
+      {
+        "id": "D",
+        "text": "their courses are cut into older, harder rocks"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q009",
+    "week": 6,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "In Koeppen classification, which is polar frost temperature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "c"
+      },
+      {
+        "id": "B",
+        "text": "d"
+      },
+      {
+        "id": "C",
+        "text": "F"
+      },
+      {
+        "id": "D",
+        "text": "T"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q010",
+    "week": 6,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Which of these are factors determining the climate of India?",
+    "options": [
+      {
+        "id": "A",
+        "text": "the latitudinal extent"
+      },
+      {
+        "id": "B",
+        "text": "the Himalayas forming a climatic divide"
+      },
+      {
+        "id": "C",
+        "text": "distribution of land and water"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 6 Solutions.pdf"
+  }
+]

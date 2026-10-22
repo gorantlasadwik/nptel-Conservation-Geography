@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-04-q001",
+    "week": 4,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Carbon sequestration in geological sites is an option for",
+    "options": [
+      {
+        "id": "A",
+        "text": "mitigation"
+      },
+      {
+        "id": "B",
+        "text": "adaptation"
+      },
+      {
+        "id": "C",
+        "text": "both of these"
+      },
+      {
+        "id": "D",
+        "text": "none of these"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q002",
+    "week": 4,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "To reduce the effect of altitude, isobars are generally drawn after converting pressure values to",
+    "options": [
+      {
+        "id": "A",
+        "text": "surface temperature level"
+      },
+      {
+        "id": "B",
+        "text": "cloud base level"
+      },
+      {
+        "id": "C",
+        "text": "tropopause level"
+      },
+      {
+        "id": "D",
+        "text": "sea level"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q003",
+    "week": 4,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Because of climate change, Mudumalai Tiger Reserve is suffering from frequent droughts. The management has built several artificial water holes for animals, and fills them up regularly with tankers. In the context of climate change, such an action would be called",
+    "options": [
+      {
+        "id": "A",
+        "text": "adaptation"
+      },
+      {
+        "id": "B",
+        "text": "mitigation"
+      },
+      {
+        "id": "C",
+        "text": "deceleration"
+      },
+      {
+        "id": "D",
+        "text": "maladaptation"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q004",
+    "week": 4,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "Surplus seed and sperm banking is an adaptation option to facilitate",
+    "options": [
+      {
+        "id": "A",
+        "text": "resistance to climate changes"
+      },
+      {
+        "id": "B",
+        "text": "resilience to climate changes"
+      },
+      {
+        "id": "C",
+        "text": "response to climate changes"
+      },
+      {
+        "id": "D",
+        "text": "none of these"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q005",
+    "week": 4,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Flights of jet planes typically occur in",
+    "options": [
+      {
+        "id": "A",
+        "text": "Troposphere"
+      },
+      {
+        "id": "B",
+        "text": "Stratosphere"
+      },
+      {
+        "id": "C",
+        "text": "Mesosphere"
+      },
+      {
+        "id": "D",
+        "text": "Thermosphere"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q006",
+    "week": 4,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Heat movement through horizontal movement of air is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "convection"
+      },
+      {
+        "id": "B",
+        "text": "radiation"
+      },
+      {
+        "id": "C",
+        "text": "advection"
+      },
+      {
+        "id": "D",
+        "text": "conduction"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q007",
+    "week": 4,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "The classical period for taking averages for climate is",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 years"
+      },
+      {
+        "id": "B",
+        "text": "20 years"
+      },
+      {
+        "id": "C",
+        "text": "30 years"
+      },
+      {
+        "id": "D",
+        "text": "40 years"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q008",
+    "week": 4,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Noctilucent clouds are present in which layer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Troposphere"
+      },
+      {
+        "id": "B",
+        "text": "Stratosphere"
+      },
+      {
+        "id": "C",
+        "text": "Mesosphere"
+      },
+      {
+        "id": "D",
+        "text": "Thermosphere"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q009",
+    "week": 4,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Atmospheric pressure is mainly caused by",
+    "options": [
+      {
+        "id": "A",
+        "text": "horizontal movement of clouds"
+      },
+      {
+        "id": "B",
+        "text": "the weight of air above the point of measurement"
+      },
+      {
+        "id": "C",
+        "text": "absorption of ultraviolet radiation"
+      },
+      {
+        "id": "D",
+        "text": "seasonal movement of pressure belts"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q010",
+    "week": 4,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Which of these air masses is generally warm and moist?",
+    "options": [
+      {
+        "id": "A",
+        "text": "cP"
+      },
+      {
+        "id": "B",
+        "text": "cT"
+      },
+      {
+        "id": "C",
+        "text": "mP"
+      },
+      {
+        "id": "D",
+        "text": "mT"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 4 Solutions.pdf"
+  }
+]

@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-10-q001",
+    "week": 10,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "When forests are cleared, carbon may be released not only from removed wood but also from",
+    "options": [
+      {
+        "id": "A",
+        "text": "ocean sediments"
+      },
+      {
+        "id": "B",
+        "text": "glaciers"
+      },
+      {
+        "id": "C",
+        "text": "soil organic matter"
+      },
+      {
+        "id": "D",
+        "text": "desert sand"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q002",
+    "week": 10,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Hydrogen for nuclear fusion comes under the category of",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "reserve resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q003",
+    "week": 10,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "In the Rondonia rainforest example, road construction mainly contributed to forest loss by",
+    "options": [
+      {
+        "id": "A",
+        "text": "increasing rainfall in cleared patches"
+      },
+      {
+        "id": "B",
+        "text": "allowing easier human access into forest areas"
+      },
+      {
+        "id": "C",
+        "text": "preventing agricultural plots from forming"
+      },
+      {
+        "id": "D",
+        "text": "converting cropland back into forest"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q004",
+    "week": 10,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "Oil that has not been drilled can be categorised under",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "reserve resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q005",
+    "week": 10,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Although cropland uses a smaller share of agricultural land than livestock, it contributes more to",
+    "options": [
+      {
+        "id": "A",
+        "text": "global calorie supply"
+      },
+      {
+        "id": "B",
+        "text": "mineral extraction"
+      },
+      {
+        "id": "C",
+        "text": "groundwater recharge"
+      },
+      {
+        "id": "D",
+        "text": "built-up land expansion"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q006",
+    "week": 10,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Low concentration ores come in the category of",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "reserve resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q007",
+    "week": 10,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "\"those resources that have been surveyed but we lack the technology to use them\" is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "reserve resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q008",
+    "week": 10,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Which of these is the largest source of nitrogen oxides in the atmosphere?",
+    "options": [
+      {
+        "id": "A",
+        "text": "electricity generation"
+      },
+      {
+        "id": "B",
+        "text": "mobile sources"
+      },
+      {
+        "id": "C",
+        "text": "industrial processes"
+      },
+      {
+        "id": "D",
+        "text": "waste disposal"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q009",
+    "week": 10,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Timber from forests that is being harvested can be categorised under",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "reserve resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q010",
+    "week": 10,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Which of these is the largest source of ammonia (NH3) in the atmosphere?",
+    "options": [
+      {
+        "id": "A",
+        "text": "animal manure"
+      },
+      {
+        "id": "B",
+        "text": "mineral fertiliser"
+      },
+      {
+        "id": "C",
+        "text": "crops and their decomposition"
+      },
+      {
+        "id": "D",
+        "text": "human waste"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 10 Solutions.pdf"
+  }
+]

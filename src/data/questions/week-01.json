@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-01-q001",
+    "week": 1,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "The regular, seasonal movement of animals, often along fixed routes is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "translocation"
+      },
+      {
+        "id": "B",
+        "text": "migration"
+      },
+      {
+        "id": "C",
+        "text": "dispersal"
+      },
+      {
+        "id": "D",
+        "text": "drifting"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q002",
+    "week": 1,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "The systematic approach to Geography was developed by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Alexander von Humboldt"
+      },
+      {
+        "id": "B",
+        "text": "Karl Ritter"
+      },
+      {
+        "id": "C",
+        "text": "Rene Descartes"
+      },
+      {
+        "id": "D",
+        "text": "Eratosthenes"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q003",
+    "week": 1,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "I tried growing vegetables under my teak plantation, but the vegetable plants died out. I should be concerned about",
+    "options": [
+      {
+        "id": "A",
+        "text": "autophagy"
+      },
+      {
+        "id": "B",
+        "text": "allelophagy"
+      },
+      {
+        "id": "C",
+        "text": "autopathy"
+      },
+      {
+        "id": "D",
+        "text": "allelopathy"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q004",
+    "week": 1,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "A lake still exists physically, but sewage and plastic waste reduce the number of fish it can support. This is best called:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Habitat degradation"
+      },
+      {
+        "id": "B",
+        "text": "Habitat fragmentation"
+      },
+      {
+        "id": "C",
+        "text": "Jump dispersal"
+      },
+      {
+        "id": "D",
+        "text": "Secular dispersal"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q005",
+    "week": 1,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "\"Science of relationships between organisms and their environments\" is the definition of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "conservation"
+      },
+      {
+        "id": "B",
+        "text": "preservation"
+      },
+      {
+        "id": "C",
+        "text": "environmentalism"
+      },
+      {
+        "id": "D",
+        "text": "ecology"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q006",
+    "week": 1,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "\"The rate of any biological process is limited by that factor in least amount relative to requirement, so there is a single limiting factor.\" This is the statement for",
+    "options": [
+      {
+        "id": "A",
+        "text": "Liebig's law of the minimum"
+      },
+      {
+        "id": "B",
+        "text": "Liebig's law of the maximum"
+      },
+      {
+        "id": "C",
+        "text": "Shelford's law of tolerance"
+      },
+      {
+        "id": "D",
+        "text": "Shelford's law of intolerance"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q007",
+    "week": 1,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "In the word root for conservation, con stands for",
+    "options": [
+      {
+        "id": "A",
+        "text": "together"
+      },
+      {
+        "id": "B",
+        "text": "to keep"
+      },
+      {
+        "id": "C",
+        "text": "house"
+      },
+      {
+        "id": "D",
+        "text": "manage"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q008",
+    "week": 1,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "In the word root for conservation, servare stands for",
+    "options": [
+      {
+        "id": "A",
+        "text": "together"
+      },
+      {
+        "id": "B",
+        "text": "to keep"
+      },
+      {
+        "id": "C",
+        "text": "house"
+      },
+      {
+        "id": "D",
+        "text": "manage"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q009",
+    "week": 1,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "The Geographical discipline of Climatology is most closely related to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Geology"
+      },
+      {
+        "id": "B",
+        "text": "Meteorology"
+      },
+      {
+        "id": "C",
+        "text": "Hydrology"
+      },
+      {
+        "id": "D",
+        "text": "Pedology"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q010",
+    "week": 1,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Good climate is a",
+    "options": [
+      {
+        "id": "A",
+        "text": "chemical factor"
+      },
+      {
+        "id": "B",
+        "text": "demographic factor"
+      },
+      {
+        "id": "C",
+        "text": "push factor"
+      },
+      {
+        "id": "D",
+        "text": "pull factor"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 1 Solutions.pdf"
+  }
+]

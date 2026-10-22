@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-03-q001",
+    "week": 3,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Mudrock is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "siliciclastic rock"
+      },
+      {
+        "id": "B",
+        "text": "carbonate rock"
+      },
+      {
+        "id": "C",
+        "text": "evaporite rock"
+      },
+      {
+        "id": "D",
+        "text": "phosphatic rock"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q002",
+    "week": 3,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Carbonation is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "chemical weathering"
+      },
+      {
+        "id": "B",
+        "text": "physical weathering"
+      },
+      {
+        "id": "C",
+        "text": "biological weathering"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q003",
+    "week": 3,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "\"green or black coloured inosilicate minerals forming prism or needle-like crystals\" is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "amphiboles"
+      },
+      {
+        "id": "B",
+        "text": "feldspar"
+      },
+      {
+        "id": "C",
+        "text": "mica"
+      },
+      {
+        "id": "D",
+        "text": "pyroxene"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q004",
+    "week": 3,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "Hydrolysis is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "chemical weathering"
+      },
+      {
+        "id": "B",
+        "text": "physical weathering"
+      },
+      {
+        "id": "C",
+        "text": "biological weathering"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q005",
+    "week": 3,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Which of these is an example of exogenic process?",
+    "options": [
+      {
+        "id": "A",
+        "text": "volcanism"
+      },
+      {
+        "id": "B",
+        "text": "earthquake"
+      },
+      {
+        "id": "C",
+        "text": "plate tectonics"
+      },
+      {
+        "id": "D",
+        "text": "deposition"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q006",
+    "week": 3,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Which statement best explains why streak is often more useful than surface colour for mineral identification?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Streak measures the density of the mineral"
+      },
+      {
+        "id": "B",
+        "text": "Surface colour never changes in minerals"
+      },
+      {
+        "id": "C",
+        "text": "Streak shows the colour of the powdered mineral and may reduce the effect of minor impurities"
+      },
+      {
+        "id": "D",
+        "text": "Streak reveals the age of the mineral"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q007",
+    "week": 3,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Which factor is listed as an independent control over landform development?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mineral streak"
+      },
+      {
+        "id": "B",
+        "text": "Crystal habit"
+      },
+      {
+        "id": "C",
+        "text": "Knife-blade hardness"
+      },
+      {
+        "id": "D",
+        "text": "Stability of sea level"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q008",
+    "week": 3,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Sandstone is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "siliciclastic rock"
+      },
+      {
+        "id": "B",
+        "text": "carbonate rock"
+      },
+      {
+        "id": "C",
+        "text": "evaporite rock"
+      },
+      {
+        "id": "D",
+        "text": "phosphatic rock"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q009",
+    "week": 3,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "\"tendency to break in given directions producing relatively plane surfaces\" is known as",
+    "options": [
+      {
+        "id": "A",
+        "text": "cleavage"
+      },
+      {
+        "id": "B",
+        "text": "fracture"
+      },
+      {
+        "id": "C",
+        "text": "lustre"
+      },
+      {
+        "id": "D",
+        "text": "streak"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q010",
+    "week": 3,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Slow cooling of magma results in",
+    "options": [
+      {
+        "id": "A",
+        "text": "smooth grained sedimentary rocks"
+      },
+      {
+        "id": "B",
+        "text": "coarse grained sedimentary rocks"
+      },
+      {
+        "id": "C",
+        "text": "smooth grained igneous rocks"
+      },
+      {
+        "id": "D",
+        "text": "coarse grained igneous rocks"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  }
+]

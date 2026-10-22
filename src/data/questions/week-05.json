@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-05-q001",
+    "week": 5,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "What type of sediment is commonly found over abyssal plains?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Coral fragments and gravel"
+      },
+      {
+        "id": "B",
+        "text": "Basalt blocks and volcanic ash"
+      },
+      {
+        "id": "C",
+        "text": "Sand and large pebbles"
+      },
+      {
+        "id": "D",
+        "text": "Clay and silt"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q002",
+    "week": 5,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Which of these is the largest habitat on the Earth?",
+    "options": [
+      {
+        "id": "A",
+        "text": "continental shelf"
+      },
+      {
+        "id": "B",
+        "text": "continental slope"
+      },
+      {
+        "id": "C",
+        "text": "guyot"
+      },
+      {
+        "id": "D",
+        "text": "abyssal plain"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q003",
+    "week": 5,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Which of these are the largest mountain ranges on Earth?",
+    "options": [
+      {
+        "id": "A",
+        "text": "oceanic deep / trench"
+      },
+      {
+        "id": "B",
+        "text": "mid-oceanic ridge"
+      },
+      {
+        "id": "C",
+        "text": "seamount"
+      },
+      {
+        "id": "D",
+        "text": "atoll"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q004",
+    "week": 5,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "Which factor helps explain why continental shelves are often highly productive?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They are the deepest parts of the ocean floor"
+      },
+      {
+        "id": "B",
+        "text": "They are completely isolated from runoff"
+      },
+      {
+        "id": "C",
+        "text": "They receive both light and nutrients"
+      },
+      {
+        "id": "D",
+        "text": "They lack sediments and organisms"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q005",
+    "week": 5,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "What is tidal range?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The horizontal movement of water parallel to the beach"
+      },
+      {
+        "id": "B",
+        "text": "The difference between sea level at high tide and low tide"
+      },
+      {
+        "id": "C",
+        "text": "The speed at which waves approach the coast"
+      },
+      {
+        "id": "D",
+        "text": "The movement of cold water from deep ocean layers"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q006",
+    "week": 5,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Which process converts ice and snow directly into water vapour?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Condensation"
+      },
+      {
+        "id": "B",
+        "text": "Precipitation"
+      },
+      {
+        "id": "C",
+        "text": "Snowmelt"
+      },
+      {
+        "id": "D",
+        "text": "Sublimation"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q007",
+    "week": 5,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Which group of factors affects the density of ocean water with depth?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Runoff, tides and beach slope"
+      },
+      {
+        "id": "B",
+        "text": "Hydrostatic pressure, salinity and temperature"
+      },
+      {
+        "id": "C",
+        "text": "Wind speed, wave height and latitude only"
+      },
+      {
+        "id": "D",
+        "text": "Sediment size, coral growth and river mouths"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q008",
+    "week": 5,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "\"deep valleys, often cutting across continental shelves and slopes\" is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "oceanic deep / trench"
+      },
+      {
+        "id": "B",
+        "text": "mid-oceanic ridge"
+      },
+      {
+        "id": "C",
+        "text": "guyot"
+      },
+      {
+        "id": "D",
+        "text": "submarine canyon"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q009",
+    "week": 5,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Continental shelf has a gradient of",
+    "options": [
+      {
+        "id": "A",
+        "text": "0-1 degree"
+      },
+      {
+        "id": "B",
+        "text": "1-2 degree"
+      },
+      {
+        "id": "C",
+        "text": "2-5 degree"
+      },
+      {
+        "id": "D",
+        "text": "5-10 degree"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q010",
+    "week": 5,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Equal salinity curves are called",
+    "options": [
+      {
+        "id": "A",
+        "text": "isopycnal curves"
+      },
+      {
+        "id": "B",
+        "text": "isohaline curves"
+      },
+      {
+        "id": "C",
+        "text": "isotherm curves"
+      },
+      {
+        "id": "D",
+        "text": "isobuoyant curves"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 5 Solutions.pdf"
+  }
+]

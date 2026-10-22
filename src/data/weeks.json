@@ -1,0 +1,93 @@
+[
+  {
+    "week": 0,
+    "title": "Pre-requisites & Introduction to Conservation",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "week 0.txt"
+  },
+  {
+    "week": 1,
+    "title": "Fundamentals of Conservation Geography",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "week": 2,
+    "title": "Earth Structure & Geological Processes",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "week": 3,
+    "title": "Minerals, Rocks & Weathering Systems",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "week": 4,
+    "title": "Atmospheric Science, Climate & Air Masses",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "week": 5,
+    "title": "Oceanography & Marine Environments",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "week": 6,
+    "title": "River Systems, Drainage & Indian Geography",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "week": 7,
+    "title": "Soil Horizons, Weathering & Biodiversity Levels",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "week": 8,
+    "title": "Conservation Strategies, Species & Reserves",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "week": 9,
+    "title": "Demography, Population Dynamics & Development",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "week": 10,
+    "title": "Natural Resources, Energy & Pollution",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "week": 11,
+    "title": "Trade Economics, Corridors & Road Ecology",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "week": 12,
+    "title": "Photogrammetry, Remote Sensing & GIS Applications",
+    "totalQuestions": 10,
+    "isLoaded": true,
+    "sourceFile": "Conservation Geography Week 12 Solutions.pdf"
+  }
+]

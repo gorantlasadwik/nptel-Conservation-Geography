@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-11-q001",
+    "week": 11,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "\"the ability to produce a good using fewer inputs than another producer\" is",
+    "options": [
+      {
+        "id": "A",
+        "text": "comparative advantage"
+      },
+      {
+        "id": "B",
+        "text": "absolute advantage"
+      },
+      {
+        "id": "C",
+        "text": "production advantage"
+      },
+      {
+        "id": "D",
+        "text": "resource advantage"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q002",
+    "week": 11,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "Which of these is / are example(s) of mitigation measures to mitigate impacts of linear infrastructure on wildlife?",
+    "options": [
+      {
+        "id": "A",
+        "text": "bridge underpasses"
+      },
+      {
+        "id": "B",
+        "text": "box culverts"
+      },
+      {
+        "id": "C",
+        "text": "pipe culverts"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q003",
+    "week": 11,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Which mode of connection is described as requiring more money and technology to construct than roads?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Shipping lines"
+      },
+      {
+        "id": "B",
+        "text": "Railways"
+      },
+      {
+        "id": "C",
+        "text": "Inland waterways"
+      },
+      {
+        "id": "D",
+        "text": "Footpaths"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q004",
+    "week": 11,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "Which of these is a factor governing barrier effect of roads?",
+    "options": [
+      {
+        "id": "A",
+        "text": "road edge features"
+      },
+      {
+        "id": "B",
+        "text": "time of day and year"
+      },
+      {
+        "id": "C",
+        "text": "species diversity in the surroundings"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q005",
+    "week": 11,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Which of these is a factor governing barrier effect of roads?",
+    "options": [
+      {
+        "id": "A",
+        "text": "traffic intensity"
+      },
+      {
+        "id": "B",
+        "text": "speed of vehicles"
+      },
+      {
+        "id": "C",
+        "text": "driver sensitivity"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q006",
+    "week": 11,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "\"the ability to produce a good at a lower opportunity cost than another producer\" is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "real advantage"
+      },
+      {
+        "id": "B",
+        "text": "monetary advantage"
+      },
+      {
+        "id": "C",
+        "text": "comparative advantage"
+      },
+      {
+        "id": "D",
+        "text": "opportunity advantage"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q007",
+    "week": 11,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Dust released from ships can help reveal ship movement because dust particles act as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fuel particles"
+      },
+      {
+        "id": "B",
+        "text": "Noise absorbers"
+      },
+      {
+        "id": "C",
+        "text": "Nuclei for condensation"
+      },
+      {
+        "id": "D",
+        "text": "Ocean-current markers"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q008",
+    "week": 11,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Which of the following is identified as a way in which roads disturb wildlife at night?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They reduce wind movement"
+      },
+      {
+        "id": "B",
+        "text": "They increase soil moisture"
+      },
+      {
+        "id": "C",
+        "text": "They create silent zones"
+      },
+      {
+        "id": "D",
+        "text": "They cause light pollution through headlamps"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q009",
+    "week": 11,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Which statement best describes why young male tigers or leopards may need to move away from their natal area?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To avoid seasonal flooding"
+      },
+      {
+        "id": "B",
+        "text": "To reduce conflict and avoid inbreeding"
+      },
+      {
+        "id": "C",
+        "text": "To follow shipping routes"
+      },
+      {
+        "id": "D",
+        "text": "To increase road density"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q010",
+    "week": 11,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Oxford can best be categorised as",
+    "options": [
+      {
+        "id": "A",
+        "text": "mining town"
+      },
+      {
+        "id": "B",
+        "text": "garrison town"
+      },
+      {
+        "id": "C",
+        "text": "educational town"
+      },
+      {
+        "id": "D",
+        "text": "religious town"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 11 Solutions.pdf"
+  }
+]

@@ -1,0 +1,312 @@
+[
+  {
+    "id": "week-02-q001",
+    "week": 2,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Mount Fuji is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Shield volcano"
+      },
+      {
+        "id": "B",
+        "text": "Stratovolcano"
+      },
+      {
+        "id": "C",
+        "text": "Caldera"
+      },
+      {
+        "id": "D",
+        "text": "Flood basalt province"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q002",
+    "week": 2,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "The main source of magma is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Crust"
+      },
+      {
+        "id": "B",
+        "text": "Mantle"
+      },
+      {
+        "id": "C",
+        "text": "Outer core"
+      },
+      {
+        "id": "D",
+        "text": "Inner core"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q003",
+    "week": 2,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "Which of these is not a method of absolute dating?",
+    "options": [
+      {
+        "id": "A",
+        "text": "radioisotope dating"
+      },
+      {
+        "id": "B",
+        "text": "thermoluminescence dating"
+      },
+      {
+        "id": "C",
+        "text": "inclusion study"
+      },
+      {
+        "id": "D",
+        "text": "fission track dating"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q004",
+    "week": 2,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "What are planetesimals?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fully formed gas giants"
+      },
+      {
+        "id": "B",
+        "text": "Fragments of continental crust"
+      },
+      {
+        "id": "C",
+        "text": "Small bodies formed from gas and dust that can accrete into planets"
+      },
+      {
+        "id": "D",
+        "text": "Layers of volcanic ash within a mountain"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q005",
+    "week": 2,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "Hawaiian volcanoes are an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Shield volcano"
+      },
+      {
+        "id": "B",
+        "text": "Stratovolcano"
+      },
+      {
+        "id": "C",
+        "text": "Caldera"
+      },
+      {
+        "id": "D",
+        "text": "Flood basalt province"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q006",
+    "week": 2,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "Which of these is true about P waves?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They are longitudinal in nature"
+      },
+      {
+        "id": "B",
+        "text": "They are transverse in nature"
+      },
+      {
+        "id": "C",
+        "text": "They cannot move through gases"
+      },
+      {
+        "id": "D",
+        "text": "They cannot move through liquids"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q007",
+    "week": 2,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Assemblage of fossils are unique to the time that they lived in, and so can be used to age rocks across a wide geographic distribution. This is known as",
+    "options": [
+      {
+        "id": "A",
+        "text": "Principle of fossil succession"
+      },
+      {
+        "id": "B",
+        "text": "Principle of original horizontality"
+      },
+      {
+        "id": "C",
+        "text": "Principle of superposition"
+      },
+      {
+        "id": "D",
+        "text": "Principle of cross-cutting relationships"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q008",
+    "week": 2,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Which set contains only terrestrial planets?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Jupiter, Saturn, Uranus, Neptune"
+      },
+      {
+        "id": "B",
+        "text": "Earth, Jupiter, Mars, Saturn"
+      },
+      {
+        "id": "C",
+        "text": "Mercury, Venus, Uranus, Neptune"
+      },
+      {
+        "id": "D",
+        "text": "Mercury, Venus, Earth, Mars"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q009",
+    "week": 2,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "Within a depositional basin, strata are laterally continuous in all directions till the edge of the basin. This is known as",
+    "options": [
+      {
+        "id": "A",
+        "text": "Principle of superposition"
+      },
+      {
+        "id": "B",
+        "text": "Principle of original horizontality"
+      },
+      {
+        "id": "C",
+        "text": "Principle of lateral continuity"
+      },
+      {
+        "id": "D",
+        "text": "Principle of inclusions"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q010",
+    "week": 2,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "Deccan traps are an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Shield volcano"
+      },
+      {
+        "id": "B",
+        "text": "Stratovolcano"
+      },
+      {
+        "id": "C",
+        "text": "Caldera"
+      },
+      {
+        "id": "D",
+        "text": "Flood basalt province"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Official NPTEL verified solution key.",
+    "assets": [],
+    "source": "Conservation Geography Week 2 Solutions.pdf"
+  }
+]
