@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "import:pdfs": "python scripts/import_pdfs.py"
+    "import:pdfs": "python scripts/import_pdfs.py",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
@@ -24,6 +26,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "autoprefixer": "^10.6.1",
+    "gh-pages": "^6.3.0",
     "oxlint": "^1.88.0",
     "postcss": "^8.5.31",
     "tailwindcss": "^4.3.3",
