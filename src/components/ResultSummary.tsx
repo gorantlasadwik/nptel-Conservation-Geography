@@ -13,7 +13,8 @@ import {
   BarChart3, 
   Volume2, 
   VolumeX, 
-  Play 
+  Play,
+  Shuffle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 
@@ -21,9 +22,15 @@ import {
   setSoundEnabled, 
   playQuizResultAudio, 
   playRebelSaabSound,
+  playTeluguMemeSound,
   playNoiceSound, 
   playFahhSound 
 } from '../utils/sound';
+import type { TeluguMeme } from '../data/teluguMemes';
+import { 
+  selectTeluguMemeForScore, 
+  getRandomMemeFromTier 
+} from '../data/teluguMemes';
 
 interface ResultSummaryProps {
   result: QuizResult;
@@ -52,19 +59,25 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   } = result;
 
   const [soundOn, setSoundOn] = useState<boolean>(getSoundEnabled);
-  const isSuperScorer = accuracy > 90 || accuracy >= 90;
-  const isHighScorer = !isSuperScorer && (accuracy >= 75 || (totalQuestions > 0 && correctCount === totalQuestions));
+  
+  // Rebel Saab is strictly played ONLY on 100% score
+  const isPerfectScore = accuracy >= 100 || (totalQuestions > 0 && correctCount === totalQuestions && accuracy >= 99.5);
+
+  // Telugu meme selected for scores < 100% based on meme knowledge tiers
+  const [currentMeme, setCurrentMeme] = useState<TeluguMeme | null>(() => {
+    return selectTeluguMemeForScore(accuracy, totalQuestions, correctCount);
+  });
 
   // Trigger celebration confetti and audio on mount
   useEffect(() => {
-    // Play celebratory/reaction audio ("Rebel Saab" if > 90%, "noice" if >= 75%, else "fahh")
-    playQuizResultAudio(accuracy, totalQuestions, correctCount);
+    // Only 100% plays Rebel Saab; all other scores play from Telugu meme collection
+    playQuizResultAudio(accuracy, totalQuestions, correctCount, currentMeme);
 
     if (accuracy >= 70) {
       try {
         confetti({
-          particleCount: accuracy >= 90 ? 120 : 80,
-          spread: accuracy >= 90 ? 90 : 70,
+          particleCount: isPerfectScore ? 150 : 80,
+          spread: isPerfectScore ? 100 : 70,
           origin: { y: 0.6 },
         });
       } catch (e) {
@@ -80,12 +93,22 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   };
 
   const handleReplayReaction = () => {
-    if (isSuperScorer) {
+    if (isPerfectScore) {
       playRebelSaabSound();
-    } else if (isHighScorer) {
+    } else if (currentMeme) {
+      playTeluguMemeSound(currentMeme);
+    } else if (accuracy >= 75) {
       playNoiceSound();
     } else {
       playFahhSound();
+    }
+  };
+
+  const handleShuffleMeme = () => {
+    if (currentMeme) {
+      const nextMeme = getRandomMemeFromTier(currentMeme.tier, currentMeme.id);
+      setCurrentMeme(nextMeme);
+      playTeluguMemeSound(nextMeme);
     }
   };
 
@@ -122,59 +145,111 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         </div>
 
         <h1 className="text-2xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight mb-2">
-          {accuracy >= 80 ? 'Outstanding Performance!' : accuracy >= 50 ? 'Good Effort!' : 'Keep Practicing!'}
+          {isPerfectScore 
+            ? '100% Perfect Score!' 
+            : accuracy >= 80 
+            ? 'Outstanding Performance!' 
+            : accuracy >= 50 
+            ? 'Good Effort!' 
+            : 'Keep Practicing!'}
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto mb-6">
           Here is the comprehensive evaluation of your session. Review solutions or retry mistakes to master the material.
         </p>
 
-        {/* Meme Audio Reaction Banner */}
-        <div className={`max-w-md mx-auto mb-8 p-3.5 sm:p-4 rounded-2xl border flex items-center justify-between gap-3 transition-all ${
-          isSuperScorer
-            ? 'bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-indigo-500/15 dark:from-amber-950/40 dark:via-purple-950/40 dark:to-indigo-950/40 border-amber-400 dark:border-amber-600/80 text-amber-950 dark:text-amber-100 shadow-md ring-1 ring-amber-400/30'
-            : isHighScorer
-            ? 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-emerald-300 dark:border-emerald-800/80 text-emerald-900 dark:text-emerald-100 shadow-sm'
-            : 'bg-gradient-to-r from-amber-50 to-rose-50 dark:from-amber-950/40 dark:to-rose-950/40 border-amber-300 dark:border-amber-800/80 text-amber-900 dark:text-amber-100 shadow-sm'
-        }`}>
-          <div className="flex items-center gap-2.5 text-left">
-            <span className="text-2xl sm:text-3xl">
-              {isSuperScorer ? '👑' : isHighScorer ? '🔥' : '💨'}
-            </span>
-            <div>
-              <div className="text-xs sm:text-sm font-black uppercase tracking-wide flex items-center gap-1.5 flex-wrap">
-                <span>
-                  {isSuperScorer ? 'REBEL SAAB - THE RAJA SAAB!' : isHighScorer ? 'NOICE!' : 'FAHHHH!'}
-                </span>
-                <span className="text-[10px] font-normal opacity-85 px-1.5 py-0.2 rounded-full bg-black/5 dark:bg-white/10">
-                  {isSuperScorer ? '(Score > 90%)' : isHighScorer ? '(Score ≥ 75%)' : '(Score < 75%)'}
-                </span>
+        {/* Reaction Audio Banner */}
+        {isPerfectScore ? (
+          /* ONLY 100% Score: Rebel Saab - The Raja Saab Banner */
+          <div className="max-w-lg mx-auto mb-8 p-4 rounded-2xl border bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-indigo-500/15 dark:from-amber-950/40 dark:via-purple-950/40 dark:to-indigo-950/40 border-amber-400 dark:border-amber-600/80 text-amber-950 dark:text-amber-100 shadow-md ring-1 ring-amber-400/30 flex items-center justify-between gap-3 text-left">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl sm:text-4xl">👑</span>
+              <div>
+                <div className="text-xs sm:text-sm font-black uppercase tracking-wide flex items-center gap-1.5 flex-wrap">
+                  <span>REBEL SAAB - THE RAJA SAAB!</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-900 dark:text-amber-200">
+                    100% PERFECT
+                  </span>
+                </div>
+                <p className="text-xs opacity-90 font-medium">
+                  Legendary King-Level Performance! Flawless accuracy!
+                </p>
               </div>
-              <p className="text-[11px] opacity-85">
-                {isSuperScorer
-                  ? 'Legendary King-Level Performance! The Raja Saab!'
-                  : isHighScorer
-                  ? 'Clean sweep! Great accuracy.'
-                  : 'Needs a bit more practice!'}
-              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleReplayReaction}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white shadow-xs transition-all shrink-0 cursor-pointer active:scale-95"
+              title="Replay Rebel Saab audio"
+            >
+              <Play className="w-3 h-3 fill-current" />
+              <span>Replay</span>
+            </button>
+          </div>
+        ) : currentMeme ? (
+          /* Rest all (< 100%): Telugu Meme Audio Reaction Banner */
+          <div className={`max-w-lg mx-auto mb-8 p-4 rounded-2xl border transition-all text-left shadow-sm ${
+            currentMeme.tier === 'super_praise'
+              ? 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-emerald-300 dark:border-emerald-800/80 text-emerald-950 dark:text-emerald-100'
+              : currentMeme.tier === 'good_effort'
+              ? 'bg-gradient-to-r from-sky-50 to-indigo-50 dark:from-sky-950/40 dark:to-indigo-950/40 border-sky-300 dark:border-sky-800/80 text-sky-950 dark:text-sky-100'
+              : currentMeme.tier === 'warning_wakeup'
+              ? 'bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40 border-amber-300 dark:border-amber-800/80 text-amber-950 dark:text-amber-100'
+              : 'bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-950/40 dark:to-pink-950/40 border-rose-300 dark:border-rose-800/80 text-rose-950 dark:text-rose-100'
+          }`}>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <span className="text-3xl sm:text-4xl shrink-0 leading-none mt-1">
+                  {currentMeme.emoji}
+                </span>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-sm sm:text-base font-black tracking-tight">
+                      {currentMeme.title}
+                    </h3>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 uppercase">
+                      {currentMeme.tier === 'super_praise'
+                        ? 'Praise (80-99%)'
+                        : currentMeme.tier === 'good_effort'
+                        ? 'Decent (65-79%)'
+                        : currentMeme.tier === 'warning_wakeup'
+                        ? 'Study Call (45-64%)'
+                        : 'Savage Roast (<45%)'}
+                    </span>
+                  </div>
+                  <p className="text-xs font-semibold opacity-90">
+                    "{currentMeme.translit}"
+                  </p>
+                  <p className="text-[11px] opacity-75 leading-relaxed">
+                    {currentMeme.meaning}
+                  </p>
+                </div>
+              </div>
+
+              {/* Actions: Replay & Shuffle another Telugu meme in this tier */}
+              <div className="flex flex-col sm:flex-row items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={handleReplayReaction}
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-white/80 hover:bg-white dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 shadow-xs transition-all cursor-pointer active:scale-95"
+                  title="Replay this Telugu meme"
+                >
+                  <Play className="w-3 h-3 fill-current" />
+                  <span className="hidden sm:inline">Play</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleShuffleMeme}
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-all cursor-pointer active:scale-95"
+                  title="Hear another Telugu meme for this score tier"
+                >
+                  <Shuffle className="w-3 h-3" />
+                  <span className="hidden sm:inline">More Memes</span>
+                </button>
+              </div>
             </div>
           </div>
-
-          <button
-            type="button"
-            onClick={handleReplayReaction}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer active:scale-95 ${
-              isSuperScorer
-                ? 'bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white shadow-xs'
-                : isHighScorer
-                ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs'
-                : 'bg-amber-600 hover:bg-amber-700 text-white shadow-xs'
-            }`}
-            title="Replay reaction audio"
-          >
-            <Play className="w-3 h-3 fill-current" />
-            <span>Replay</span>
-          </button>
-        </div>
+        ) : null}
 
         {/* Big Score / Accuracy Metric */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-2 sm:py-4">

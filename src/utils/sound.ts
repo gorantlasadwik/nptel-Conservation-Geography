@@ -41,9 +41,13 @@ export function subscribeSoundState(listener: SoundListener): () => void {
 }
 
 // Pre-instantiated audio elements with embedded base64 data for instantaneous latency-free playback
+import type { TeluguMeme } from '../data/teluguMemes';
+import { getMemeAudioUrl } from '../data/teluguMemes';
+
 let fahhAudio: HTMLAudioElement | null = null;
 let noiceAudio: HTMLAudioElement | null = null;
 let rebelSaabAudio: HTMLAudioElement | null = null;
+let currentMemeAudio: HTMLAudioElement | null = null;
 
 function getFahhAudio(): HTMLAudioElement {
   if (!fahhAudio && typeof window !== 'undefined') {
@@ -91,6 +95,12 @@ function stopAllAudios(): void {
       rebelSaabAudio.currentTime = 0;
     } catch (e) {}
   }
+  if (currentMemeAudio) {
+    try {
+      currentMemeAudio.pause();
+      currentMemeAudio.currentTime = 0;
+    } catch (e) {}
+  }
 }
 
 function playAudioElement(audio: HTMLAudioElement): Promise<void> {
@@ -114,21 +124,46 @@ function playAudioElement(audio: HTMLAudioElement): Promise<void> {
 }
 
 /**
- * Plays the "Rebel Saab - The Raja Saab" sound effect (for scores > 90%)
+ * Plays the "Rebel Saab - The Raja Saab" sound effect (strictly for 100% score)
  */
 export function playRebelSaabSound(): Promise<void> {
   return playAudioElement(getRebelSaabAudio());
 }
 
 /**
- * Plays the "noice" sound effect (for scores >= 75% or correct answers)
+ * Plays a selected Telugu meme audio clip
+ */
+export function playTeluguMemeSound(meme: TeluguMeme): Promise<void> {
+  if (!getSoundEnabled() || typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+
+  try {
+    stopAllAudios();
+    const url = getMemeAudioUrl(meme.cleanName);
+    currentMemeAudio = new Audio(url);
+    currentMemeAudio.volume = 0.95;
+    const promise = currentMemeAudio.play();
+    if (promise !== undefined) {
+      return promise.catch((err) => {
+        console.warn('Telugu meme audio play prevented or interrupted:', err);
+      });
+    }
+  } catch (err) {
+    console.warn('Telugu meme audio error:', err);
+  }
+  return Promise.resolve();
+}
+
+/**
+ * Plays the "noice" sound effect (for correct answers in Practice mode)
  */
 export function playNoiceSound(): Promise<void> {
   return playAudioElement(getNoiceAudio());
 }
 
 /**
- * Plays the "fahh" sound effect (for scores < 75% or incorrect answers)
+ * Plays the "fahh" sound effect (for incorrect answers in Practice mode)
  */
 export function playFahhSound(): Promise<void> {
   return playAudioElement(getFahhAudio());
@@ -136,35 +171,38 @@ export function playFahhSound(): Promise<void> {
 
 /**
  * Evaluates the quiz outcome:
- * If accuracy > 90% (or >= 90%) -> plays "Rebel Saab - The Raja Saab"
- * If accuracy >= 75% -> plays "noice"
- * Otherwise (< 75%) -> plays "fahh"
+ * - ONLY 100% score plays "Rebel Saab - The Raja Saab"
+ * - Rest all scores (< 100%) play from the Telugu meme collection
  */
 export function playQuizResultAudio(
   accuracy: number,
   totalQuestions: number,
-  correctCount: number
-): 'rebel-saab' | 'noice' | 'fahh' | 'muted' {
+  correctCount: number,
+  chosenMeme?: TeluguMeme | null
+): 'rebel-saab' | 'meme' | 'noice' | 'fahh' | 'muted' {
   if (!getSoundEnabled()) {
     return 'muted';
   }
 
-  // Score above 90% triggers "Rebel Saab - The Raja Saab"
-  const isSuperScore = accuracy > 90 || accuracy >= 90;
+  // ONLY 100% score plays "Rebel Saab"
+  const is100Percent = accuracy >= 100 || (totalQuestions > 0 && correctCount === totalQuestions && accuracy >= 99.5);
 
-  if (isSuperScore) {
+  if (is100Percent) {
     playRebelSaabSound();
     return 'rebel-saab';
   }
 
-  // Score >= 75% triggers "noice"
-  const isSuccess = accuracy >= 75 || (totalQuestions > 0 && correctCount === totalQuestions);
+  // Rest all play from Telugu meme collection
+  if (chosenMeme) {
+    playTeluguMemeSound(chosenMeme);
+    return 'meme';
+  }
 
-  if (isSuccess) {
+  // Fallback if no meme passed
+  if (accuracy >= 75) {
     playNoiceSound();
     return 'noice';
   } else {
-    // Score < 75% triggers "fahh"
     playFahhSound();
     return 'fahh';
   }
