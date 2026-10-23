@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
-import { Sun, Moon, BookOpen, Layers, Award, RotateCcw, GraduationCap, Menu, X } from 'lucide-react';
+import { 
+  Sun, 
+  Moon, 
+  BookOpen, 
+  Layers, 
+  Award, 
+  RotateCcw, 
+  GraduationCap, 
+  Menu, 
+  X, 
+  Volume2, 
+  VolumeX 
+} from 'lucide-react';
 import { COURSE_INFO } from '../utils/questionsLoader';
+import { getSoundEnabled, setSoundEnabled } from '../utils/sound';
 
 interface NavbarProps {
   currentView: string;
@@ -20,10 +33,17 @@ export const Navbar: React.FC<NavbarProps> = ({
   totalCompletedSessions,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [soundOn, setSoundOn] = useState<boolean>(getSoundEnabled);
 
   const handleNavClick = (view: 'home' | 'learn' | 'custom' | 'history') => {
     onNavigate(view);
     setIsMobileMenuOpen(false);
+  };
+
+  const handleToggleSound = () => {
+    const next = !soundOn;
+    setSoundOn(next);
+    setSoundEnabled(next);
   };
 
   return (
@@ -113,6 +133,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800 mx-1.5" />
 
+          {/* Sound Toggle Button (Desktop) */}
+          <button
+            type="button"
+            onClick={handleToggleSound}
+            className={`p-2 rounded-lg transition-colors cursor-pointer ${
+              soundOn
+                ? 'text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40'
+                : 'text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+            }`}
+            title={soundOn ? 'Mute sound effects' : 'Enable sound effects'}
+            aria-label="Toggle sound effects"
+          >
+            {soundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+          </button>
+
           {/* Reset button if history exists */}
           {totalCompletedSessions > 0 && (
             <button
@@ -142,8 +177,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </nav>
 
-        {/* Mobile Top Controls (Theme Toggle + Hamburger) */}
+        {/* Mobile Top Controls (Sound + Theme Toggle + Hamburger) */}
         <div className="flex md:hidden items-center gap-1">
+          {/* Sound Toggle (Mobile Header) */}
+          <button
+            type="button"
+            onClick={handleToggleSound}
+            className={`p-2 rounded-xl transition-colors cursor-pointer ${
+              soundOn
+                ? 'text-emerald-600 dark:text-emerald-400'
+                : 'text-zinc-400 dark:text-zinc-500'
+            }`}
+            title={soundOn ? 'Mute sound' : 'Enable sound'}
+            aria-label="Toggle sound"
+          >
+            {soundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+          </button>
+
           <button
             type="button"
             onClick={onToggleTheme}
@@ -225,6 +275,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Recent Results ({totalCompletedSessions})</span>
             </button>
           )}
+
+          {/* Sound Toggle (Mobile Menu Row) */}
+          <button
+            type="button"
+            onClick={handleToggleSound}
+            className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <div className="flex items-center gap-2.5">
+              {soundOn ? <Volume2 className="w-4 h-4 text-emerald-500" /> : <VolumeX className="w-4 h-4 text-zinc-400" />}
+              <span>Sound Effects</span>
+            </div>
+            <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+              soundOn ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300' : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-500'
+            }`}>
+              {soundOn ? 'ON' : 'MUTED'}
+            </span>
+          </button>
 
           {totalCompletedSessions > 0 && (
             <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800">
