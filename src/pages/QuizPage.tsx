@@ -415,8 +415,14 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
       {/* Mobile Drawer Overlay for Question Navigator */}
       {isNavigatorOpenOnMobile && (
-        <div className="fixed inset-0 z-50 lg:hidden bg-zinc-950/70 backdrop-blur-xs flex flex-col justify-end animate-fade-in">
-          <div className="bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 rounded-t-3xl p-5 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <div 
+          onClick={() => setIsNavigatorOpenOnMobile(false)}
+          className="fixed inset-0 z-50 lg:hidden bg-zinc-950/70 backdrop-blur-xs flex flex-col justify-end animate-fade-in"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 rounded-t-3xl p-5 shadow-2xl max-h-[80vh] overflow-y-auto"
+          >
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-100 dark:border-zinc-800">
               <span className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
                 Jump to Question
@@ -424,7 +430,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
               <button
                 type="button"
                 onClick={() => setIsNavigatorOpenOnMobile(false)}
-                className="p-1 rounded-lg text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
+                className="p-1 rounded-lg text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 cursor-pointer"
+                aria-label="Close question drawer"
               >
                 <X className="w-5 h-5" />
               </button>

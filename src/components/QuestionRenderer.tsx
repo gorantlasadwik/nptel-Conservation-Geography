@@ -56,28 +56,28 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   const isUserCorrect = isChecked && isQuestionAnswerCorrect(selectedOptionIds, question.correctOptionIds);
 
   return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-sm transition-all">
+    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-sm transition-all">
       
       {/* Question Header & Badges */}
-      <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-zinc-100 dark:border-zinc-800">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-            Question {currentIndex + 1} of {totalQuestions}
+      <div className="flex items-center justify-between gap-2 sm:gap-3 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-zinc-100 dark:border-zinc-800">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+          <span className="text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+            Q {currentIndex + 1} of {totalQuestions}
           </span>
-          <span className="text-xs font-medium px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
+          <span className="text-[11px] sm:text-xs font-medium px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
             Week {question.week} • #{question.originalQuestionNumber}
           </span>
           {isMultiple && (
-            <span className="text-xs font-medium px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
-              Multiple Answers
+            <span className="text-[11px] sm:text-xs font-medium px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
+              Multiple
             </span>
           )}
         </div>
 
-        {/* Flag / Mark for Review button */}
+        {/* Flag / Mark for Review button (Mobile-friendly label) */}
         <button
           onClick={onToggleFlag}
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+          className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer shrink-0 ${
             isFlagged
               ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800'
               : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
@@ -85,7 +85,8 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           title="Mark for review (Shortcut: F)"
         >
           <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
-          <span>{isFlagged ? 'Flagged' : 'Mark for Review'}</span>
+          <span className="hidden sm:inline">{isFlagged ? 'Flagged' : 'Mark for Review'}</span>
+          <span className="sm:hidden">{isFlagged ? 'Flagged' : 'Flag'}</span>
           <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-200 dark:bg-zinc-700 rounded text-[10px] text-zinc-600 dark:text-zinc-400">
             F
           </kbd>
@@ -93,14 +94,14 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       </div>
 
       {/* Question Text */}
-      <div className="mb-8">
-        <h2 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100 leading-relaxed tracking-tight">
+      <div className="mb-5 sm:mb-8">
+        <h2 className="text-base sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100 leading-snug sm:leading-relaxed tracking-tight">
           {question.question}
         </h2>
       </div>
 
       {/* Options List */}
-      <div className="space-y-3 mb-8">
+      <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
         {displayOptions.map((opt, idx) => {
           const isSelected = selectedOptionIds.includes(opt.id);
           const isCorrectAnswer = question.correctOptionIds.includes(opt.id);
@@ -136,7 +137,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                   onSelectOption(opt.id);
                 }
               }}
-              className={`group flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border text-sm sm:text-base transition-all ${
+              className={`group flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border text-sm sm:text-base transition-all ${
                 isLocked ? 'cursor-default' : 'cursor-pointer'
               } ${borderStyle}`}
               role="button"
@@ -153,24 +154,26 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                 {opt.id}
               </div>
 
-              {/* Option Text */}
-              <div className="flex-1 pt-0.5 text-zinc-800 dark:text-zinc-200 leading-normal">
-                {opt.text}
-              </div>
+              {/* Option Text and Badges */}
+              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                <span className="pt-0.5 text-zinc-800 dark:text-zinc-200 leading-normal text-xs sm:text-sm md:text-base">
+                  {opt.text}
+                </span>
 
-              {/* Explicit badges when checked */}
-              {isChecked && isCorrectAnswer && (
-                <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 animate-fade-in shadow-xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span>Correct Answer</span>
-                </div>
-              )}
-              {isChecked && isSelected && !isCorrectAnswer && (
-                <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700 animate-fade-in shadow-xs">
-                  <XCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
-                  <span>Your Choice</span>
-                </div>
-              )}
+                {/* Explicit badges when checked */}
+                {isChecked && isCorrectAnswer && (
+                  <div className="self-start sm:self-auto shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 animate-fade-in shadow-xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                    <span>Correct Answer</span>
+                  </div>
+                )}
+                {isChecked && isSelected && !isCorrectAnswer && (
+                  <div className="self-start sm:self-auto shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700 animate-fade-in shadow-xs">
+                    <XCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                    <span>Your Choice</span>
+                  </div>
+                )}
+              </div>
 
               {/* Shortcut hint on hover */}
               {!isChecked && (
@@ -249,168 +252,208 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       )}
 
       {/* Navigation Footer */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+      <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 space-y-3 sm:space-y-0">
         
-        {/* Previous Button */}
-        <button
-          onClick={() => {
-            stopAllAudios();
-            onPrev();
-          }}
-          disabled={currentIndex === 0}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Previous</span>
-          <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] text-zinc-500">
-            ←
-          </kbd>
-        </button>
-
-        {/* Center: Check Answer button & Sound Mute Toggle in Practice Mode */}
+        {/* On Mobile: Action bar (Check Answer) on top if practice mode */}
         {mode === 'practice' && (
-          <div className="w-full sm:w-auto flex items-center justify-center gap-2 flex-wrap">
+          <div className="sm:hidden w-full flex items-center gap-2">
             <button
               onClick={() => {
                 stopAllAudios();
                 onCheckAnswer();
               }}
               disabled={selectedOptionIds.length === 0}
-              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 ${
                 isChecked
-                  ? 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
-                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 active:scale-95'
+                  ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20'
               } disabled:opacity-40 disabled:cursor-not-allowed`}
             >
               <Eye className="w-4 h-4" />
               <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
             </button>
-
-            {onToggleMemeSound && (
-              <button
-                type="button"
-                onClick={onToggleMemeSound}
-                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                  isMemeSoundOn
-                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
-                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
-                title={
-                  isMemeSoundOn
-                    ? 'Meme audio is ON. Click to activate Data Saver (audio files will NOT be loaded to save mobile data).'
-                    : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data. Click to enable memes.'
-                }
-                aria-label="Toggle meme sound"
-              >
-                <span className="text-sm">🎭</span>
-              </button>
-            )}
-
-            {onToggleSound && (
-              <button
-                type="button"
-                onClick={onToggleSound}
-                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                  isSoundOn
-                    ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
-                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
-                title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
-                aria-label="Toggle sound effects in quiz"
-              >
-                {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-              </button>
-            )}
           </div>
         )}
 
-        {/* Center: Rapid Mode prompt & Sound Mute Toggle */}
+        {/* On Mobile in Rapid Mode: Notification prompt */}
         {mode === 'rapid' && (
-          <div className="w-full sm:w-auto flex items-center justify-center gap-2.5 flex-wrap">
-            <span className={`text-xs font-semibold ${
+          <div className="sm:hidden text-center py-1">
+            <span className={`text-xs font-bold ${
               isChecked ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
             }`}>
               {isChecked 
-                ? (currentIndex === totalQuestions - 1 ? '⚡ Final Question! Ready to Submit 🏁' : '⚡ Answer revealed! Click Next →')
+                ? (currentIndex === totalQuestions - 1 ? '⚡ Final Question! Ready to Submit 🏁' : '⚡ Answer revealed! Tap Next →')
                 : '⚡ Tap any option to reveal & play meme!'}
             </span>
-
-            {onToggleMemeSound && (
-              <button
-                type="button"
-                onClick={onToggleMemeSound}
-                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                  isMemeSoundOn
-                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
-                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
-                title={
-                  isMemeSoundOn
-                    ? 'Meme audio is ON. Click to activate Data Saver (audio won\'t load).'
-                    : 'Data Saver Active: Meme audio files are NOT loaded to save mobile data.'
-                }
-                aria-label="Toggle meme sound"
-              >
-                <span className="text-sm">🎭</span>
-              </button>
-            )}
-
-            {onToggleSound && (
-              <button
-                type="button"
-                onClick={onToggleSound}
-                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                  isSoundOn
-                    ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
-                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
-                title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
-                aria-label="Toggle sound effects in quiz"
-              >
-                {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-              </button>
-            )}
           </div>
         )}
 
-        {/* Next / Submit Quiz Button: Automatically transforms to Submit Quiz on the last question */}
-        {currentIndex === totalQuestions - 1 ? (
+        {/* Desktop single row OR Mobile side-by-side Prev/Next row */}
+        <div className="flex items-center justify-between gap-2.5 sm:gap-4">
+          
+          {/* Previous Button */}
           <button
-            type="button"
             onClick={() => {
               stopAllAudios();
-              if (onSubmit) {
-                onSubmit();
-              } else {
-                onNext();
-              }
+              onPrev();
             }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 cursor-pointer active:scale-95 transition-all"
-            title="Finish and submit quiz"
+            disabled={currentIndex === 0}
+            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
           >
-            <Send className="w-4 h-4" />
-            <span>Submit Quiz</span>
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => {
-              stopAllAudios();
-              onNext();
-            }}
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all cursor-pointer active:scale-95 ${
-              mode === 'rapid' && isChecked
-                ? 'bg-indigo-600 hover:bg-indigo-700 text-white ring-2 ring-indigo-500/50 shadow-md shadow-indigo-600/20'
-                : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white'
-            }`}
-          >
-            <span>Next</span>
-            <ArrowRight className="w-4 h-4" />
-            <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-700 dark:bg-zinc-200 text-white dark:text-zinc-900 rounded text-[10px]">
-              →
+            <ArrowLeft className="w-4 h-4" />
+            <span>Previous</span>
+            <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] text-zinc-500">
+              ←
             </kbd>
           </button>
-        )}
+
+          {/* Desktop Center: Check Answer button & Sound Mute Toggle in Practice Mode */}
+          {mode === 'practice' && (
+            <div className="hidden sm:flex items-center justify-center gap-2 flex-wrap">
+              <button
+                onClick={() => {
+                  stopAllAudios();
+                  onCheckAnswer();
+                }}
+                disabled={selectedOptionIds.length === 0}
+                className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  isChecked
+                    ? 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 active:scale-95'
+                } disabled:opacity-40 disabled:cursor-not-allowed`}
+              >
+                <Eye className="w-4 h-4" />
+                <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
+              </button>
+
+              {onToggleMemeSound && (
+                <button
+                  type="button"
+                  onClick={onToggleMemeSound}
+                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                    isMemeSoundOn
+                      ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
+                  title={
+                    isMemeSoundOn
+                      ? 'Meme audio is ON. Click to activate Data Saver (audio files will NOT be loaded to save mobile data).'
+                      : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data. Click to enable memes.'
+                  }
+                  aria-label="Toggle meme sound"
+                >
+                  <span className="text-sm">🎭</span>
+                </button>
+              )}
+
+              {onToggleSound && (
+                <button
+                  type="button"
+                  onClick={onToggleSound}
+                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                    isSoundOn
+                      ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
+                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
+                  title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
+                  aria-label="Toggle sound effects in quiz"
+                >
+                  {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Desktop Center: Rapid Mode prompt */}
+          {mode === 'rapid' && (
+            <div className="hidden sm:flex items-center justify-center gap-2.5">
+              <span className={`text-xs font-semibold ${
+                isChecked ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
+              }`}>
+                {isChecked 
+                  ? (currentIndex === totalQuestions - 1 ? '⚡ Final Question! Ready to Submit 🏁' : '⚡ Answer revealed! Click Next →')
+                  : '⚡ Tap any option to reveal & play meme!'}
+              </span>
+
+              {onToggleMemeSound && (
+                <button
+                  type="button"
+                  onClick={onToggleMemeSound}
+                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                    isMemeSoundOn
+                      ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
+                  title={
+                    isMemeSoundOn
+                      ? 'Meme audio is ON. Click to activate Data Saver (audio won\'t load).'
+                      : 'Data Saver Active: Meme audio files are NOT loaded to save mobile data.'
+                  }
+                  aria-label="Toggle meme sound"
+                >
+                  <span className="text-sm">🎭</span>
+                </button>
+              )}
+
+              {onToggleSound && (
+                <button
+                  type="button"
+                  onClick={onToggleSound}
+                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                    isSoundOn
+                      ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
+                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                  }`}
+                  title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
+                  aria-label="Toggle sound effects in quiz"
+                >
+                  {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Next / Submit Quiz Button: Automatically transforms to Submit Quiz on the last question */}
+          {currentIndex === totalQuestions - 1 ? (
+            <button
+              type="button"
+              onClick={() => {
+                stopAllAudios();
+                if (onSubmit) {
+                  onSubmit();
+                } else {
+                  onNext();
+                }
+              }}
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 cursor-pointer active:scale-95 transition-all"
+              title="Finish and submit quiz"
+            >
+              <Send className="w-4 h-4" />
+              <span>Submit Quiz</span>
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                stopAllAudios();
+                onNext();
+              }}
+              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all cursor-pointer active:scale-95 ${
+                mode === 'rapid' && isChecked
+                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white ring-2 ring-indigo-500/50 shadow-md shadow-indigo-600/20'
+                  : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white'
+              }`}
+            >
+              <span>Next</span>
+              <ArrowRight className="w-4 h-4" />
+              <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-700 dark:bg-zinc-200 text-white dark:text-zinc-900 rounded text-[10px]">
+                →
+              </kbd>
+            </button>
+          )}
+
+        </div>
+
       </div>
 
     </div>

@@ -76,18 +76,20 @@ export const SubmitConfirmModal: React.FC<SubmitConfirmModalProps> = ({
           </div>
         )}
 
-        <div className="flex items-center justify-end gap-3">
+        <div className="flex items-center justify-end gap-2.5 sm:gap-3">
           <button
+            type="button"
             onClick={onCancel}
-            className="px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+            className="flex-1 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer text-center"
           >
             Continue Quiz
           </button>
           <button
+            type="button"
             onClick={onConfirm}
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/30 transition-all cursor-pointer active:scale-95"
+            className="flex-1 px-5 py-2.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-600/30 transition-all cursor-pointer active:scale-95 text-center"
           >
-            Yes, Submit Now
+            Yes, Submit
           </button>
         </div>
       </div>

@@ -173,29 +173,29 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top Badges: Quiz Completed & Sound Toggle */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-3 mb-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
             <Award className="w-4 h-4" />
             Quiz Completed
           </div>
 
           {/* Sound Controls (Neutral replay + meme toggle + mute toggle) */}
-          <div className="flex items-center gap-2 flex-wrap justify-end">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center sm:justify-end">
             <button
               type="button"
               onClick={handleReplayReaction}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-zinc-200 dark:border-zinc-700 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all cursor-pointer active:scale-95"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold border border-zinc-200 dark:border-zinc-700 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all cursor-pointer active:scale-95"
               title="Replay audio reaction"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Replay Audio</span>
+              <RotateCcw className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span>Replay</span>
             </button>
 
             {/* Telugu Meme Sound / Data Saver Toggle */}
             <button
               type="button"
               onClick={handleToggleMemeSound}
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
                 isMemeSoundOn
                   ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/40'
                   : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400'
@@ -207,13 +207,13 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
               }
             >
               <span className="text-xs">🎭</span>
-              <span className="hidden sm:inline">{isMemeSoundOn ? 'Memes ON' : 'Data Saver'}</span>
+              <span>{isMemeSoundOn ? 'Memes' : 'Data Saver'}</span>
             </button>
 
             <button
               type="button"
               onClick={toggleSound}
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
                 soundOn
                   ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300'
                   : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400'
@@ -221,7 +221,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
               title={soundOn ? 'Sound effects enabled (Click to mute)' : 'Sound muted (Click to unmute)'}
             >
               {soundOn ? <Volume2 className="w-3.5 h-3.5 text-emerald-500" /> : <VolumeX className="w-3.5 h-3.5" />}
-              <span className="hidden sm:inline">{soundOn ? 'Sound ON' : 'Muted'}</span>
+              <span>{soundOn ? 'Mute' : 'Unmute'}</span>
             </button>
           </div>
         </div>
@@ -310,7 +310,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         </div>
 
         {/* Primary Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-6 sm:mt-8">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 mt-6 sm:mt-8">
           {/* Practice Next Week button (e.g. directly continue from Week 0 to Week 1 without homepage) */}
           {nextWeek !== null && onStartNextWeek && (
             <button
@@ -319,7 +319,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
                 stopAllAudios();
                 onStartNextWeek(nextWeek);
               }}
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 active:scale-95 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 active:scale-95 transition-all cursor-pointer"
               title={`Start practicing Week ${nextWeek} directly`}
             >
               <span>Practice Next Week (Week {nextWeek})</span>
@@ -330,7 +330,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
           <button
             type="button"
             onClick={handleReviewClick}
-            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-indigo-600/20 active:scale-95 transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-indigo-600/20 active:scale-95 transition-all cursor-pointer"
           >
             <Eye className="w-4 h-4" />
             <span>Review Answers</span>
@@ -340,7 +340,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
             <button
               type="button"
               onClick={handleRetryIncorrectClick}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-rose-600/20 active:scale-95 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-rose-600/20 active:scale-95 transition-all cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Retry Incorrect ({incorrectCount})</span>
@@ -350,7 +350,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
           <button
             type="button"
             onClick={handleRetrySameClick}
-            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Retry Same</span>
@@ -359,7 +359,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
           <button
             type="button"
             onClick={handleReturnHomeClick}
-            className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3 rounded-xl border border-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
           >
             <span>Dashboard</span>
             <ArrowRight className="w-4 h-4" />

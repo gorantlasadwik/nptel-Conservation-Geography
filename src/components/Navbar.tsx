@@ -76,20 +76,20 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand / Logo */}
         <div 
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 cursor-pointer group shrink-0"
+          className="flex items-center gap-2 sm:gap-2.5 cursor-pointer group min-w-0 flex-1 sm:flex-initial"
           role="button"
           tabIndex={0}
           onKeyDown={(e) => e.key === 'Enter' && handleNavClick('home')}
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 dark:from-indigo-600 dark:to-indigo-900 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform shrink-0">
-            <BookOpen className="w-5 h-5" />
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 dark:from-indigo-600 dark:to-indigo-900 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform shrink-0">
+            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-base sm:text-lg text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">
+              <span className="font-bold text-sm sm:text-base md:text-lg text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight truncate">
                 NPTEL Practice
               </span>
-              <span className="text-[9px] sm:text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">
+              <span className="text-[9px] sm:text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 shrink-0">
                 PRO
               </span>
             </div>
