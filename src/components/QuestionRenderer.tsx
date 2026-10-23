@@ -9,7 +9,8 @@ import {
   HelpCircle, 
   Eye,
   Volume2,
-  VolumeX 
+  VolumeX,
+  Send
 } from 'lucide-react';
 import { isQuestionAnswerCorrect } from '../utils/scoring';
 import { stopAllAudios } from '../utils/sound';
@@ -21,11 +22,14 @@ interface QuestionRendererProps {
   mode: QuizMode;
   isSoundOn?: boolean;
   onToggleSound?: () => void;
+  isMemeSoundOn?: boolean;
+  onToggleMemeSound?: () => void;
   onSelectOption: (optionId: string) => void;
   onToggleFlag: () => void;
   onCheckAnswer: () => void;
   onNext: () => void;
   onPrev: () => void;
+  onSubmit?: () => void;
 }
 
 export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
@@ -35,11 +39,14 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   mode,
   isSoundOn,
   onToggleSound,
+  isMemeSoundOn = true,
+  onToggleMemeSound,
   onSelectOption,
   onToggleFlag,
   onCheckAnswer,
   onNext,
   onPrev,
+  onSubmit,
 }) => {
   const { question, displayOptions, selectedOptionIds, isFlagged, isAnswerChecked } = item;
   const isMultiple = question.type === 'multiple';
@@ -262,7 +269,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
 
         {/* Center: Check Answer button & Sound Mute Toggle in Practice Mode */}
         {mode === 'practice' && (
-          <div className="w-full sm:w-auto flex items-center justify-center gap-2">
+          <div className="w-full sm:w-auto flex items-center justify-center gap-2 flex-wrap">
             <button
               onClick={() => {
                 stopAllAudios();
@@ -279,6 +286,26 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
               <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
             </button>
 
+            {onToggleMemeSound && (
+              <button
+                type="button"
+                onClick={onToggleMemeSound}
+                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                  isMemeSoundOn
+                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={
+                  isMemeSoundOn
+                    ? 'Meme audio is ON. Click to activate Data Saver (audio files will NOT be loaded to save mobile data).'
+                    : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data. Click to enable memes.'
+                }
+                aria-label="Toggle meme sound"
+              >
+                <span className="text-sm">🎭</span>
+              </button>
+            )}
+
             {onToggleSound && (
               <button
                 type="button"
@@ -288,7 +315,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                     ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
                     : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                 }`}
-                title={isSoundOn ? 'Sound effects enabled (Click to mute)' : 'Sound effects muted (Click to unmute)'}
+                title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
                 aria-label="Toggle sound effects in quiz"
               >
                 {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -299,12 +326,34 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
 
         {/* Center: Rapid Mode prompt & Sound Mute Toggle */}
         {mode === 'rapid' && (
-          <div className="w-full sm:w-auto flex items-center justify-center gap-2.5">
+          <div className="w-full sm:w-auto flex items-center justify-center gap-2.5 flex-wrap">
             <span className={`text-xs font-semibold ${
               isChecked ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
             }`}>
-              {isChecked ? '⚡ Answer revealed! Click Next →' : '⚡ Tap any option to reveal & play meme!'}
+              {isChecked 
+                ? (currentIndex === totalQuestions - 1 ? '⚡ Final Question! Ready to Submit 🏁' : '⚡ Answer revealed! Click Next →')
+                : '⚡ Tap any option to reveal & play meme!'}
             </span>
+
+            {onToggleMemeSound && (
+              <button
+                type="button"
+                onClick={onToggleMemeSound}
+                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                  isMemeSoundOn
+                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={
+                  isMemeSoundOn
+                    ? 'Meme audio is ON. Click to activate Data Saver (audio won\'t load).'
+                    : 'Data Saver Active: Meme audio files are NOT loaded to save mobile data.'
+                }
+                aria-label="Toggle meme sound"
+              >
+                <span className="text-sm">🎭</span>
+              </button>
+            )}
 
             {onToggleSound && (
               <button
@@ -315,7 +364,7 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                     ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
                     : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                 }`}
-                title={isSoundOn ? 'Sound effects enabled (Click to mute)' : 'Sound effects muted (Click to unmute)'}
+                title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
                 aria-label="Toggle sound effects in quiz"
               >
                 {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -324,25 +373,44 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           </div>
         )}
 
-        {/* Next / Finish Button */}
-        <button
-          onClick={() => {
-            stopAllAudios();
-            onNext();
-          }}
-          disabled={currentIndex === totalQuestions - 1}
-          className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95 ${
-            mode === 'rapid' && isChecked && currentIndex < totalQuestions - 1
-              ? 'bg-indigo-600 hover:bg-indigo-700 text-white ring-2 ring-indigo-500/50 shadow-md shadow-indigo-600/20'
-              : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white'
-          }`}
-        >
-          <span>Next</span>
-          <ArrowRight className="w-4 h-4" />
-          <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-700 dark:bg-zinc-200 text-white dark:text-zinc-900 rounded text-[10px]">
-            →
-          </kbd>
-        </button>
+        {/* Next / Submit Quiz Button: Automatically transforms to Submit Quiz on the last question */}
+        {currentIndex === totalQuestions - 1 ? (
+          <button
+            type="button"
+            onClick={() => {
+              stopAllAudios();
+              if (onSubmit) {
+                onSubmit();
+              } else {
+                onNext();
+              }
+            }}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 cursor-pointer active:scale-95 transition-all"
+            title="Finish and submit quiz"
+          >
+            <Send className="w-4 h-4" />
+            <span>Submit Quiz</span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              stopAllAudios();
+              onNext();
+            }}
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all cursor-pointer active:scale-95 ${
+              mode === 'rapid' && isChecked
+                ? 'bg-indigo-600 hover:bg-indigo-700 text-white ring-2 ring-indigo-500/50 shadow-md shadow-indigo-600/20'
+                : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white'
+            }`}
+          >
+            <span>Next</span>
+            <ArrowRight className="w-4 h-4" />
+            <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-700 dark:bg-zinc-200 text-white dark:text-zinc-900 rounded text-[10px]">
+              →
+            </kbd>
+          </button>
+        )}
       </div>
 
     </div>

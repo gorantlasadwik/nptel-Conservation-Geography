@@ -27,6 +27,8 @@ interface QuizHeaderProps {
   flaggedCount: number;
   isSoundOn: boolean;
   onToggleSound: () => void;
+  isMemeSoundOn?: boolean;
+  onToggleMemeSound?: () => void;
   isNavigatorOpenOnMobile: boolean;
   onToggleNavigatorMobile: () => void;
   onSubmitClick: () => void;
@@ -46,6 +48,8 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
   flaggedCount,
   isSoundOn,
   onToggleSound,
+  isMemeSoundOn = true,
+  onToggleMemeSound,
   isNavigatorOpenOnMobile,
   onToggleNavigatorMobile,
   onSubmitClick,
@@ -120,6 +124,30 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
               )}
             </div>
 
+            {/* Telugu Meme Sound / Data Saver Toggle */}
+            {onToggleMemeSound && (
+              <button
+                type="button"
+                onClick={onToggleMemeSound}
+                className={`inline-flex items-center justify-center gap-1.5 p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border text-xs font-semibold transition-all cursor-pointer active:scale-95 h-8 shrink-0 ${
+                  isMemeSoundOn
+                    ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/50'
+                    : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={
+                  isMemeSoundOn
+                    ? 'Meme audio is ON. Click to activate Data Saver (audio files won\'t be loaded to save your mobile data).'
+                    : 'Data Saver Active: Meme audio files will NOT be loaded to save your mobile data. Click to enable memes.'
+                }
+                aria-label="Toggle meme audio"
+              >
+                <span className="text-sm">🎭</span>
+                <span className="hidden sm:inline text-xs font-bold">
+                  {isMemeSoundOn ? 'Memes' : 'Data Saver'}
+                </span>
+              </button>
+            )}
+
             {/* Mute / Unmute Sound Button in Quiz Header */}
             <button
               type="button"
@@ -129,7 +157,7 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
                   ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50'
                   : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
               }`}
-              title={isSoundOn ? 'Sound effects are ON (Click to mute)' : 'Sound effects are MUTED (Click to unmute)'}
+              title={isSoundOn ? 'Master sound is ON (Click to mute)' : 'Master sound is MUTED (Click to unmute)'}
               aria-label="Toggle mute audio in quiz"
             >
               {isSoundOn ? (

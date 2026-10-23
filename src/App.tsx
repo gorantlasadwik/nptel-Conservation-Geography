@@ -11,6 +11,7 @@ import { ReviewPage } from './pages/ReviewPage';
 import { HistoryPage } from './pages/HistoryPage';
 import { QuizSetupModal } from './pages/QuizSetupModal';
 import { RapidLabSelectModal } from './components/RapidLabSelectModal';
+import { DataSaverToast } from './components/DataSaverToast';
 
 import {
   getAllWeeks,
@@ -303,6 +304,7 @@ export function App() {
               onRetryIncorrect={handleRetryIncorrect}
               onRetrySameQuiz={handleRetrySameQuiz}
               onReturnHome={() => setCurrentView('home')}
+              onStartNextWeek={(nextWeek) => handleQuickStartWeek(nextWeek)}
             />
           </div>
         )}
@@ -364,6 +366,9 @@ export function App() {
         weeks={weeks}
         totalQuestions={totalQuestions}
       />
+
+      {/* Global Data Saver / Meme Audio Notification Toast */}
+      <DataSaverToast />
 
     </div>
   );

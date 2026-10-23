@@ -20,6 +20,10 @@ import confetti from 'canvas-confetti';
 import { 
   getSoundEnabled, 
   setSoundEnabled, 
+  getMemeSoundEnabled,
+  setMemeSoundEnabled,
+  subscribeMemeSoundState,
+  subscribeSoundState,
   playQuizResultAudio, 
   playRebelSaabSound,
   playTeluguMemeSound,
@@ -39,6 +43,7 @@ interface ResultSummaryProps {
   onRetryIncorrect: () => void;
   onRetrySameQuiz: () => void;
   onReturnHome: () => void;
+  onStartNextWeek?: (nextWeek: number) => void;
 }
 
 export const ResultSummary: React.FC<ResultSummaryProps> = ({
@@ -47,6 +52,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   onRetryIncorrect,
   onRetrySameQuiz,
   onReturnHome,
+  onStartNextWeek,
 }) => {
   const {
     totalQuestions,
@@ -60,6 +66,26 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   } = result;
 
   const [soundOn, setSoundOn] = useState<boolean>(getSoundEnabled);
+  const [isMemeSoundOn, setIsMemeSoundOn] = useState<boolean>(getMemeSoundEnabled);
+
+  useEffect(() => {
+    const unsubSound = subscribeSoundState((enabled) => setSoundOn(enabled));
+    const unsubMeme = subscribeMemeSoundState((enabled) => setIsMemeSoundOn(enabled));
+    return () => {
+      unsubSound();
+      unsubMeme();
+    };
+  }, []);
+
+  const handleToggleMemeSound = () => {
+    const next = !isMemeSoundOn;
+    setIsMemeSoundOn(next);
+    setMemeSoundEnabled(next);
+  };
+
+  const isSingleWeek = result.config?.selectedWeeks?.length === 1;
+  const currentWeek = isSingleWeek ? result.config.selectedWeeks[0] : null;
+  const nextWeek = currentWeek !== null && currentWeek >= 0 && currentWeek < 12 ? currentWeek + 1 : null;
   
   // Rebel Saab is strictly played ONLY on 100% score
   const isPerfectScore = accuracy >= 100 || (totalQuestions > 0 && correctCount === totalQuestions && accuracy >= 99.5);
@@ -153,16 +179,35 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
             Quiz Completed
           </div>
 
-          {/* Sound Controls (Neutral replay + mute toggle without exposing song name) */}
-          <div className="flex items-center gap-2">
+          {/* Sound Controls (Neutral replay + meme toggle + mute toggle) */}
+          <div className="flex items-center gap-2 flex-wrap justify-end">
             <button
               type="button"
               onClick={handleReplayReaction}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-zinc-200 dark:border-zinc-700 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all cursor-pointer active:scale-95"
-              title="Replay audio"
+              title="Replay audio reaction"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Replay Audio</span>
+            </button>
+
+            {/* Telugu Meme Sound / Data Saver Toggle */}
+            <button
+              type="button"
+              onClick={handleToggleMemeSound}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+                isMemeSoundOn
+                  ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                  : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400'
+              }`}
+              title={
+                isMemeSoundOn
+                  ? 'Meme audio is ON. Click to activate Data Saver (audio won\'t load).'
+                  : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data.'
+              }
+            >
+              <span className="text-xs">🎭</span>
+              <span className="hidden sm:inline">{isMemeSoundOn ? 'Memes ON' : 'Data Saver'}</span>
             </button>
 
             <button
@@ -266,6 +311,22 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
 
         {/* Primary Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-6 sm:mt-8">
+          {/* Practice Next Week button (e.g. directly continue from Week 0 to Week 1 without homepage) */}
+          {nextWeek !== null && onStartNextWeek && (
+            <button
+              type="button"
+              onClick={() => {
+                stopAllAudios();
+                onStartNextWeek(nextWeek);
+              }}
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 active:scale-95 transition-all cursor-pointer"
+              title={`Start practicing Week ${nextWeek} directly`}
+            >
+              <span>Practice Next Week (Week {nextWeek})</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          )}
+
           <button
             type="button"
             onClick={handleReviewClick}

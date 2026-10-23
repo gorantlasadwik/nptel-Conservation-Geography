@@ -43,6 +43,54 @@ export function subscribeSoundState(listener: SoundListener): () => void {
   };
 }
 
+const MEME_SOUND_STORAGE_KEY = 'nptel_meme_sound_enabled';
+type MemeSoundListener = (enabled: boolean) => void;
+const memeSoundListeners = new Set<MemeSoundListener>();
+
+/**
+ * Checks if Telugu meme sounds are enabled in user preferences.
+ * Defaults to true.
+ * When false (Data Saver Mode), meme mp3 files are NEVER downloaded or loaded.
+ */
+export function getMemeSoundEnabled(): boolean {
+  if (typeof window === 'undefined') return true;
+  try {
+    const val = localStorage.getItem(MEME_SOUND_STORAGE_KEY);
+    return val !== 'false'; // default true
+  } catch (e) {
+    return true;
+  }
+}
+
+/**
+ * Persists meme audio preference and notifies subscribers.
+ * When turned off, any active meme audio stops immediately to conserve data.
+ */
+export function setMemeSoundEnabled(enabled: boolean): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(MEME_SOUND_STORAGE_KEY, enabled ? 'true' : 'false');
+    if (!enabled && currentMemeAudio) {
+      try {
+        currentMemeAudio.pause();
+        currentMemeAudio.currentTime = 0;
+        currentMemeAudio.src = '';
+        currentMemeAudio = null;
+      } catch (e) {}
+    }
+    memeSoundListeners.forEach((fn) => fn(enabled));
+  } catch (e) {
+    console.warn('Failed to save meme sound preference:', e);
+  }
+}
+
+export function subscribeMemeSoundState(listener: MemeSoundListener): () => void {
+  memeSoundListeners.add(listener);
+  return () => {
+    memeSoundListeners.delete(listener);
+  };
+}
+
 // Pre-instantiated audio elements with embedded base64 data for instantaneous latency-free playback
 import type { TeluguMeme } from '../data/teluguMemes';
 import { 
@@ -180,7 +228,7 @@ export function playRebelSaabSound(): Promise<void> {
  * Plays a selected Telugu meme audio clip
  */
 export function playTeluguMemeSound(meme: TeluguMeme): Promise<void> {
-  if (!getSoundEnabled() || typeof window === 'undefined') {
+  if (!getSoundEnabled() || !getMemeSoundEnabled() || typeof window === 'undefined') {
     return Promise.resolve();
   }
 
@@ -203,10 +251,11 @@ export function playTeluguMemeSound(meme: TeluguMeme): Promise<void> {
 }
 
 /**
- * Plays a raw audio file from the public meme directory
+ * Plays a raw audio file from the public meme directory.
+ * If meme sound is disabled (Data Saver), it returns immediately and does not fetch the file.
  */
 export function playMemeFileSound(cleanName: string): Promise<void> {
-  if (!getSoundEnabled() || typeof window === 'undefined') {
+  if (!getSoundEnabled() || !getMemeSoundEnabled() || typeof window === 'undefined') {
     return Promise.resolve();
   }
 
@@ -229,12 +278,20 @@ export function playMemeFileSound(cleanName: string): Promise<void> {
 }
 
 /**
- * Plays a random celebratory Telugu meme / noice for Correct Answers
+ * Plays a random celebratory Telugu meme / noice for Correct Answers.
+ * If meme audio is turned off by user (Data Saver), it will NOT download any meme files
+ * and will only play the zero-data embedded base64 sound.
  */
 export function playCorrectAnswerSound(): Promise<void> {
   if (!getSoundEnabled() || typeof window === 'undefined') {
     return Promise.resolve();
   }
+
+  // Data Saver: If meme audio is disabled, do NOT download or load meme files!
+  if (!getMemeSoundEnabled()) {
+    return playNoiceSound();
+  }
+
   const file = getRandomCorrectMemeFile();
   if (file === 'NOICE_BASE64') {
     return playNoiceSound();
@@ -243,12 +300,20 @@ export function playCorrectAnswerSound(): Promise<void> {
 }
 
 /**
- * Plays a random savage roast Telugu meme / fahh for Wrong Answers
+ * Plays a random savage roast Telugu meme / fahh for Wrong Answers.
+ * If meme audio is turned off by user (Data Saver), it will NOT download any meme files
+ * and will only play the zero-data embedded base64 sound.
  */
 export function playWrongAnswerSound(): Promise<void> {
   if (!getSoundEnabled() || typeof window === 'undefined') {
     return Promise.resolve();
   }
+
+  // Data Saver: If meme audio is disabled, do NOT download or load meme files!
+  if (!getMemeSoundEnabled()) {
+    return playFahhSound();
+  }
+
   const file = getRandomWrongMemeFile();
   if (file === 'FAHH_BASE64') {
     return playFahhSound();
@@ -257,14 +322,14 @@ export function playWrongAnswerSound(): Promise<void> {
 }
 
 /**
- * Plays the "noice" sound effect (for correct answers in Practice mode)
+ * Plays the "noice" sound effect (embedded base64, zero network data used)
  */
 export function playNoiceSound(): Promise<void> {
   return playAudioElement(getNoiceAudio());
 }
 
 /**
- * Plays the "fahh" sound effect (for incorrect answers in Practice mode)
+ * Plays the "fahh" sound effect (embedded base64, zero network data used)
  */
 export function playFahhSound(): Promise<void> {
   return playAudioElement(getFahhAudio());
@@ -273,7 +338,8 @@ export function playFahhSound(): Promise<void> {
 /**
  * Evaluates the quiz outcome:
  * - ONLY 100% score plays "Rebel Saab - The Raja Saab"
- * - Rest all scores (< 100%) play from the Telugu meme collection
+ * - If Meme Sound is enabled, plays from the Telugu meme collection
+ * - If Meme Sound is disabled (Data Saver), plays zero-network base64 audio
  */
 export function playQuizResultAudio(
   accuracy: number,
@@ -291,6 +357,17 @@ export function playQuizResultAudio(
   if (is100Percent) {
     playRebelSaabSound();
     return 'rebel-saab';
+  }
+
+  // Data Saver: When meme audio is turned off, do NOT fetch or stream meme audio!
+  if (!getMemeSoundEnabled()) {
+    if (accuracy >= 75) {
+      playNoiceSound();
+      return 'noice';
+    } else {
+      playFahhSound();
+      return 'fahh';
+    }
   }
 
   // Rest all play from Telugu meme collection

@@ -16,6 +16,9 @@ import {
   getSoundEnabled, 
   setSoundEnabled, 
   subscribeSoundState,
+  getMemeSoundEnabled,
+  setMemeSoundEnabled,
+  subscribeMemeSoundState,
   stopAllAudios
 } from '../utils/sound';
 import { X } from 'lucide-react';
@@ -55,13 +58,21 @@ export const QuizPage: React.FC<QuizPageProps> = ({
   const [isNavigatorOpenOnMobile, setIsNavigatorOpenOnMobile] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isSoundOn, setIsSoundOn] = useState<boolean>(getSoundEnabled);
+  const [isMemeSoundOn, setIsMemeSoundOn] = useState<boolean>(getMemeSoundEnabled);
   const isSubmittingRef = useRef<boolean>(false);
 
   // Subscribe to external sound state updates
   useEffect(() => {
-    return subscribeSoundState((enabled) => {
+    const unsubSound = subscribeSoundState((enabled) => {
       setIsSoundOn(enabled);
     });
+    const unsubMeme = subscribeMemeSoundState((enabled) => {
+      setIsMemeSoundOn(enabled);
+    });
+    return () => {
+      unsubSound();
+      unsubMeme();
+    };
   }, []);
 
   const handleToggleSound = useCallback(() => {
@@ -72,6 +83,12 @@ export const QuizPage: React.FC<QuizPageProps> = ({
       stopAllAudios();
     }
   }, [isSoundOn]);
+
+  const handleToggleMemeSound = useCallback(() => {
+    const next = !isMemeSoundOn;
+    setIsMemeSoundOn(next);
+    setMemeSoundEnabled(next);
+  }, [isMemeSoundOn]);
 
   // Stop any active audio whenever question changes
   useEffect(() => {
@@ -350,6 +367,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
         flaggedCount={flaggedCount}
         isSoundOn={isSoundOn}
         onToggleSound={handleToggleSound}
+        isMemeSoundOn={isMemeSoundOn}
+        onToggleMemeSound={handleToggleMemeSound}
         isNavigatorOpenOnMobile={isNavigatorOpenOnMobile}
         onToggleNavigatorMobile={() => setIsNavigatorOpenOnMobile((prev) => !prev)}
         onSubmitClick={() => setIsSubmitModalOpen(true)}
@@ -370,11 +389,14 @@ export const QuizPage: React.FC<QuizPageProps> = ({
                 mode={config.mode}
                 isSoundOn={isSoundOn}
                 onToggleSound={handleToggleSound}
+                isMemeSoundOn={isMemeSoundOn}
+                onToggleMemeSound={handleToggleMemeSound}
                 onSelectOption={handleSelectOption}
                 onToggleFlag={handleToggleFlag}
                 onCheckAnswer={handleCheckAnswer}
                 onNext={handleNext}
                 onPrev={handlePrev}
+                onSubmit={() => setIsSubmitModalOpen(true)}
               />
             )}
           </div>

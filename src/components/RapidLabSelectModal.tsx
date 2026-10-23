@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { WeekMetadata } from '../types/question';
 import { Zap, X, Layers, ArrowRight, BookOpen } from 'lucide-react';
+import { getMemeSoundEnabled, setMemeSoundEnabled, subscribeMemeSoundState } from '../utils/sound';
 
 interface RapidLabSelectModalProps {
   isOpen: boolean;
@@ -17,6 +18,20 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
   weeks,
   totalQuestions,
 }) => {
+  const [isMemeSoundOn, setIsMemeSoundOn] = useState<boolean>(getMemeSoundEnabled);
+
+  useEffect(() => {
+    return subscribeMemeSoundState((enabled) => {
+      setIsMemeSoundOn(enabled);
+    });
+  }, []);
+
+  const handleToggleMemeSound = () => {
+    const next = !isMemeSoundOn;
+    setIsMemeSoundOn(next);
+    setMemeSoundEnabled(next);
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -53,6 +68,48 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Meme Audio / Data Saver Preference Banner */}
+        <div className={`p-3.5 rounded-2xl border mb-4 flex items-center justify-between gap-3 shrink-0 transition-colors ${
+          isMemeSoundOn
+            ? 'bg-amber-500/10 border-amber-300 dark:border-amber-700/60'
+            : 'bg-emerald-500/10 border-emerald-300 dark:border-emerald-700/60'
+        }`}>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="text-xl shrink-0">🎭</span>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-zinc-900 dark:text-zinc-100">
+                  {isMemeSoundOn ? 'Telugu Meme Audio ON' : 'Data Saver Mode Active'}
+                </span>
+                <span className={`text-[9px] font-extrabold uppercase px-1.5 py-0.2 rounded ${
+                  isMemeSoundOn
+                    ? 'bg-amber-500 text-zinc-950'
+                    : 'bg-emerald-600 text-white'
+                }`}>
+                  {isMemeSoundOn ? 'Audio Loaded' : 'Zero Audio Data'}
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug">
+                {isMemeSoundOn
+                  ? 'Hilarious Telugu meme clips will play instantly on every answer.'
+                  : 'Meme audio files will NOT be loaded or downloaded, saving your mobile data.'}
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleToggleMemeSound}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 border transition-all cursor-pointer active:scale-95 ${
+              isMemeSoundOn
+                ? 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200'
+                : 'bg-amber-500 hover:bg-amber-600 border-amber-600 text-zinc-950 shadow-xs'
+            }`}
+          >
+            {isMemeSoundOn ? 'Turn OFF (Save Data)' : 'Enable Audio'}
           </button>
         </div>
 

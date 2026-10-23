@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sun, 
   Moon, 
@@ -13,7 +13,14 @@ import {
   VolumeX 
 } from 'lucide-react';
 import { COURSE_INFO } from '../utils/questionsLoader';
-import { getSoundEnabled, setSoundEnabled } from '../utils/sound';
+import { 
+  getSoundEnabled, 
+  setSoundEnabled, 
+  getMemeSoundEnabled, 
+  setMemeSoundEnabled, 
+  subscribeMemeSoundState,
+  subscribeSoundState 
+} from '../utils/sound';
 
 interface NavbarProps {
   currentView: string;
@@ -34,6 +41,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [soundOn, setSoundOn] = useState<boolean>(getSoundEnabled);
+  const [isMemeSoundOn, setIsMemeSoundOn] = useState<boolean>(getMemeSoundEnabled);
+
+  useEffect(() => {
+    const unsubSound = subscribeSoundState((enabled) => setSoundOn(enabled));
+    const unsubMeme = subscribeMemeSoundState((enabled) => setIsMemeSoundOn(enabled));
+    return () => {
+      unsubSound();
+      unsubMeme();
+    };
+  }, []);
 
   const handleNavClick = (view: 'home' | 'learn' | 'custom' | 'history') => {
     onNavigate(view);
@@ -44,6 +61,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     const next = !soundOn;
     setSoundOn(next);
     setSoundEnabled(next);
+  };
+
+  const handleToggleMemeSound = () => {
+    const next = !isMemeSoundOn;
+    setIsMemeSoundOn(next);
+    setMemeSoundEnabled(next);
   };
 
   return (
@@ -133,6 +156,26 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800 mx-1.5" />
 
+          {/* Meme Sound / Data Saver Toggle (Desktop) */}
+          <button
+            type="button"
+            onClick={handleToggleMemeSound}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${
+              isMemeSoundOn
+                ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/50'
+                : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+            }`}
+            title={
+              isMemeSoundOn
+                ? 'Meme audio is ON. Click to activate Data Saver (will NOT load meme audio clips to save your mobile data).'
+                : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data. Click to enable memes.'
+            }
+            aria-label="Toggle meme sound"
+          >
+            <span className="text-sm">🎭</span>
+            <span className="hidden lg:inline">{isMemeSoundOn ? 'Memes: ON' : 'Data Saver'}</span>
+          </button>
+
           {/* Sound Toggle Button (Desktop) */}
           <button
             type="button"
@@ -177,8 +220,27 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </nav>
 
-        {/* Mobile Top Controls (Sound + Theme Toggle + Hamburger) */}
+        {/* Mobile Top Controls (Meme + Sound + Theme Toggle + Hamburger) */}
         <div className="flex md:hidden items-center gap-1">
+          {/* Meme Sound / Data Saver Button (Mobile Header) */}
+          <button
+            type="button"
+            onClick={handleToggleMemeSound}
+            className={`p-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+              isMemeSoundOn
+                ? 'border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-300'
+                : 'border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400'
+            }`}
+            title={
+              isMemeSoundOn
+                ? 'Memes: ON (Click to turn off and save mobile data)'
+                : 'Data Saver Active: Audio files won\'t be loaded to save your mobile data'
+            }
+            aria-label="Toggle meme sound"
+          >
+            <span className="text-sm">🎭</span>
+          </button>
+
           {/* Sound Toggle (Mobile Header) */}
           <button
             type="button"
@@ -276,6 +338,32 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           )}
 
+          {/* Telugu Meme Sound Toggle (Mobile Menu Row) */}
+          <button
+            type="button"
+            onClick={handleToggleMemeSound}
+            className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <div className="flex flex-col text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-sm">🎭</span>
+                <span>Telugu Meme Sound</span>
+              </div>
+              <span className="text-[10px] font-normal text-zinc-500 dark:text-zinc-400 mt-0.5">
+                {isMemeSoundOn
+                  ? 'Reactions & audio enabled'
+                  : 'Data Saver: Audio is NOT loaded to save your mobile data'}
+              </span>
+            </div>
+            <span className={`px-2 py-0.5 rounded text-[10px] font-bold shrink-0 ml-2 ${
+              isMemeSoundOn
+                ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300'
+                : 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300'
+            }`}>
+              {isMemeSoundOn ? 'MEMES ON' : 'DATA SAVER'}
+            </span>
+          </button>
+
           {/* Sound Toggle (Mobile Menu Row) */}
           <button
             type="button"
@@ -284,7 +372,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <div className="flex items-center gap-2.5">
               {soundOn ? <Volume2 className="w-4 h-4 text-emerald-500" /> : <VolumeX className="w-4 h-4 text-zinc-400" />}
-              <span>Sound Effects</span>
+              <span>Master Sound</span>
             </div>
             <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
               soundOn ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300' : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-500'
