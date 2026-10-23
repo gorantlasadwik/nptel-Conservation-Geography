@@ -12,6 +12,7 @@ import {
   VolumeX 
 } from 'lucide-react';
 import { isQuestionAnswerCorrect } from '../utils/scoring';
+import { stopAllAudios } from '../utils/sound';
 
 interface QuestionRendererProps {
   item: QuizQuestionItem;
@@ -43,8 +44,8 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   const { question, displayOptions, selectedOptionIds, isFlagged, isAnswerChecked } = item;
   const isMultiple = question.type === 'multiple';
 
-  // Evaluate correctness in Practice Mode once checked
-  const isChecked = mode === 'practice' && isAnswerChecked;
+  // Evaluate correctness in Practice or Rapid Mode once checked
+  const isChecked = (mode === 'practice' || mode === 'rapid') && isAnswerChecked;
   const isUserCorrect = isChecked && isQuestionAnswerCorrect(selectedOptionIds, question.correctOptionIds);
 
   return (
@@ -97,17 +98,19 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           const isSelected = selectedOptionIds.includes(opt.id);
           const isCorrectAnswer = question.correctOptionIds.includes(opt.id);
 
-          // In Practice Mode (when checked): highlight correct in green, selected incorrect in red
+          // In Practice / Rapid Mode (when checked): highlight correct in green, selected incorrect in red
           let borderStyle = 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 bg-white dark:bg-zinc-900';
           let indicatorStyle = 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300';
 
           if (isChecked) {
             if (isCorrectAnswer) {
-              borderStyle = 'border-emerald-500 dark:border-emerald-500/80 bg-emerald-50/60 dark:bg-emerald-950/30';
+              borderStyle = 'border-emerald-500 dark:border-emerald-500/80 bg-emerald-50/70 dark:bg-emerald-950/40 ring-1 ring-emerald-500/40';
               indicatorStyle = 'bg-emerald-600 text-white';
             } else if (isSelected && !isCorrectAnswer) {
-              borderStyle = 'border-rose-500 dark:border-rose-500/80 bg-rose-50/60 dark:bg-rose-950/30';
+              borderStyle = 'border-rose-500 dark:border-rose-500/80 bg-rose-50/70 dark:bg-rose-950/40 ring-1 ring-rose-500/40';
               indicatorStyle = 'bg-rose-600 text-white';
+            } else {
+              borderStyle = 'border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-900/30 opacity-70';
             }
           } else if (isSelected) {
             borderStyle = 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/60 dark:bg-indigo-950/30 ring-1 ring-indigo-500';
@@ -116,23 +119,30 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
 
           // Keyboard letter key display ('A', 'B', 'C', 'D' based on index)
           const displayKey = String.fromCharCode(65 + idx);
+          const isLocked = isChecked && mode === 'rapid';
 
           return (
             <div
               key={opt.id}
-              onClick={() => onSelectOption(opt.id)}
-              className={`group flex items-start gap-4 p-4 rounded-xl border text-sm sm:text-base cursor-pointer transition-all ${borderStyle}`}
+              onClick={() => {
+                if (!isLocked) {
+                  onSelectOption(opt.id);
+                }
+              }}
+              className={`group flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl border text-sm sm:text-base transition-all ${
+                isLocked ? 'cursor-default' : 'cursor-pointer'
+              } ${borderStyle}`}
               role="button"
-              tabIndex={0}
+              tabIndex={isLocked ? -1 : 0}
               onKeyDown={(e) => {
-                if (e.key === ' ' || e.key === 'Enter') {
+                if (!isLocked && (e.key === ' ' || e.key === 'Enter')) {
                   e.preventDefault();
                   onSelectOption(opt.id);
                 }
               }}
             >
               {/* Option Letter Indicator */}
-              <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center text-xs font-bold transition-transform group-hover:scale-105 ${indicatorStyle}`}>
+              <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center text-xs font-bold transition-transform ${indicatorStyle}`}>
                 {opt.id}
               </div>
 
@@ -141,50 +151,88 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                 {opt.text}
               </div>
 
-              {/* Practice feedback icons */}
+              {/* Explicit badges when checked */}
               {isChecked && isCorrectAnswer && (
-                <div className="shrink-0 text-emerald-600 dark:text-emerald-400">
-                  <CheckCircle2 className="w-5 h-5" />
+                <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 animate-fade-in shadow-xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  <span>Correct Answer</span>
                 </div>
               )}
               {isChecked && isSelected && !isCorrectAnswer && (
-                <div className="shrink-0 text-rose-600 dark:text-rose-400">
-                  <XCircle className="w-5 h-5" />
+                <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700 animate-fade-in shadow-xs">
+                  <XCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                  <span>Your Choice</span>
                 </div>
               )}
 
               {/* Shortcut hint on hover */}
-              <span className="hidden sm:inline-block text-[11px] text-zinc-400 dark:text-zinc-500 px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                Key {displayKey}
-              </span>
+              {!isChecked && (
+                <span className="hidden sm:inline-block text-[11px] text-zinc-400 dark:text-zinc-500 px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Key {displayKey}
+                </span>
+              )}
             </div>
           );
         })}
       </div>
 
-      {/* Practice Mode Feedback Banner */}
+      {/* Feedback Banner (Practice & Rapid Modes) */}
       {isChecked && (
-        <div className={`p-4 sm:p-5 rounded-xl border mb-8 transition-all ${
+        <div className={`p-4 sm:p-5 rounded-2xl border mb-8 transition-all animate-fade-in ${
           isUserCorrect
-            ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
-            : 'bg-rose-50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+            ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
+            : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200'
         }`}>
           <div className="flex items-start gap-3">
             {isUserCorrect ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
             ) : (
-              <XCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+              <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/60 flex items-center justify-center shrink-0 text-rose-600 dark:text-rose-400">
+                <XCircle className="w-5 h-5" />
+              </div>
             )}
-            <div className="space-y-1 text-sm">
-              <p className="font-semibold">
-                {isUserCorrect ? 'Correct Answer!' : 'Incorrect Answer'}
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Correct Option: <span className="font-bold underline">{question.correctOptionIds.join(', ')}</span>
-              </p>
+            <div className="space-y-1.5 text-sm flex-1">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <p className="font-bold text-base">
+                  {isUserCorrect 
+                    ? (mode === 'rapid' ? '⚡ Correct Answer! (+1 Mark)' : 'Correct Answer!') 
+                    : (mode === 'rapid' ? '⚡ Incorrect Choice!' : 'Incorrect Answer')}
+                </p>
+                {mode === 'rapid' && (
+                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                    ⚡ Instant Reveal
+                  </span>
+                )}
+              </div>
+              
+              <div className="text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm">
+                Correct Answer:{' '}
+                <span className="font-extrabold text-emerald-600 dark:text-emerald-400 underline decoration-2">
+                  Option {question.correctOptionIds.join(', ')}
+                </span>
+                {question.correctOptionIds.length === 1 && (
+                  <span className="ml-1 text-zinc-700 dark:text-zinc-300 font-medium">
+                    — "{displayOptions.find((o) => o.id === question.correctOptionIds[0])?.text}"
+                  </span>
+                )}
+              </div>
+
+              {!isUserCorrect && selectedOptionIds.length > 0 && (
+                <div className="text-xs text-rose-700 dark:text-rose-300">
+                  You selected: <span className="font-semibold line-through">Option {selectedOptionIds.join(', ')}</span>
+                  {selectedOptionIds.length === 1 && (
+                    <span className="ml-1">
+                      — "{displayOptions.find((o) => o.id === selectedOptionIds[0])?.text}"
+                    </span>
+                  )}
+                </div>
+              )}
+
               {question.explanation && (
-                <div className="mt-2 pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 text-xs text-zinc-600 dark:text-zinc-400">
-                  <span className="font-medium text-zinc-800 dark:text-zinc-200">Solution Note: </span>
+                <div className="mt-2 pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60 text-xs text-zinc-600 dark:text-zinc-400">
+                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">Solution Reference: </span>
                   {question.explanation}
                 </div>
               )}
@@ -198,7 +246,10 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         
         {/* Previous Button */}
         <button
-          onClick={onPrev}
+          onClick={() => {
+            stopAllAudios();
+            onPrev();
+          }}
           disabled={currentIndex === 0}
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
         >
@@ -213,7 +264,10 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         {mode === 'practice' && (
           <div className="w-full sm:w-auto flex items-center justify-center gap-2">
             <button
-              onClick={onCheckAnswer}
+              onClick={() => {
+                stopAllAudios();
+                onCheckAnswer();
+              }}
               disabled={selectedOptionIds.length === 0}
               className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 isChecked
@@ -246,8 +300,10 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
         {/* Center: Rapid Mode prompt & Sound Mute Toggle */}
         {mode === 'rapid' && (
           <div className="w-full sm:w-auto flex items-center justify-center gap-2.5">
-            <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">
-              {isChecked ? '⚡ Answer checked! Click Next →' : '⚡ Tap any option to reveal & play meme!'}
+            <span className={`text-xs font-semibold ${
+              isChecked ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
+            }`}>
+              {isChecked ? '⚡ Answer revealed! Click Next →' : '⚡ Tap any option to reveal & play meme!'}
             </span>
 
             {onToggleSound && (
@@ -270,9 +326,16 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
 
         {/* Next / Finish Button */}
         <button
-          onClick={onNext}
+          onClick={() => {
+            stopAllAudios();
+            onNext();
+          }}
           disabled={currentIndex === totalQuestions - 1}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white text-xs font-semibold shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
+          className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95 ${
+            mode === 'rapid' && isChecked && currentIndex < totalQuestions - 1
+              ? 'bg-indigo-600 hover:bg-indigo-700 text-white ring-2 ring-indigo-500/50 shadow-md shadow-indigo-600/20'
+              : 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white'
+          }`}
         >
           <span>Next</span>
           <ArrowRight className="w-4 h-4" />

@@ -15,7 +15,8 @@ import {
   playNoiceSound, 
   getSoundEnabled, 
   setSoundEnabled, 
-  subscribeSoundState 
+  subscribeSoundState,
+  stopAllAudios
 } from '../utils/sound';
 import { X } from 'lucide-react';
 
@@ -67,7 +68,22 @@ export const QuizPage: React.FC<QuizPageProps> = ({
     const next = !isSoundOn;
     setIsSoundOn(next);
     setSoundEnabled(next);
+    if (!next) {
+      stopAllAudios();
+    }
   }, [isSoundOn]);
+
+  // Stop any active audio whenever question changes
+  useEffect(() => {
+    stopAllAudios();
+  }, [currentIndex]);
+
+  // Teardown sound when exiting page
+  useEffect(() => {
+    return () => {
+      stopAllAudios();
+    };
+  }, []);
 
   // Accurate drift-free timer
   const countdownSeconds = config.timerType === 'countdown' ? config.countdownMinutes * 60 : 0;
@@ -103,6 +119,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Final submission handler
   const submitQuizFinal = useCallback(() => {
+    stopAllAudios();
     if (isSubmittingRef.current || isSubmitted) return;
     isSubmittingRef.current = true;
     setIsSubmitted(true);
@@ -122,6 +139,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Confirm Exit to Dashboard
   const handleConfirmExit = useCallback(() => {
+    stopAllAudios();
     clearActiveSession();
     setIsExitModalOpen(false);
     onExitQuiz();
@@ -133,6 +151,14 @@ export const QuizPage: React.FC<QuizPageProps> = ({
     if (!current) return;
 
     if (config.mode === 'rapid') {
+      // In Rapid mode, lock selection if answer is already revealed
+      if (current.isAnswerChecked) {
+        return;
+      }
+
+      // Stop any existing sound before starting the new meme audio
+      stopAllAudios();
+
       // Rapid Mode: Instant check and meme audio on tap!
       const updatedSelected = [optionId];
       const isCorrect = isQuestionAnswerCorrect(
@@ -202,6 +228,9 @@ export const QuizPage: React.FC<QuizPageProps> = ({
     const current = items[currentIndex];
     if (!current) return;
 
+    // Halt prior audio before playing result audio
+    stopAllAudios();
+
     const isCorrect = isQuestionAnswerCorrect(
       current.selectedOptionIds,
       current.question.correctOptionIds
@@ -226,12 +255,14 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Navigation handlers
   const handleNext = useCallback(() => {
+    stopAllAudios();
     if (currentIndex < items.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     }
   }, [currentIndex, items.length]);
 
   const handlePrev = useCallback(() => {
+    stopAllAudios();
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1);
     }
@@ -239,6 +270,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Select question from navigator (auto-close drawer on mobile)
   const handleSelectQuestionIndex = useCallback((index: number) => {
+    stopAllAudios();
     setCurrentIndex(index);
     setIsNavigatorOpenOnMobile(false);
   }, []);

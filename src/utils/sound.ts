@@ -27,6 +27,9 @@ export function setSoundEnabled(enabled: boolean): void {
   if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(SOUND_STORAGE_KEY, enabled ? 'true' : 'false');
+    if (!enabled) {
+      stopAllAudios();
+    }
     listeners.forEach((fn) => fn(enabled));
   } catch (e) {
     console.warn('Failed to save sound preference:', e);
@@ -80,7 +83,33 @@ function getRebelSaabAudio(): HTMLAudioElement {
   return rebelSaabAudio!;
 }
 
-function stopAllAudios(): void {
+// Master tracking set for any actively playing Audio instance
+const activeAudios = new Set<HTMLAudioElement>();
+
+function trackAudio(audio: HTMLAudioElement): void {
+  activeAudios.add(audio);
+  const cleanup = () => {
+    activeAudios.delete(audio);
+  };
+  audio.addEventListener('ended', cleanup, { once: true });
+  audio.addEventListener('pause', cleanup, { once: true });
+}
+
+/**
+ * Immediately halts and resets all running sound effects across the application
+ */
+export function stopAllAudios(): void {
+  // 1. Immediately pause and reset all tracked active audios
+  activeAudios.forEach((audio) => {
+    try {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = '';
+    } catch (e) {}
+  });
+  activeAudios.clear();
+
+  // 2. Explicitly pause singleton audio instances
   if (fahhAudio) {
     try {
       fahhAudio.pause();
@@ -103,7 +132,19 @@ function stopAllAudios(): void {
     try {
       currentMemeAudio.pause();
       currentMemeAudio.currentTime = 0;
+      currentMemeAudio.src = '';
+      currentMemeAudio = null;
     } catch (e) {}
+  }
+
+  // 3. Fallback for any other audio elements in the DOM
+  if (typeof document !== 'undefined') {
+    document.querySelectorAll('audio').forEach((el) => {
+      try {
+        el.pause();
+        el.currentTime = 0;
+      } catch (e) {}
+    });
   }
 }
 
@@ -114,6 +155,7 @@ function playAudioElement(audio: HTMLAudioElement): Promise<void> {
 
   try {
     stopAllAudios();
+    trackAudio(audio);
     audio.currentTime = 0;
     const promise = audio.play();
     if (promise !== undefined) {
@@ -147,6 +189,7 @@ export function playTeluguMemeSound(meme: TeluguMeme): Promise<void> {
     const url = getMemeAudioUrl(meme.cleanName);
     currentMemeAudio = new Audio(url);
     currentMemeAudio.volume = 0.95;
+    trackAudio(currentMemeAudio);
     const promise = currentMemeAudio.play();
     if (promise !== undefined) {
       return promise.catch((err) => {
@@ -172,6 +215,7 @@ export function playMemeFileSound(cleanName: string): Promise<void> {
     const url = getMemeAudioUrl(cleanName);
     currentMemeAudio = new Audio(url);
     currentMemeAudio.volume = 0.95;
+    trackAudio(currentMemeAudio);
     const promise = currentMemeAudio.play();
     if (promise !== undefined) {
       return promise.catch((err) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import type { WeekMetadata } from './types/question';
-import type { QuizConfig, QuizQuestionItem, QuizResult, WeekProgressSummary } from './types/quiz';
+import type { QuizConfig, QuizMode, QuizQuestionItem, QuizResult, WeekProgressSummary } from './types/quiz';
 import { Navbar } from './components/Navbar';
 import { HomePage } from './pages/HomePage';
 import { LearnPage } from './pages/LearnPage';
@@ -43,7 +43,7 @@ export function App() {
   // Setup modal state
   const [isSetupModalOpen, setIsSetupModalOpen] = useState<boolean>(false);
   const [setupInitialWeeks, setSetupInitialWeeks] = useState<number[]>([1]);
-  const [setupInitialMode, setSetupInitialMode] = useState<'practice' | 'mock'>('practice');
+  const [setupInitialMode, setSetupInitialMode] = useState<QuizMode>('practice');
 
   // Stored state
   const [recentResults, setRecentResults] = useState<QuizResult[]>(getRecentResults);

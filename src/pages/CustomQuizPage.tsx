@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { WeekMetadata } from '../types/question';
 import { QuizConfig, QuizMode, TimerType } from '../types/quiz';
-import { Layers, CheckSquare, Square, Play, ArrowLeft, Clock, Shuffle, ShieldAlert, Sparkles } from 'lucide-react';
+import { Layers, CheckSquare, Square, Play, ArrowLeft, Clock, Shuffle, ShieldAlert, Sparkles, Zap } from 'lucide-react';
 
 interface CustomQuizPageProps {
   weeks: WeekMetadata[];
@@ -188,7 +188,7 @@ export const CustomQuizPage: React.FC<CustomQuizPageProps> = ({
             Mode & Questions
           </h2>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <button
               type="button"
               onClick={() => setMode('practice')}
@@ -200,6 +200,19 @@ export const CustomQuizPage: React.FC<CustomQuizPageProps> = ({
             >
               <Sparkles className="w-4 h-4" />
               Practice Mode
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMode('rapid')}
+              className={`p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                mode === 'rapid'
+                  ? 'border-amber-500 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300'
+                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400'
+              }`}
+            >
+              <Zap className="w-4 h-4 fill-current" />
+              Rapid Quiz
             </button>
 
             <button

@@ -24,7 +24,8 @@ import {
   playRebelSaabSound,
   playTeluguMemeSound,
   playNoiceSound, 
-  playFahhSound 
+  playFahhSound,
+  stopAllAudios 
 } from '../utils/sound';
 import type { TeluguMeme } from '../data/teluguMemes';
 import { 
@@ -68,7 +69,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
     return selectTeluguMemeForScore(accuracy, totalQuestions, correctCount);
   });
 
-  // Trigger celebration confetti and audio on mount
+  // Trigger celebration confetti and audio on mount, and cleanup on unmount
   useEffect(() => {
     // Only 100% plays Rebel Saab; all other scores play from Telugu meme collection
     playQuizResultAudio(accuracy, totalQuestions, correctCount, currentMeme);
@@ -84,6 +85,10 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         // Safe fallback if confetti isn't supported in test environments
       }
     }
+
+    return () => {
+      stopAllAudios();
+    };
   }, [accuracy, totalQuestions, correctCount]);
 
   const toggleSound = () => {
@@ -110,6 +115,26 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
       setCurrentMeme(nextMeme);
       playTeluguMemeSound(nextMeme);
     }
+  };
+
+  const handleReviewClick = () => {
+    stopAllAudios();
+    onReviewAnswers();
+  };
+
+  const handleRetryIncorrectClick = () => {
+    stopAllAudios();
+    onRetryIncorrect();
+  };
+
+  const handleRetrySameClick = () => {
+    stopAllAudios();
+    onRetrySameQuiz();
+  };
+
+  const handleReturnHomeClick = () => {
+    stopAllAudios();
+    onReturnHome();
   };
 
   return (
@@ -243,7 +268,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-6 sm:mt-8">
           <button
             type="button"
-            onClick={onReviewAnswers}
+            onClick={handleReviewClick}
             className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-indigo-600/20 active:scale-95 transition-all cursor-pointer"
           >
             <Eye className="w-4 h-4" />
@@ -253,7 +278,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
           {incorrectCount > 0 && (
             <button
               type="button"
-              onClick={onRetryIncorrect}
+              onClick={handleRetryIncorrectClick}
               className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-rose-600/20 active:scale-95 transition-all cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" />
@@ -263,7 +288,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
 
           <button
             type="button"
-            onClick={onRetrySameQuiz}
+            onClick={handleRetrySameClick}
             className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
@@ -272,7 +297,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
 
           <button
             type="button"
-            onClick={onReturnHome}
+            onClick={handleReturnHomeClick}
             className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-semibold text-xs sm:text-sm transition-all cursor-pointer"
           >
             <span>Dashboard</span>
