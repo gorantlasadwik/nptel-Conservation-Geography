@@ -6,8 +6,9 @@ import { QuestionNavigator } from '../components/QuestionNavigator';
 import { SubmitConfirmModal } from '../components/SubmitConfirmModal';
 import { ExitConfirmModal } from '../components/ExitConfirmModal';
 import { useTimer } from '../hooks/useTimer';
-import { calculateQuizResult } from '../utils/scoring';
+import { calculateQuizResult, isQuestionAnswerCorrect } from '../utils/scoring';
 import { saveQuizResult, saveActiveSession, clearActiveSession, getActiveSession } from '../utils/storage';
+import { playFahhSound, playNoiceSound } from '../utils/sound';
 import { X } from 'lucide-react';
 
 interface QuizPageProps {
@@ -149,6 +150,17 @@ export const QuizPage: React.FC<QuizPageProps> = ({
     setItems((prevItems) => {
       const copy = [...prevItems];
       const current = copy[currentIndex];
+      const isCorrect = isQuestionAnswerCorrect(
+        current.selectedOptionIds,
+        current.question.correctOptionIds
+      );
+
+      if (!isCorrect) {
+        playFahhSound();
+      } else {
+        playNoiceSound();
+      }
+
       copy[currentIndex] = {
         ...current,
         isAnswerChecked: true,
