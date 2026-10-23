@@ -29,6 +29,8 @@ import {
   clearActiveSession,
   clearAllPracticeHistory,
   getFavoriteQuestionIds,
+  getCompletedWeeks,
+  toggleWeekCompleted,
 } from './utils/storage';
 
 export function App() {
@@ -53,6 +55,7 @@ export function App() {
   const [recentResults, setRecentResults] = useState<QuizResult[]>(getRecentResults);
   const [weekSummaries, setWeekSummaries] = useState<Record<number, WeekProgressSummary>>(getWeekSummaries);
   const [favoriteIds, setFavoriteIds] = useState<string[]>(getFavoriteQuestionIds);
+  const [completedWeeks, setCompletedWeeks] = useState<number[]>(getCompletedWeeks);
 
   // Weeks & question metadata
   const weeks = useMemo(() => getAllWeeks(), []);
@@ -184,6 +187,21 @@ export function App() {
     return () => window.removeEventListener('nptel_favorites_updated', handleFavsChanged);
   }, []);
 
+  // Sync completed weeks state across the application
+  useEffect(() => {
+    const handleCompletedWeeksChanged = () => {
+      setCompletedWeeks(getCompletedWeeks());
+    };
+    window.addEventListener('nptel_completed_weeks_updated', handleCompletedWeeksChanged);
+    return () => window.removeEventListener('nptel_completed_weeks_updated', handleCompletedWeeksChanged);
+  }, []);
+
+  // Manual toggle for completed labs
+  const handleToggleWeekCompleted = useCallback((week: number) => {
+    toggleWeekCompleted(week);
+    setCompletedWeeks(getCompletedWeeks());
+  }, []);
+
   // Quick Start quiz with only favorited questions
   const handleStartFavoritesQuiz = useCallback((mode: QuizMode = 'practice') => {
     const favIds = getFavoriteQuestionIds();
@@ -305,6 +323,8 @@ export function App() {
               recentResults={recentResults}
               weekSummaries={weekSummaries}
               favoriteCount={favoriteIds.length}
+              completedWeeks={completedWeeks}
+              onToggleWeekCompleted={handleToggleWeekCompleted}
               onStartFavoritesQuiz={handleStartFavoritesQuiz}
               onStartSingleWeek={handleQuickStartWeek}
               onConfigureWeek={handleConfigureWeek}
@@ -419,6 +439,7 @@ export function App() {
         onSelectLab={(chosenWeek) => handleStartRapidQuiz(chosenWeek)}
         weeks={weeks}
         totalQuestions={totalQuestions}
+        completedWeeks={completedWeeks}
         weekSummaries={weekSummaries}
       />
 

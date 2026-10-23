@@ -6,6 +6,8 @@ import { Play, Sliders, CheckCircle2, AlertCircle, TrendingUp, Zap } from 'lucid
 interface WeekCardProps {
   metadata: WeekMetadata;
   progress?: WeekProgressSummary;
+  isDone?: boolean;
+  onToggleDone?: (week: number) => void;
   onQuickStart: (week: number) => void;
   onConfigure: (week: number) => void;
   onRapidStart?: (week: number) => void;
@@ -14,6 +16,8 @@ interface WeekCardProps {
 export const WeekCard: React.FC<WeekCardProps> = ({
   metadata,
   progress,
+  isDone = false,
+  onToggleDone,
   onQuickStart,
   onConfigure,
   onRapidStart,
@@ -27,25 +31,42 @@ export const WeekCard: React.FC<WeekCardProps> = ({
     <div className={`relative flex flex-col justify-between rounded-xl border p-5 transition-all duration-200 ${
       !isLoaded
         ? 'bg-zinc-50 dark:bg-zinc-950/40 border-zinc-200/60 dark:border-zinc-800/40 opacity-70'
-        : hasAttempt
-        ? 'bg-white dark:bg-zinc-900/90 border-emerald-300/80 dark:border-emerald-800/70 shadow-xs hover:border-emerald-500/70 hover:shadow-lg hover:shadow-emerald-500/5'
+        : isDone
+        ? 'bg-white dark:bg-zinc-900/95 border-emerald-400 dark:border-emerald-600 shadow-md shadow-emerald-500/5 ring-1 ring-emerald-500/30'
         : 'bg-white dark:bg-zinc-900/70 border-zinc-200 dark:border-zinc-800 hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/5'
     }`}>
       {/* Top Section */}
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-zinc-700/60">
               Week {week}
             </span>
 
-            {/* Prominent Done Marker */}
-            {hasAttempt && (
+            {/* Manual User Done Toggle Button */}
+            {onToggleDone ? (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onToggleDone(week);
+                }}
+                className={`inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-all cursor-pointer active:scale-95 ${
+                  isDone
+                    ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-400 dark:border-emerald-600 shadow-xs hover:bg-emerald-200 dark:hover:bg-emerald-900'
+                    : 'text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700/80 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={isDone ? 'Marked as Done (click to unmark)' : 'Click to manually mark this lab as Done'}
+              >
+                <CheckCircle2 className={`w-3.5 h-3.5 ${isDone ? 'fill-emerald-500 text-white dark:text-zinc-950' : 'text-zinc-400'}`} />
+                <span>{isDone ? 'Done' : 'Mark Done'}</span>
+              </button>
+            ) : isDone ? (
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700/80 px-2 py-0.5 rounded-full shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 fill-emerald-500 text-white dark:text-zinc-950 shrink-0" />
                 <span>Done</span>
               </span>
-            )}
+            ) : null}
           </div>
 
           {isLoaded ? (

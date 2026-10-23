@@ -10,6 +10,7 @@ interface RapidLabSelectModalProps {
   onSelectLab: (week: number | 'all' | number[]) => void;
   weeks: WeekMetadata[];
   totalQuestions: number;
+  completedWeeks?: number[];
   weekSummaries?: Record<number, WeekProgressSummary>;
 }
 
@@ -19,6 +20,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
   onSelectLab,
   weeks,
   totalQuestions,
+  completedWeeks,
   weekSummaries,
 }) => {
   // Default selected weeks: Week 1 or Week 0 & 1
@@ -235,7 +237,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
             {weeks.map((w) => {
               const isDisabled = !w.isLoaded;
               const isSelected = selectedWeeks.includes(w.week);
-              const isDone = Boolean(weekSummaries?.[w.week]?.attemptsCount && weekSummaries[w.week].attemptsCount > 0);
+              const isDone = Boolean(completedWeeks?.includes(w.week));
 
               return (
                 <div

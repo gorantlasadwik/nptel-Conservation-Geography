@@ -7,6 +7,7 @@ const KEYS = {
   ACTIVE_QUIZ: 'nptel_active_quiz_session',
   SAVED_CONFIG: 'nptel_saved_quiz_config',
   FAVORITES: 'nptel_favorite_question_ids',
+  COMPLETED_WEEKS: 'nptel_manual_completed_weeks',
 };
 
 export interface ActiveQuizSession {
@@ -191,4 +192,43 @@ export function clearAllFavorites(): void {
   localStorage.removeItem(KEYS.FAVORITES);
   window.dispatchEvent(new Event('nptel_favorites_updated'));
 }
+
+// ----------------------------------------------------------------------
+// Manual Completed Labs / Weeks Storage
+// ----------------------------------------------------------------------
+export function getCompletedWeeks(): number[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(KEYS.COMPLETED_WEEKS);
+    return raw ? (JSON.parse(raw) as number[]) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+export function isWeekCompleted(week: number): boolean {
+  return getCompletedWeeks().includes(week);
+}
+
+export function toggleWeekCompleted(week: number): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const weeks = getCompletedWeeks();
+    let updated: number[];
+    let isNowCompleted: boolean;
+    if (weeks.includes(week)) {
+      updated = weeks.filter((w) => w !== week);
+      isNowCompleted = false;
+    } else {
+      updated = [...weeks, week];
+      isNowCompleted = true;
+    }
+    localStorage.setItem(KEYS.COMPLETED_WEEKS, JSON.stringify(updated));
+    window.dispatchEvent(new Event('nptel_completed_weeks_updated'));
+    return isNowCompleted;
+  } catch (e) {
+    return false;
+  }
+}
+
 

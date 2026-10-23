@@ -12,6 +12,8 @@ interface HomePageProps {
   recentResults: QuizResult[];
   weekSummaries: Record<number, WeekProgressSummary>;
   favoriteCount?: number;
+  completedWeeks?: number[];
+  onToggleWeekCompleted?: (week: number) => void;
   onStartSingleWeek: (week: number) => void;
   onConfigureWeek: (week: number) => void;
   onOpenCustomQuiz: () => void;
@@ -29,6 +31,8 @@ export const HomePage: React.FC<HomePageProps> = ({
   recentResults,
   weekSummaries,
   favoriteCount = 0,
+  completedWeeks = [],
+  onToggleWeekCompleted,
   onStartSingleWeek,
   onConfigureWeek,
   onOpenCustomQuiz,
@@ -300,11 +304,16 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 mb-4 sm:mb-6">
           <div>
-            <h2 className="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
-              Course Assignments (Weeks 0–12)
+            <h2 className="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight flex items-center gap-2">
+              <span>Course Assignments (Weeks 0–12)</span>
+              {completedWeeks.length > 0 && (
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  {completedWeeks.length} / {weeks.length} Finished
+                </span>
+              )}
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-              Select any week to practice questions or configure custom settings.
+              Select any week to practice questions, or tap "Mark Done" to track completed labs.
             </p>
           </div>
           <div className="text-xs text-zinc-500">
@@ -318,6 +327,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               key={w.week}
               metadata={w}
               progress={weekSummaries[w.week]}
+              isDone={completedWeeks.includes(w.week)}
+              onToggleDone={onToggleWeekCompleted}
               onQuickStart={onStartSingleWeek}
               onConfigure={onConfigureWeek}
               onRapidStart={onStartRapidQuiz}
