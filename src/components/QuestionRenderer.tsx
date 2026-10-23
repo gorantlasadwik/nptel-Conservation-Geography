@@ -8,8 +8,6 @@ import {
   ArrowRight, 
   HelpCircle, 
   Eye,
-  Volume2,
-  VolumeX,
   Send
 } from 'lucide-react';
 import { isQuestionAnswerCorrect } from '../utils/scoring';
@@ -20,10 +18,6 @@ interface QuestionRendererProps {
   currentIndex: number;
   totalQuestions: number;
   mode: QuizMode;
-  isSoundOn?: boolean;
-  onToggleSound?: () => void;
-  isMemeSoundOn?: boolean;
-  onToggleMemeSound?: () => void;
   onSelectOption: (optionId: string) => void;
   onToggleFlag: () => void;
   onCheckAnswer: () => void;
@@ -37,10 +31,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   currentIndex,
   totalQuestions,
   mode,
-  isSoundOn,
-  onToggleSound,
-  isMemeSoundOn = true,
-  onToggleMemeSound,
   onSelectOption,
   onToggleFlag,
   onCheckAnswer,
@@ -307,16 +297,16 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
             </kbd>
           </button>
 
-          {/* Desktop Center: Check Answer button & Sound Mute Toggle in Practice Mode */}
+          {/* Desktop Center: Check Answer button in Practice Mode */}
           {mode === 'practice' && (
-            <div className="hidden sm:flex items-center justify-center gap-2 flex-wrap">
+            <div className="hidden sm:flex items-center justify-center">
               <button
                 onClick={() => {
                   stopAllAudios();
                   onCheckAnswer();
                 }}
                 disabled={selectedOptionIds.length === 0}
-                className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                className={`inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   isChecked
                     ? 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
                     : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 active:scale-95'
@@ -325,48 +315,12 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                 <Eye className="w-4 h-4" />
                 <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
               </button>
-
-              {onToggleMemeSound && (
-                <button
-                  type="button"
-                  onClick={onToggleMemeSound}
-                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                    isMemeSoundOn
-                      ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
-                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                  }`}
-                  title={
-                    isMemeSoundOn
-                      ? 'Meme audio is ON. Click to activate Data Saver (audio files will NOT be loaded to save mobile data).'
-                      : 'Data Saver Active: Meme audio files are NOT loaded to save your mobile data. Click to enable memes.'
-                  }
-                  aria-label="Toggle meme sound"
-                >
-                  <span className="text-sm">🎭</span>
-                </button>
-              )}
-
-              {onToggleSound && (
-                <button
-                  type="button"
-                  onClick={onToggleSound}
-                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                    isSoundOn
-                      ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
-                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                  }`}
-                  title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
-                  aria-label="Toggle sound effects in quiz"
-                >
-                  {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                </button>
-              )}
             </div>
           )}
 
           {/* Desktop Center: Rapid Mode prompt */}
           {mode === 'rapid' && (
-            <div className="hidden sm:flex items-center justify-center gap-2.5">
+            <div className="hidden sm:flex items-center justify-center">
               <span className={`text-xs font-semibold ${
                 isChecked ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'
               }`}>
@@ -374,42 +328,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
                   ? (currentIndex === totalQuestions - 1 ? '⚡ Final Question! Ready to Submit 🏁' : '⚡ Answer revealed! Click Next →')
                   : '⚡ Tap any option to reveal & play meme!'}
               </span>
-
-              {onToggleMemeSound && (
-                <button
-                  type="button"
-                  onClick={onToggleMemeSound}
-                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                    isMemeSoundOn
-                      ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40'
-                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                  }`}
-                  title={
-                    isMemeSoundOn
-                      ? 'Meme audio is ON. Click to activate Data Saver (audio won\'t load).'
-                      : 'Data Saver Active: Meme audio files are NOT loaded to save mobile data.'
-                  }
-                  aria-label="Toggle meme sound"
-                >
-                  <span className="text-sm">🎭</span>
-                </button>
-              )}
-
-              {onToggleSound && (
-                <button
-                  type="button"
-                  onClick={onToggleSound}
-                  className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
-                    isSoundOn
-                      ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
-                      : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                  }`}
-                  title={isSoundOn ? 'Master sound enabled (Click to mute)' : 'Master sound muted (Click to unmute)'}
-                  aria-label="Toggle sound effects in quiz"
-                >
-                  {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                </button>
-              )}
             </div>
           )}
 
