@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import type { WeekMetadata, Question } from '../types/question';
 import { getQuestionsForWeek, getAllLoadedQuestions } from '../utils/questionsLoader';
 import { 
@@ -12,6 +12,8 @@ import {
   ArrowLeft,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Copy,
   Check
 } from 'lucide-react';
@@ -31,6 +33,63 @@ export const LearnPage: React.FC<LearnPageProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [viewMode, setViewMode] = useState<'full' | 'compact'>('full');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Horizontal scroll refs & state for week tabs
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const activeTabRef = useRef<HTMLButtonElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
+  const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
+
+  const checkScrollability = useCallback(() => {
+    if (tabsContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsContainerRef.current;
+      setCanScrollLeft(scrollLeft > 4);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkScrollability();
+    window.addEventListener('resize', checkScrollability);
+    return () => window.removeEventListener('resize', checkScrollability);
+  }, [checkScrollability]);
+
+  // When active week changes, smoothly scroll it into center view
+  useEffect(() => {
+    if (activeTabRef.current && tabsContainerRef.current) {
+      activeTabRef.current.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+      setTimeout(checkScrollability, 300);
+    }
+  }, [selectedWeek, checkScrollability]);
+
+  // Mouse wheel horizontal scroll support
+  useEffect(() => {
+    const el = tabsContainerRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+        checkScrollability();
+      }
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => el.removeEventListener('wheel', handleWheel);
+  }, [checkScrollability]);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (tabsContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -240 : 240;
+      tabsContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      setTimeout(checkScrollability, 250);
+    }
+  };
 
   // Fetch questions for selected week or all weeks
   const questions: Question[] = useMemo(() => {
@@ -108,15 +167,33 @@ export const LearnPage: React.FC<LearnPageProps> = ({
         )}
       </div>
 
-      {/* Week Selector Tabs (Horizontal scrolling on mobile) */}
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-3 shadow-xs">
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+      {/* Week Selector Tabs with Left & Right Scroll Arrows */}
+      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-2 sm:p-2.5 shadow-xs flex items-center gap-1.5 sm:gap-2">
+        {/* Left Scroll Arrow */}
+        <button
+          type="button"
+          onClick={() => handleScroll('left')}
+          disabled={!canScrollLeft}
+          className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all shrink-0 cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed shadow-xs active:scale-95"
+          aria-label="Scroll left"
+          title="Scroll left"
+        >
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
+
+        {/* Scrollable Tabs Row */}
+        <div 
+          ref={tabsContainerRef}
+          onScroll={checkScrollability}
+          className="flex-1 flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none scroll-smooth"
+        >
           <button
+            ref={selectedWeek === 'all' ? activeTabRef : null}
             type="button"
             onClick={() => setSelectedWeek('all')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
               selectedWeek === 'all'
-                ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-xs'
+                ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-xs ring-2 ring-indigo-500/50'
                 : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
             }`}
           >
@@ -128,11 +205,12 @@ export const LearnPage: React.FC<LearnPageProps> = ({
             return (
               <button
                 key={w.week}
+                ref={isSelected ? activeTabRef : null}
                 type="button"
                 onClick={() => setSelectedWeek(w.week)}
-                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                   isSelected
-                    ? 'bg-indigo-600 text-white shadow-xs'
+                    ? 'bg-indigo-600 text-white shadow-xs ring-2 ring-white/60 dark:ring-indigo-400'
                     : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                 }`}
               >
@@ -141,6 +219,18 @@ export const LearnPage: React.FC<LearnPageProps> = ({
             );
           })}
         </div>
+
+        {/* Right Scroll Arrow */}
+        <button
+          type="button"
+          onClick={() => handleScroll('right')}
+          disabled={!canScrollRight}
+          className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all shrink-0 cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed shadow-xs active:scale-95"
+          aria-label="Scroll right"
+          title="Scroll right"
+        >
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
       </div>
 
       {/* Week Title & Toolbar */}
