@@ -1,13 +1,14 @@
 import React from 'react';
 import { WeekMetadata } from '../types/question';
 import { WeekProgressSummary } from '../types/quiz';
-import { Play, Sliders, CheckCircle2, AlertCircle, TrendingUp } from 'lucide-react';
+import { Play, Sliders, CheckCircle2, AlertCircle, TrendingUp, Zap } from 'lucide-react';
 
 interface WeekCardProps {
   metadata: WeekMetadata;
   progress?: WeekProgressSummary;
   onQuickStart: (week: number) => void;
   onConfigure: (week: number) => void;
+  onRapidStart?: (week: number) => void;
 }
 
 export const WeekCard: React.FC<WeekCardProps> = ({
@@ -15,6 +16,7 @@ export const WeekCard: React.FC<WeekCardProps> = ({
   progress,
   onQuickStart,
   onConfigure,
+  onRapidStart,
 }) => {
   const { week, title, totalQuestions, isLoaded } = metadata;
 
@@ -75,6 +77,18 @@ export const WeekCard: React.FC<WeekCardProps> = ({
           <Play className="w-3.5 h-3.5 fill-current" />
           Practice Week
         </button>
+
+        {onRapidStart && (
+          <button
+            onClick={() => onRapidStart(week)}
+            disabled={!isLoaded}
+            title={`Start Rapid Quiz for Lab ${week}`}
+            className="p-2 rounded-lg border border-amber-300 dark:border-amber-700/60 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
+            aria-label={`Rapid Quiz for Week ${week}`}
+          >
+            <Zap className="w-4 h-4 fill-current" />
+          </button>
+        )}
 
         <button
           onClick={() => onConfigure(week)}

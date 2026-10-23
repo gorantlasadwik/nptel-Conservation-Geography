@@ -10,6 +10,7 @@ import { ResultSummary } from './components/ResultSummary';
 import { ReviewPage } from './pages/ReviewPage';
 import { HistoryPage } from './pages/HistoryPage';
 import { QuizSetupModal } from './pages/QuizSetupModal';
+import { RapidLabSelectModal } from './components/RapidLabSelectModal';
 
 import {
   getAllWeeks,
@@ -44,6 +45,7 @@ export function App() {
   const [isSetupModalOpen, setIsSetupModalOpen] = useState<boolean>(false);
   const [setupInitialWeeks, setSetupInitialWeeks] = useState<number[]>([1]);
   const [setupInitialMode, setSetupInitialMode] = useState<QuizMode>('practice');
+  const [isRapidLabModalOpen, setIsRapidLabModalOpen] = useState<boolean>(false);
 
   // Stored state
   const [recentResults, setRecentResults] = useState<QuizResult[]>(getRecentResults);
@@ -88,20 +90,38 @@ export function App() {
     setCurrentView('quiz');
   }, []);
 
-  // Quick Start Rapid Fire Quiz
-  const handleStartRapidQuiz = useCallback((week?: number) => {
-    const targetWeeks = week !== undefined ? [week] : [1];
+  // Quick Start Rapid Fire Quiz (asks which lab if not pre-specified)
+  const handleStartRapidQuiz = useCallback((week?: number | 'all') => {
+    if (week === undefined) {
+      setIsRapidLabModalOpen(true);
+      return;
+    }
+
+    let targetWeeks: number[];
+    let targetQuestionCount: number;
+
+    if (week === 'all') {
+      targetWeeks = weeks.filter((w) => w.isLoaded).map((w) => w.week);
+      targetQuestionCount = totalQuestions;
+    } else {
+      targetWeeks = [week];
+      const matchWeek = weeks.find((w) => w.week === week);
+      targetQuestionCount = matchWeek ? matchWeek.totalQuestions : 10;
+    }
+
     const config: QuizConfig = {
       selectedWeeks: targetWeeks,
-      questionCount: 10,
+      questionCount: targetQuestionCount,
       shuffleQuestions: true,
       shuffleOptions: true,
       mode: 'rapid',
       timerType: 'stopwatch',
-      countdownMinutes: 15,
+      countdownMinutes: Math.max(10, Math.ceil(targetQuestionCount * 1.5)),
     };
+
+    setIsRapidLabModalOpen(false);
     handleStartQuiz(config);
-  }, [handleStartQuiz]);
+  }, [weeks, totalQuestions, handleStartQuiz]);
 
   // Quick Start single week directly in practice mode
   const handleQuickStartWeek = useCallback((week: number) => {
@@ -334,6 +354,15 @@ export function App() {
         weeks={weeks}
         initialSelectedWeeks={setupInitialWeeks}
         initialMode={setupInitialMode}
+      />
+
+      {/* Rapid Quiz Lab Selection Modal */}
+      <RapidLabSelectModal
+        isOpen={isRapidLabModalOpen}
+        onClose={() => setIsRapidLabModalOpen(false)}
+        onSelectLab={(chosenWeek) => handleStartRapidQuiz(chosenWeek)}
+        weeks={weeks}
+        totalQuestions={totalQuestions}
       />
 
     </div>
