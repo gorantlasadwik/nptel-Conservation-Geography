@@ -92,7 +92,7 @@ export function App() {
   }, []);
 
   // Quick Start Rapid Fire Quiz (asks which lab if not pre-specified)
-  const handleStartRapidQuiz = useCallback((week?: number | 'all') => {
+  const handleStartRapidQuiz = useCallback((week?: number | 'all' | number[]) => {
     if (week === undefined) {
       setIsRapidLabModalOpen(true);
       return;
@@ -104,6 +104,11 @@ export function App() {
     if (week === 'all') {
       targetWeeks = weeks.filter((w) => w.isLoaded).map((w) => w.week);
       targetQuestionCount = totalQuestions;
+    } else if (Array.isArray(week)) {
+      targetWeeks = week;
+      targetQuestionCount = weeks
+        .filter((w) => targetWeeks.includes(w.week) && w.isLoaded)
+        .reduce((sum, w) => sum + w.totalQuestions, 0);
     } else {
       targetWeeks = [week];
       const matchWeek = weeks.find((w) => w.week === week);

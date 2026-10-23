@@ -17,7 +17,7 @@ interface HomePageProps {
   onStartAllWeeks: () => void;
   onStartMockExam: () => void;
   onOpenLearn: () => void;
-  onStartRapidQuiz?: (week?: number | 'all') => void;
+  onStartRapidQuiz?: (week?: number | 'all' | number[]) => void;
   onReviewResult: (result: QuizResult) => void;
 }
 
