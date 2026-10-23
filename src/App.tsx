@@ -28,6 +28,7 @@ import {
   getActiveSession,
   clearActiveSession,
   clearAllPracticeHistory,
+  getFavoriteQuestionIds,
 } from './utils/storage';
 
 export function App() {
@@ -51,6 +52,7 @@ export function App() {
   // Stored state
   const [recentResults, setRecentResults] = useState<QuizResult[]>(getRecentResults);
   const [weekSummaries, setWeekSummaries] = useState<Record<number, WeekProgressSummary>>(getWeekSummaries);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>(getFavoriteQuestionIds);
 
   // Weeks & question metadata
   const weeks = useMemo(() => getAllWeeks(), []);
@@ -173,6 +175,51 @@ export function App() {
     setIsSetupModalOpen(true);
   }, [weeks]);
 
+  // Sync favorites state across the application
+  useEffect(() => {
+    const handleFavsChanged = () => {
+      setFavoriteIds(getFavoriteQuestionIds());
+    };
+    window.addEventListener('nptel_favorites_updated', handleFavsChanged);
+    return () => window.removeEventListener('nptel_favorites_updated', handleFavsChanged);
+  }, []);
+
+  // Quick Start quiz with only favorited questions
+  const handleStartFavoritesQuiz = useCallback((mode: QuizMode = 'practice') => {
+    const favIds = getFavoriteQuestionIds();
+    if (favIds.length === 0) {
+      alert("You don't have any favorite questions saved yet!\n\nClick the ⭐ 'Save Fav' button on any question during quizzes or solution reviews to save challenging questions for targeted revision.");
+      return;
+    }
+
+    const questions = getQuestionsByIds(favIds);
+    if (questions.length === 0) return;
+
+    const distinctWeeks = Array.from(new Set(questions.map((q) => q.week))).sort((a, b) => a - b);
+
+    const config: QuizConfig = {
+      selectedWeeks: distinctWeeks,
+      questionCount: questions.length,
+      shuffleQuestions: true,
+      shuffleOptions: mode === 'rapid',
+      mode: mode,
+      timerType: mode === 'rapid' ? 'stopwatch' : 'none',
+      countdownMinutes: Math.max(10, Math.ceil(questions.length * 1.5)),
+    };
+
+    const prepared = prepareQuizQuestions(
+      questions,
+      config.shuffleQuestions,
+      config.shuffleOptions,
+      config.questionCount
+    );
+
+    setActiveConfig(config);
+    setActiveItems(prepared);
+    setCurrentResult(null);
+    setCurrentView('quiz');
+  }, []);
+
   // Quiz Finished Callback
   const handleQuizFinished = useCallback((result: QuizResult) => {
     setCurrentResult(result);
@@ -257,6 +304,8 @@ export function App() {
               totalQuestions={totalQuestions}
               recentResults={recentResults}
               weekSummaries={weekSummaries}
+              favoriteCount={favoriteIds.length}
+              onStartFavoritesQuiz={handleStartFavoritesQuiz}
               onStartSingleWeek={handleQuickStartWeek}
               onConfigureWeek={handleConfigureWeek}
               onOpenCustomQuiz={() => setCurrentView('custom')}
@@ -370,6 +419,7 @@ export function App() {
         onSelectLab={(chosenWeek) => handleStartRapidQuiz(chosenWeek)}
         weeks={weeks}
         totalQuestions={totalQuestions}
+        weekSummaries={weekSummaries}
       />
 
       {/* Global Data Saver / Meme Audio Notification Toast */}

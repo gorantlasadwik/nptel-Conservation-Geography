@@ -4,13 +4,14 @@ import type { QuizResult, WeekProgressSummary } from '../types/quiz';
 import { WeekCard } from '../components/WeekCard';
 import { COURSE_INFO } from '../utils/questionsLoader';
 import { formatDuration } from '../utils/scoring';
-import { BookOpen, Layers, Zap, Award, Sparkles, ShieldAlert, ArrowRight, GraduationCap, History } from 'lucide-react';
+import { BookOpen, Layers, Zap, Award, Sparkles, ShieldAlert, ArrowRight, GraduationCap, History, Star, Play } from 'lucide-react';
 
 interface HomePageProps {
   weeks: WeekMetadata[];
   totalQuestions: number;
   recentResults: QuizResult[];
   weekSummaries: Record<number, WeekProgressSummary>;
+  favoriteCount?: number;
   onStartSingleWeek: (week: number) => void;
   onConfigureWeek: (week: number) => void;
   onOpenCustomQuiz: () => void;
@@ -18,6 +19,7 @@ interface HomePageProps {
   onStartMockExam: () => void;
   onOpenLearn: () => void;
   onStartRapidQuiz?: (week?: number | 'all' | number[]) => void;
+  onStartFavoritesQuiz?: (mode?: 'practice' | 'rapid') => void;
   onReviewResult: (result: QuizResult) => void;
 }
 
@@ -26,6 +28,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   totalQuestions,
   recentResults,
   weekSummaries,
+  favoriteCount = 0,
   onStartSingleWeek,
   onConfigureWeek,
   onOpenCustomQuiz,
@@ -33,6 +36,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onStartMockExam,
   onOpenLearn,
   onStartRapidQuiz,
+  onStartFavoritesQuiz,
   onReviewResult,
 }) => {
   const loadedWeeksCount = weeks.filter((w) => w.isLoaded).length;
@@ -126,6 +130,18 @@ export const HomePage: React.FC<HomePageProps> = ({
               <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
               <span>Mock Test</span>
             </button>
+
+            {onStartFavoritesQuiz && (
+              <button
+                type="button"
+                onClick={() => onStartFavoritesQuiz('practice')}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700/80 hover:bg-amber-100 text-xs sm:text-sm font-bold shadow-xs active:scale-95 transition-all cursor-pointer"
+                title="Practice your saved favorite questions"
+              >
+                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500 shrink-0" />
+                <span>Favorites ({favoriteCount})</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -231,6 +247,54 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </section>
       )}
+
+      {/* Starred Favorites & Mistake Revision Banner */}
+      <section className="bg-gradient-to-r from-amber-50/90 via-white to-amber-50/50 dark:from-amber-950/20 dark:via-zinc-900 dark:to-zinc-900 border border-amber-300/80 dark:border-amber-800/60 rounded-2xl p-4 sm:p-5 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0">
+              <Star className="w-5 h-5 fill-current" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                  Starred Favorites Revision
+                </h3>
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  {favoriteCount} Saved
+                </span>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                {favoriteCount > 0
+                  ? 'Targeted practice on questions you saved during quizzes to master your weak points.'
+                  : 'Click the ⭐ "Save Fav" button on any question during quizzes or review to collect challenging questions here!'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => onStartFavoritesQuiz && onStartFavoritesQuiz('practice')}
+              disabled={favoriteCount === 0}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white text-xs font-bold shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
+            >
+              <Play className="w-3.5 h-3.5 fill-current" />
+              <span>Practice Favorites</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => onStartFavoritesQuiz && onStartFavoritesQuiz('rapid')}
+              disabled={favoriteCount === 0}
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-zinc-950 text-xs font-bold shadow-sm shadow-amber-500/20 transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
+              title="Rapid quiz on only your favorite questions"
+            >
+              <Zap className="w-3.5 h-3.5 fill-current" />
+              <span>Rapid Favs ⚡</span>
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* 13 Weeks Responsive Grid */}
       <section>

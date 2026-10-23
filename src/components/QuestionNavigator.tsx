@@ -5,25 +5,26 @@ import { isQuestionAnswerCorrect } from '../utils/scoring';
 interface QuestionNavigatorProps {
   items: QuizQuestionItem[];
   currentIndex: number;
+  favoriteIds?: string[];
   onSelectIndex: (index: number) => void;
 }
 
 export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
   items,
   currentIndex,
+  favoriteIds,
   onSelectIndex,
 }) => {
   const answeredCount = items.filter((i) => i.selectedOptionIds.length > 0).length;
   const flaggedCount = items.filter((i) => i.isFlagged).length;
   const unansweredCount = items.length - answeredCount;
 
-  // Track checked status and correctness
-  const hasCheckedFeedback = items.some((i) => i.isAnswerChecked);
+  // Count correctness for all answered questions across all quiz modes
   const correctCount = items.filter(
-    (i) => i.isAnswerChecked && isQuestionAnswerCorrect(i.selectedOptionIds, i.question.correctOptionIds)
+    (i) => i.selectedOptionIds.length > 0 && isQuestionAnswerCorrect(i.selectedOptionIds, i.question.correctOptionIds)
   ).length;
   const wrongCount = items.filter(
-    (i) => i.isAnswerChecked && !isQuestionAnswerCorrect(i.selectedOptionIds, i.question.correctOptionIds)
+    (i) => i.selectedOptionIds.length > 0 && !isQuestionAnswerCorrect(i.selectedOptionIds, i.question.correctOptionIds)
   ).length;
 
   return (
@@ -36,41 +37,24 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
         </h3>
 
         {/* Legend */}
-        {hasCheckedFeedback ? (
-          <div className="grid grid-cols-4 gap-1 text-[11px] font-medium text-zinc-600 dark:text-zinc-400 pb-3 border-b border-zinc-100 dark:border-zinc-800">
-            <div className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-              <span className="truncate">{correctCount} Right</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0" />
-              <span className="truncate">{wrongCount} Wrong</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0" />
-              <span className="truncate">{flaggedCount} Flag</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700 shrink-0" />
-              <span className="truncate">{unansweredCount} Left</span>
-            </div>
+        <div className="grid grid-cols-4 gap-1 text-[11px] font-medium text-zinc-600 dark:text-zinc-400 pb-3 border-b border-zinc-100 dark:border-zinc-800">
+          <div className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
+            <span className="truncate">{correctCount} Right</span>
           </div>
-        ) : (
-          <div className="grid grid-cols-3 gap-2 text-[11px] font-medium text-zinc-600 dark:text-zinc-400 pb-3 border-b border-zinc-100 dark:border-zinc-800">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-              <span>{answeredCount} Done</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0" />
-              <span>{flaggedCount} Flag</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700 shrink-0" />
-              <span>{unansweredCount} Left</span>
-            </div>
+          <div className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0" />
+            <span className="truncate">{wrongCount} Wrong</span>
           </div>
-        )}
+          <div className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0" />
+            <span className="truncate">{flaggedCount} Flag</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700 shrink-0" />
+            <span className="truncate">{unansweredCount} Left</span>
+          </div>
+        </div>
       </div>
 
       {/* Grid of Question Numbers */}
@@ -79,20 +63,18 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
           const isCurrent = idx === currentIndex;
           const isAnswered = item.selectedOptionIds.length > 0;
           const isFlagged = item.isFlagged;
-          const isChecked = item.isAnswerChecked;
-          const isCorrect = isChecked && isQuestionAnswerCorrect(item.selectedOptionIds, item.question.correctOptionIds);
-          const isWrong = isChecked && !isCorrect;
+          const isFavorite = favoriteIds?.includes(item.question.id);
+          const isCorrect = isAnswered && isQuestionAnswerCorrect(item.selectedOptionIds, item.question.correctOptionIds);
+          const isWrong = isAnswered && !isCorrect;
 
           let btnClass = 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-transparent hover:border-zinc-300 dark:hover:border-zinc-600';
 
-          if (isChecked) {
+          if (isAnswered) {
             if (isCorrect) {
               btnClass = 'bg-emerald-500 text-white font-bold shadow-xs';
             } else if (isWrong) {
               btnClass = 'bg-rose-500 text-white font-bold shadow-xs';
             }
-          } else if (isAnswered) {
-            btnClass = 'bg-indigo-600 text-white font-semibold shadow-xs';
           }
 
           if (isCurrent) {
@@ -100,8 +82,11 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
           }
 
           let titleText = `Question ${idx + 1} (Week ${item.question.week})`;
-          if (isChecked) {
+          if (isAnswered) {
             titleText += isCorrect ? ' - Correct' : ' - Incorrect';
+          }
+          if (isFavorite) {
+            titleText += ' - Starred Fav ⭐';
           }
           if (isFlagged) {
             titleText += ' - Flagged';
@@ -116,9 +101,16 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
             >
               <span>{idx + 1}</span>
 
+              {/* Small Star indicator pip for favorites */}
+              {isFavorite && (
+                <span className="absolute -top-1 -left-1 text-[9px] leading-none drop-shadow-xs" aria-label="Favorite">
+                  ⭐
+                </span>
+              )}
+
               {/* Small Flag Indicator pip */}
               {isFlagged && (
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-500 border-2 border-white dark:border-zinc-900 rounded-full" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 border-2 border-white dark:border-zinc-900 rounded-full" />
               )}
             </button>
           );

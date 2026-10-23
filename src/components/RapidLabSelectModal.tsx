@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { WeekMetadata } from '../types/question';
+import type { WeekProgressSummary } from '../types/quiz';
 import { Zap, X, ArrowRight, Check, Play, Sparkles } from 'lucide-react';
 import { getMemeSoundEnabled, setMemeSoundEnabled, subscribeMemeSoundState } from '../utils/sound';
 
@@ -9,6 +10,7 @@ interface RapidLabSelectModalProps {
   onSelectLab: (week: number | 'all' | number[]) => void;
   weeks: WeekMetadata[];
   totalQuestions: number;
+  weekSummaries?: Record<number, WeekProgressSummary>;
 }
 
 export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
@@ -17,6 +19,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
   onSelectLab,
   weeks,
   totalQuestions,
+  weekSummaries,
 }) => {
   // Default selected weeks: Week 1 or Week 0 & 1
   const [selectedWeeks, setSelectedWeeks] = useState<number[]>([1]);
@@ -232,6 +235,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
             {weeks.map((w) => {
               const isDisabled = !w.isLoaded;
               const isSelected = selectedWeeks.includes(w.week);
+              const isDone = Boolean(weekSummaries?.[w.week]?.attemptsCount && weekSummaries[w.week].attemptsCount > 0);
 
               return (
                 <div
@@ -242,6 +246,8 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                       ? 'border-zinc-200 dark:border-zinc-800 opacity-40 cursor-not-allowed'
                       : isSelected
                       ? 'border-amber-500 bg-amber-50/70 dark:bg-amber-950/40 ring-2 ring-amber-500/60 shadow-xs'
+                      : isDone
+                      ? 'border-emerald-300/80 dark:border-emerald-800/70 hover:border-emerald-500/60 bg-emerald-50/15 dark:bg-zinc-900/60'
                       : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 bg-white dark:bg-zinc-900/60'
                   }`}
                 >
@@ -258,7 +264,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5 mb-0.5">
+                      <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
                         <span className={`text-xs font-bold px-2 py-0.5 rounded transition-colors ${
                           isSelected
                             ? 'bg-amber-500 text-zinc-950'
@@ -266,6 +272,12 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                         }`}>
                           Lab {w.week}
                         </span>
+                        {isDone && (
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/80 shrink-0">
+                            <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            <span>Done</span>
+                          </span>
+                        )}
                         <span className="text-[10px] text-zinc-400 font-medium">
                           {w.totalQuestions} Qs
                         </span>

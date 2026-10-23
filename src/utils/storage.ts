@@ -6,6 +6,7 @@ const KEYS = {
   WEEK_SUMMARIES: 'nptel_week_summaries',
   ACTIVE_QUIZ: 'nptel_active_quiz_session',
   SAVED_CONFIG: 'nptel_saved_quiz_config',
+  FAVORITES: 'nptel_favorite_question_ids',
 };
 
 export interface ActiveQuizSession {
@@ -145,3 +146,49 @@ export function clearAllPracticeHistory(): void {
   localStorage.removeItem(KEYS.WEEK_SUMMARIES);
   localStorage.removeItem(KEYS.ACTIVE_QUIZ);
 }
+
+// ----------------------------------------------------------------------
+// Favorite / Bookmarked Questions Storage
+// ----------------------------------------------------------------------
+export function getFavoriteQuestionIds(): string[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(KEYS.FAVORITES);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+export function isQuestionFavorite(questionId: string): boolean {
+  const favs = getFavoriteQuestionIds();
+  return favs.includes(questionId);
+}
+
+export function toggleFavoriteQuestion(questionId: string): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const favs = getFavoriteQuestionIds();
+    let updated: string[];
+    let isNowFav: boolean;
+    if (favs.includes(questionId)) {
+      updated = favs.filter((id) => id !== questionId);
+      isNowFav = false;
+    } else {
+      updated = [...favs, questionId];
+      isNowFav = true;
+    }
+    localStorage.setItem(KEYS.FAVORITES, JSON.stringify(updated));
+    window.dispatchEvent(new Event('nptel_favorites_updated'));
+    return isNowFav;
+  } catch (e) {
+    return false;
+  }
+}
+
+export function clearAllFavorites(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(KEYS.FAVORITES);
+  window.dispatchEvent(new Event('nptel_favorites_updated'));
+}
+

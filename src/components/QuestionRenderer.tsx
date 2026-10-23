@@ -8,7 +8,8 @@ import {
   ArrowRight, 
   HelpCircle, 
   Eye,
-  Send
+  Send,
+  Star
 } from 'lucide-react';
 import { stopAllAudios } from '../utils/sound';
 
@@ -17,6 +18,8 @@ interface QuestionRendererProps {
   currentIndex: number;
   totalQuestions: number;
   mode: QuizMode;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
   onSelectOption: (optionId: string) => void;
   onToggleFlag: () => void;
   onCheckAnswer: () => void;
@@ -30,6 +33,8 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   currentIndex,
   totalQuestions,
   mode,
+  isFavorite,
+  onToggleFavorite,
   onSelectOption,
   onToggleFlag,
   onCheckAnswer,
@@ -62,23 +67,47 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           )}
         </div>
 
-        {/* Flag / Mark for Review button (Mobile-friendly label) */}
-        <button
-          onClick={onToggleFlag}
-          className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer shrink-0 ${
-            isFlagged
-              ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800'
-              : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-          }`}
-          title="Mark for review (Shortcut: F)"
-        >
-          <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
-          <span className="hidden sm:inline">{isFlagged ? 'Flagged' : 'Mark for Review'}</span>
-          <span className="sm:hidden">{isFlagged ? 'Flagged' : 'Flag'}</span>
-          <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-200 dark:bg-zinc-700 rounded text-[10px] text-zinc-600 dark:text-zinc-400">
-            F
-          </kbd>
-        </button>
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Favorite / Star button for saving mistake questions */}
+          {onToggleFavorite && (
+            <button
+              type="button"
+              onClick={onToggleFavorite}
+              className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                isFavorite
+                  ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-xs'
+                  : 'text-zinc-500 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 border border-transparent'
+              }`}
+              title={isFavorite ? 'Remove from Favorites (Shortcut: S)' : 'Save to Favorites for mistakes revision (Shortcut: S)'}
+            >
+              <Star className={`w-3.5 h-3.5 ${isFavorite ? 'fill-amber-500 text-amber-500' : ''}`} />
+              <span className="hidden sm:inline">{isFavorite ? 'Saved Fav' : 'Save Fav'}</span>
+              <span className="sm:hidden">{isFavorite ? 'Saved' : 'Fav'}</span>
+              <kbd className="hidden sm:inline-block ml-0.5 px-1 py-0.2 bg-zinc-200 dark:bg-zinc-700 rounded text-[10px] text-zinc-600 dark:text-zinc-400">
+                S
+              </kbd>
+            </button>
+          )}
+
+          {/* Flag / Mark for Review button (Mobile-friendly label) */}
+          <button
+            type="button"
+            onClick={onToggleFlag}
+            className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+              isFlagged
+                ? 'bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800'
+                : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-transparent'
+            }`}
+            title="Mark for review (Shortcut: F)"
+          >
+            <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current text-purple-600' : ''}`} />
+            <span className="hidden sm:inline">{isFlagged ? 'Flagged' : 'Mark for Review'}</span>
+            <span className="sm:hidden">{isFlagged ? 'Flagged' : 'Flag'}</span>
+            <kbd className="hidden sm:inline-block ml-1 px-1 py-0.2 bg-zinc-200 dark:bg-zinc-700 rounded text-[10px] text-zinc-600 dark:text-zinc-400">
+              F
+            </kbd>
+          </button>
+        </div>
       </div>
 
       {/* Question Text */}

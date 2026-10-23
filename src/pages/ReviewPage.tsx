@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { QuizResult, QuestionReviewItem } from '../types/quiz';
-import { CheckCircle2, XCircle, AlertCircle, Flag, ArrowLeft, RotateCcw, Filter, BookOpen } from 'lucide-react';
+import { CheckCircle2, XCircle, AlertCircle, Flag, ArrowLeft, RotateCcw, Filter, BookOpen, Star } from 'lucide-react';
+import { getFavoriteQuestionIds, toggleFavoriteQuestion } from '../utils/storage';
 
 interface ReviewPageProps {
   result: QuizResult;
@@ -18,7 +19,13 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
   onReturnHome,
 }) => {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [favorites, setFavorites] = useState<string[]>(getFavoriteQuestionIds);
   const { questions, incorrectCount } = result;
+
+  const handleToggleFavorite = (questionId: string) => {
+    toggleFavoriteQuestion(questionId);
+    setFavorites(getFavoriteQuestionIds());
+  };
 
   const filteredQuestions = questions.filter((q) => {
     if (activeFilter === 'correct') return q.isCorrect;
@@ -194,9 +201,24 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                     )}
                   </div>
 
-                  <span className="text-[11px] text-zinc-400">
-                    Source: {q.source}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleToggleFavorite(q.questionId)}
+                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                        favorites.includes(q.questionId)
+                          ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-xs'
+                          : 'text-zinc-500 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 border border-transparent'
+                      }`}
+                      title={favorites.includes(q.questionId) ? 'Saved to Favorites' : 'Add to Favorites for targeted revision'}
+                    >
+                      <Star className={`w-3.5 h-3.5 ${favorites.includes(q.questionId) ? 'fill-amber-500 text-amber-500' : ''}`} />
+                      <span>{favorites.includes(q.questionId) ? 'Saved' : 'Save Fav'}</span>
+                    </button>
+                    <span className="text-[11px] text-zinc-400">
+                      Source: {q.source}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Question Text */}

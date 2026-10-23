@@ -7,7 +7,14 @@ import { SubmitConfirmModal } from '../components/SubmitConfirmModal';
 import { ExitConfirmModal } from '../components/ExitConfirmModal';
 import { useTimer } from '../hooks/useTimer';
 import { calculateQuizResult, isQuestionAnswerCorrect } from '../utils/scoring';
-import { saveQuizResult, saveActiveSession, clearActiveSession, getActiveSession } from '../utils/storage';
+import { 
+  saveQuizResult, 
+  saveActiveSession, 
+  clearActiveSession, 
+  getActiveSession,
+  getFavoriteQuestionIds,
+  toggleFavoriteQuestion
+} from '../utils/storage';
 import { 
   playCorrectAnswerSound,
   playWrongAnswerSound,
@@ -59,6 +66,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isSoundOn, setIsSoundOn] = useState<boolean>(getSoundEnabled);
   const [isMemeSoundOn, setIsMemeSoundOn] = useState<boolean>(getMemeSoundEnabled);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>(getFavoriteQuestionIds);
   const isSubmittingRef = useRef<boolean>(false);
 
   // Subscribe to external sound state updates
@@ -202,10 +210,39 @@ export const QuizPage: React.FC<QuizPageProps> = ({
       return;
     }
 
+    const isMultiple = current.question.type === 'multiple';
+
+    if (config.mode === 'practice' && !isMultiple) {
+      // In Practice mode, single choice options immediately highlight green/red and play audio
+      stopAllAudios();
+
+      const updatedSelected = [optionId];
+      const isCorrect = isQuestionAnswerCorrect(
+        updatedSelected,
+        current.question.correctOptionIds
+      );
+
+      if (isCorrect) {
+        playCorrectAnswerSound();
+      } else {
+        playWrongAnswerSound();
+      }
+
+      setItems((prevItems) => {
+        const copy = [...prevItems];
+        copy[currentIndex] = {
+          ...copy[currentIndex],
+          selectedOptionIds: updatedSelected,
+          isAnswerChecked: true,
+        };
+        return copy;
+      });
+      return;
+    }
+
     setItems((prevItems) => {
       const copy = [...prevItems];
       const curr = copy[currentIndex];
-      const isMultiple = curr.question.type === 'multiple';
 
       let updatedSelected: string[];
       if (isMultiple) {
@@ -239,6 +276,14 @@ export const QuizPage: React.FC<QuizPageProps> = ({
       return copy;
     });
   }, [currentIndex]);
+
+  // Toggle favorite / starred status for mistakes & targeted revision
+  const handleToggleFavorite = useCallback(() => {
+    const current = items[currentIndex];
+    if (!current) return;
+    toggleFavoriteQuestion(current.question.id);
+    setFavoriteIds(getFavoriteQuestionIds());
+  }, [currentIndex, items]);
 
   // Check answer for current question in Practice Mode
   const handleCheckAnswer = useCallback(() => {
@@ -313,6 +358,9 @@ export const QuizPage: React.FC<QuizPageProps> = ({
       } else if (e.key.toLowerCase() === 'f') {
         e.preventDefault();
         handleToggleFlag();
+      } else if (e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        handleToggleFavorite();
       } else {
         // Option selection keys: A, B, C, D (or 1, 2, 3, 4)
         const keyUpper = e.key.toUpperCase();
@@ -337,7 +385,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentIndex, items, handleNext, handlePrev, handleToggleFlag, handleSelectOption]);
+  }, [currentIndex, items, handleNext, handlePrev, handleToggleFlag, handleToggleFavorite, handleSelectOption]);
 
   const currentItem = items[currentIndex];
   const answeredCount = items.filter((i) => i.selectedOptionIds.length > 0).length;
@@ -387,6 +435,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
                 currentIndex={currentIndex}
                 totalQuestions={items.length}
                 mode={config.mode}
+                isFavorite={favoriteIds.includes(currentItem.question.id)}
+                onToggleFavorite={handleToggleFavorite}
                 onSelectOption={handleSelectOption}
                 onToggleFlag={handleToggleFlag}
                 onCheckAnswer={handleCheckAnswer}
@@ -402,6 +452,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
             <QuestionNavigator
               items={items}
               currentIndex={currentIndex}
+              favoriteIds={favoriteIds}
               onSelectIndex={handleSelectQuestionIndex}
             />
           </div>
@@ -435,6 +486,7 @@ export const QuizPage: React.FC<QuizPageProps> = ({
             <QuestionNavigator
               items={items}
               currentIndex={currentIndex}
+              favoriteIds={favoriteIds}
               onSelectIndex={handleSelectQuestionIndex}
             />
           </div>
