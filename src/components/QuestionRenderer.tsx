@@ -10,7 +10,6 @@ import {
   Eye,
   Send
 } from 'lucide-react';
-import { isQuestionAnswerCorrect } from '../utils/scoring';
 import { stopAllAudios } from '../utils/sound';
 
 interface QuestionRendererProps {
@@ -43,7 +42,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
 
   // Evaluate correctness in Practice or Rapid Mode once checked
   const isChecked = (mode === 'practice' || mode === 'rapid') && isAnswerChecked;
-  const isUserCorrect = isChecked && isQuestionAnswerCorrect(selectedOptionIds, question.correctOptionIds);
 
   return (
     <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-sm transition-all">
@@ -175,71 +173,6 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           );
         })}
       </div>
-
-      {/* Feedback Banner (Practice & Rapid Modes) */}
-      {isChecked && (
-        <div className={`p-4 sm:p-5 rounded-2xl border mb-8 transition-all animate-fade-in ${
-          isUserCorrect
-            ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
-            : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200'
-        }`}>
-          <div className="flex items-start gap-3">
-            {isUserCorrect ? (
-              <div className="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
-            ) : (
-              <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/60 flex items-center justify-center shrink-0 text-rose-600 dark:text-rose-400">
-                <XCircle className="w-5 h-5" />
-              </div>
-            )}
-            <div className="space-y-1.5 text-sm flex-1">
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <p className="font-bold text-base">
-                  {isUserCorrect 
-                    ? (mode === 'rapid' ? '⚡ Correct Answer! (+1 Mark)' : 'Correct Answer!') 
-                    : (mode === 'rapid' ? '⚡ Incorrect Choice!' : 'Incorrect Answer')}
-                </p>
-                {mode === 'rapid' && (
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
-                    ⚡ Instant Reveal
-                  </span>
-                )}
-              </div>
-              
-              <div className="text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm">
-                Correct Answer:{' '}
-                <span className="font-extrabold text-emerald-600 dark:text-emerald-400 underline decoration-2">
-                  Option {question.correctOptionIds.join(', ')}
-                </span>
-                {question.correctOptionIds.length === 1 && (
-                  <span className="ml-1 text-zinc-700 dark:text-zinc-300 font-medium">
-                    — "{displayOptions.find((o) => o.id === question.correctOptionIds[0])?.text}"
-                  </span>
-                )}
-              </div>
-
-              {!isUserCorrect && selectedOptionIds.length > 0 && (
-                <div className="text-xs text-rose-700 dark:text-rose-300">
-                  You selected: <span className="font-semibold line-through">Option {selectedOptionIds.join(', ')}</span>
-                  {selectedOptionIds.length === 1 && (
-                    <span className="ml-1">
-                      — "{displayOptions.find((o) => o.id === selectedOptionIds[0])?.text}"
-                    </span>
-                  )}
-                </div>
-              )}
-
-              {question.explanation && (
-                <div className="mt-2 pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60 text-xs text-zinc-600 dark:text-zinc-400">
-                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">Solution Reference: </span>
-                  {question.explanation}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Navigation Footer */}
       <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 space-y-3 sm:space-y-0">
