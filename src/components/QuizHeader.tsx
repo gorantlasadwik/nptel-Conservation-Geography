@@ -10,7 +10,8 @@ import {
   LayoutGrid, 
   ArrowLeft,
   Volume2,
-  VolumeX
+  VolumeX,
+  Zap
 } from 'lucide-react';
 
 interface QuizHeaderProps {
@@ -78,6 +79,11 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
                   <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 shrink-0">
                     <Sparkles className="w-2.5 h-2.5" />
                     Practice
+                  </span>
+                ) : mode === 'rapid' ? (
+                  <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/60 shrink-0">
+                    <Zap className="w-2.5 h-2.5 fill-current" />
+                    Rapid Quiz
                   </span>
                 ) : (
                   <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/60 shrink-0">

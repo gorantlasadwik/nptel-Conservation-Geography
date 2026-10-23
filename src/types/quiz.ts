@@ -1,6 +1,6 @@
 import { Question, Option } from './question';
 
-export type QuizMode = 'practice' | 'mock';
+export type QuizMode = 'practice' | 'mock' | 'rapid';
 export type TimerType = 'none' | 'stopwatch' | 'countdown';
 
 export interface QuizConfig {

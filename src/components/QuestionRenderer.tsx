@@ -243,6 +243,31 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           </div>
         )}
 
+        {/* Center: Rapid Mode prompt & Sound Mute Toggle */}
+        {mode === 'rapid' && (
+          <div className="w-full sm:w-auto flex items-center justify-center gap-2.5">
+            <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+              {isChecked ? '⚡ Answer checked! Click Next →' : '⚡ Tap any option to reveal & play meme!'}
+            </span>
+
+            {onToggleSound && (
+              <button
+                type="button"
+                onClick={onToggleSound}
+                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                  isSoundOn
+                    ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
+                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={isSoundOn ? 'Sound effects enabled (Click to mute)' : 'Sound effects muted (Click to unmute)'}
+                aria-label="Toggle sound effects in quiz"
+              >
+                {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+              </button>
+            )}
+          </div>
+        )}
+
         {/* Next / Finish Button */}
         <button
           onClick={onNext}

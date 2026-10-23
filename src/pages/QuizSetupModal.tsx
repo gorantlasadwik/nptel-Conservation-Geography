@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { WeekMetadata } from '../types/question';
 import { QuizConfig, QuizMode, TimerType } from '../types/quiz';
-import { Sliders, CheckSquare, Square, Clock, Shuffle, Sparkles, ShieldAlert, X } from 'lucide-react';
+import { Sliders, CheckSquare, Square, Clock, Shuffle, Sparkles, ShieldAlert, Zap, X } from 'lucide-react';
 
 interface QuizSetupModalProps {
   isOpen: boolean;
@@ -117,23 +117,40 @@ export const QuizSetupModal: React.FC<QuizSetupModalProps> = ({
           {/* Section 1: Mode Selection */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2.5">
-              Practice Mode vs Mock Test
+              Select Quiz Mode
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div
                 onClick={() => setMode('practice')}
-                className={`p-4 rounded-2xl border cursor-pointer transition-all ${
+                className={`p-3.5 sm:p-4 rounded-2xl border cursor-pointer transition-all ${
                   mode === 'practice'
                     ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20 ring-1 ring-emerald-500'
                     : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
-                  <Sparkles className="w-4 h-4" />
-                  Practice Mode
+                  <Sparkles className="w-4 h-4 shrink-0" />
+                  <span>Practice Mode</span>
                 </div>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Instant answer check, verified explanations, change responses at any time.
+                <p className="text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Standard mode: check answer button, explanations & change responses anytime.
+                </p>
+              </div>
+
+              <div
+                onClick={() => setMode('rapid')}
+                className={`p-3.5 sm:p-4 rounded-2xl border cursor-pointer transition-all ${
+                  mode === 'rapid'
+                    ? 'border-amber-500 bg-amber-50/50 dark:bg-amber-950/20 ring-1 ring-amber-500'
+                    : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-1 text-amber-600 dark:text-amber-400 font-semibold text-sm">
+                  <Zap className="w-4 h-4 shrink-0 fill-current" />
+                  <span>Rapid Quiz</span>
+                </div>
+                <p className="text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Instant answer reveal & Telugu meme sound the moment you tap any option!
                 </p>
               </div>
 
@@ -142,18 +159,18 @@ export const QuizSetupModal: React.FC<QuizSetupModalProps> = ({
                   setMode('mock');
                   if (timerType === 'none') setTimerType('countdown');
                 }}
-                className={`p-4 rounded-2xl border cursor-pointer transition-all ${
+                className={`p-3.5 sm:p-4 rounded-2xl border cursor-pointer transition-all ${
                   mode === 'mock'
                     ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/20 ring-1 ring-indigo-500'
                     : 'border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1 text-indigo-600 dark:text-indigo-400 font-semibold text-sm">
-                  <ShieldAlert className="w-4 h-4" />
-                  Mock Test Mode
+                  <ShieldAlert className="w-4 h-4 shrink-0" />
+                  <span>Mock Test</span>
                 </div>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Exam environment, answers hidden until final submission, optional countdown timer.
+                <p className="text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Exam environment: all answers hidden until final submit, timed simulation.
                 </p>
               </div>
             </div>

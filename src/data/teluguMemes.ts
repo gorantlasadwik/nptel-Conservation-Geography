@@ -353,3 +353,58 @@ export function getRandomMemeFromTier(tier: MemeTier, excludeId?: string): Telug
   }
   return pool[Math.floor(Math.random() * pool.length)];
 }
+
+/**
+ * Categorized audio pool for Correct Answers (Praise, elevation & celebration)
+ */
+export const CORRECT_ANSWER_MEME_FILES: string[] = [
+  'NOICE_BASE64', // embedded noice
+  'wow-enti-me-andham.mp3',
+  'hi-boys-pandago.mp3',
+  'enjoy-pandago.mp3',
+  'aatagade.mp3',
+  'flash-man.mp3',
+  'thalapathy.mp3',
+  'manchodivi-anna.mp3',
+  'nijamga-chepthunna.mp3',
+  'indhuvadana.mp3',
+  'mellaga-karagani.mp3',
+  'namaskaram.mp3',
+  'chinna-sekalu.mp3',
+];
+
+/**
+ * Categorized audio pool for Wrong Answers (Roasts, comedy warnings & despair)
+ */
+export const WRONG_ANSWER_MEME_FILES: string[] = [
+  'FAHH_BASE64', // embedded fahh
+  'chi-waste-bathuku.mp3',
+  'good-lkg.mp3',
+  'dhukkam-vasthundha.mp3',
+  'gorrelu.mp3',
+  'sairam.mp3',
+  'sairam-sairam.mp3',
+  'address-pettu.mp3',
+  'gudiseti.mp3',
+  'erripuko.mp3',
+  'omae-wa-mou.mp3',
+  'podhunne-legandra.mp3',
+  'intlo-padukovadam.mp3',
+  'style-unnav.mp3',
+  'leendi-saar.mp3',
+  'ma-atta-intlo.mp3',
+  'daddy-ra-daddy.mp3',
+  'nela-chesadu.mp3',
+  'enni-ra-pampichedi.mp3',
+  'puvvu-purugu.mp3',
+];
+
+export function getRandomCorrectMemeFile(): string {
+  const idx = Math.floor(Math.random() * CORRECT_ANSWER_MEME_FILES.length);
+  return CORRECT_ANSWER_MEME_FILES[idx];
+}
+
+export function getRandomWrongMemeFile(): string {
+  const idx = Math.floor(Math.random() * WRONG_ANSWER_MEME_FILES.length);
+  return WRONG_ANSWER_MEME_FILES[idx];
+}

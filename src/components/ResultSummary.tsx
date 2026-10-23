@@ -128,20 +128,32 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
             Quiz Completed
           </div>
 
-          {/* Sound Toggle Button */}
-          <button
-            type="button"
-            onClick={toggleSound}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
-              soundOn
-                ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300'
-                : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400'
-            }`}
-            title={soundOn ? 'Sound effects enabled (Click to mute)' : 'Sound muted (Click to unmute)'}
-          >
-            {soundOn ? <Volume2 className="w-3.5 h-3.5 text-emerald-500" /> : <VolumeX className="w-3.5 h-3.5" />}
-            <span className="hidden sm:inline">{soundOn ? 'Sound ON' : 'Muted'}</span>
-          </button>
+          {/* Sound Controls (Neutral replay + mute toggle without exposing song name) */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleReplayReaction}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-zinc-200 dark:border-zinc-700 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all cursor-pointer active:scale-95"
+              title="Replay audio"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Replay Audio</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleSound}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+                soundOn
+                  ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300'
+                  : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400'
+              }`}
+              title={soundOn ? 'Sound effects enabled (Click to mute)' : 'Sound muted (Click to unmute)'}
+            >
+              {soundOn ? <Volume2 className="w-3.5 h-3.5 text-emerald-500" /> : <VolumeX className="w-3.5 h-3.5" />}
+              <span className="hidden sm:inline">{soundOn ? 'Sound ON' : 'Muted'}</span>
+            </button>
+          </div>
         </div>
 
         <h1 className="text-2xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight mb-2">
@@ -156,100 +168,6 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto mb-6">
           Here is the comprehensive evaluation of your session. Review solutions or retry mistakes to master the material.
         </p>
-
-        {/* Reaction Audio Banner */}
-        {isPerfectScore ? (
-          /* ONLY 100% Score: Rebel Saab - The Raja Saab Banner */
-          <div className="max-w-lg mx-auto mb-8 p-4 rounded-2xl border bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-indigo-500/15 dark:from-amber-950/40 dark:via-purple-950/40 dark:to-indigo-950/40 border-amber-400 dark:border-amber-600/80 text-amber-950 dark:text-amber-100 shadow-md ring-1 ring-amber-400/30 flex items-center justify-between gap-3 text-left">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl sm:text-4xl">👑</span>
-              <div>
-                <div className="text-xs sm:text-sm font-black uppercase tracking-wide flex items-center gap-1.5 flex-wrap">
-                  <span>REBEL SAAB - THE RAJA SAAB!</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-900 dark:text-amber-200">
-                    100% PERFECT
-                  </span>
-                </div>
-                <p className="text-xs opacity-90 font-medium">
-                  Legendary King-Level Performance! Flawless accuracy!
-                </p>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleReplayReaction}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white shadow-xs transition-all shrink-0 cursor-pointer active:scale-95"
-              title="Replay Rebel Saab audio"
-            >
-              <Play className="w-3 h-3 fill-current" />
-              <span>Replay</span>
-            </button>
-          </div>
-        ) : currentMeme ? (
-          /* Rest all (< 100%): Telugu Meme Audio Reaction Banner */
-          <div className={`max-w-lg mx-auto mb-8 p-4 rounded-2xl border transition-all text-left shadow-sm ${
-            currentMeme.tier === 'super_praise'
-              ? 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-emerald-300 dark:border-emerald-800/80 text-emerald-950 dark:text-emerald-100'
-              : currentMeme.tier === 'good_effort'
-              ? 'bg-gradient-to-r from-sky-50 to-indigo-50 dark:from-sky-950/40 dark:to-indigo-950/40 border-sky-300 dark:border-sky-800/80 text-sky-950 dark:text-sky-100'
-              : currentMeme.tier === 'warning_wakeup'
-              ? 'bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40 border-amber-300 dark:border-amber-800/80 text-amber-950 dark:text-amber-100'
-              : 'bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-950/40 dark:to-pink-950/40 border-rose-300 dark:border-rose-800/80 text-rose-950 dark:text-rose-100'
-          }`}>
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-start gap-3">
-                <span className="text-3xl sm:text-4xl shrink-0 leading-none mt-1">
-                  {currentMeme.emoji}
-                </span>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-sm sm:text-base font-black tracking-tight">
-                      {currentMeme.title}
-                    </h3>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 uppercase">
-                      {currentMeme.tier === 'super_praise'
-                        ? 'Praise (80-99%)'
-                        : currentMeme.tier === 'good_effort'
-                        ? 'Decent (65-79%)'
-                        : currentMeme.tier === 'warning_wakeup'
-                        ? 'Study Call (45-64%)'
-                        : 'Savage Roast (<45%)'}
-                    </span>
-                  </div>
-                  <p className="text-xs font-semibold opacity-90">
-                    "{currentMeme.translit}"
-                  </p>
-                  <p className="text-[11px] opacity-75 leading-relaxed">
-                    {currentMeme.meaning}
-                  </p>
-                </div>
-              </div>
-
-              {/* Actions: Replay & Shuffle another Telugu meme in this tier */}
-              <div className="flex flex-col sm:flex-row items-center gap-1.5 shrink-0">
-                <button
-                  type="button"
-                  onClick={handleReplayReaction}
-                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-white/80 hover:bg-white dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 shadow-xs transition-all cursor-pointer active:scale-95"
-                  title="Replay this Telugu meme"
-                >
-                  <Play className="w-3 h-3 fill-current" />
-                  <span className="hidden sm:inline">Play</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={handleShuffleMeme}
-                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-all cursor-pointer active:scale-95"
-                  title="Hear another Telugu meme for this score tier"
-                >
-                  <Shuffle className="w-3 h-3" />
-                  <span className="hidden sm:inline">More Memes</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : null}
 
         {/* Big Score / Accuracy Metric */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-2 sm:py-4">

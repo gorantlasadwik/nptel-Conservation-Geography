@@ -88,6 +88,21 @@ export function App() {
     setCurrentView('quiz');
   }, []);
 
+  // Quick Start Rapid Fire Quiz
+  const handleStartRapidQuiz = useCallback((week?: number) => {
+    const targetWeeks = week !== undefined ? [week] : [1];
+    const config: QuizConfig = {
+      selectedWeeks: targetWeeks,
+      questionCount: 10,
+      shuffleQuestions: true,
+      shuffleOptions: true,
+      mode: 'rapid',
+      timerType: 'stopwatch',
+      countdownMinutes: 15,
+    };
+    handleStartQuiz(config);
+  }, [handleStartQuiz]);
+
   // Quick Start single week directly in practice mode
   const handleQuickStartWeek = useCallback((week: number) => {
     const config: QuizConfig = {
@@ -221,6 +236,7 @@ export function App() {
               onOpenCustomQuiz={() => setCurrentView('custom')}
               onStartAllWeeks={handleStartAllWeeks}
               onStartMockExam={handleStartMockExam}
+              onStartRapidQuiz={handleStartRapidQuiz}
               onOpenLearn={() => setCurrentView('learn')}
               onReviewResult={(res) => {
                 setCurrentResult(res);

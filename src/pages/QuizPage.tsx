@@ -9,6 +9,8 @@ import { useTimer } from '../hooks/useTimer';
 import { calculateQuizResult, isQuestionAnswerCorrect } from '../utils/scoring';
 import { saveQuizResult, saveActiveSession, clearActiveSession, getActiveSession } from '../utils/storage';
 import { 
+  playCorrectAnswerSound,
+  playWrongAnswerSound,
   playFahhSound, 
   playNoiceSound, 
   getSoundEnabled, 
@@ -127,30 +129,60 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Option selection handler
   const handleSelectOption = useCallback((optionId: string) => {
+    const current = items[currentIndex];
+    if (!current) return;
+
+    if (config.mode === 'rapid') {
+      // Rapid Mode: Instant check and meme audio on tap!
+      const updatedSelected = [optionId];
+      const isCorrect = isQuestionAnswerCorrect(
+        updatedSelected,
+        current.question.correctOptionIds
+      );
+
+      // Play corresponding meme audio immediately in user click gesture
+      if (isCorrect) {
+        playCorrectAnswerSound();
+      } else {
+        playWrongAnswerSound();
+      }
+
+      setItems((prevItems) => {
+        const copy = [...prevItems];
+        copy[currentIndex] = {
+          ...copy[currentIndex],
+          selectedOptionIds: updatedSelected,
+          isAnswerChecked: true,
+        };
+        return copy;
+      });
+      return;
+    }
+
     setItems((prevItems) => {
       const copy = [...prevItems];
-      const current = copy[currentIndex];
-      const isMultiple = current.question.type === 'multiple';
+      const curr = copy[currentIndex];
+      const isMultiple = curr.question.type === 'multiple';
 
       let updatedSelected: string[];
       if (isMultiple) {
         // Toggle selection
-        updatedSelected = current.selectedOptionIds.includes(optionId)
-          ? current.selectedOptionIds.filter((id) => id !== optionId)
-          : [...current.selectedOptionIds, optionId];
+        updatedSelected = curr.selectedOptionIds.includes(optionId)
+          ? curr.selectedOptionIds.filter((id) => id !== optionId)
+          : [...curr.selectedOptionIds, optionId];
       } else {
         // Single selection
         updatedSelected = [optionId];
       }
 
       copy[currentIndex] = {
-        ...current,
+        ...curr,
         selectedOptionIds: updatedSelected,
         isAnswerChecked: false,
       };
       return copy;
     });
-  }, [currentIndex]);
+  }, [currentIndex, items, config.mode]);
 
   // Toggle flag / mark for review
   const handleToggleFlag = useCallback(() => {
@@ -175,11 +207,11 @@ export const QuizPage: React.FC<QuizPageProps> = ({
       current.question.correctOptionIds
     );
 
-    // Directly trigger audio playback in response to user click
+    // Directly trigger audio playback from meme pools in response to user click
     if (!isCorrect) {
-      playFahhSound();
+      playWrongAnswerSound();
     } else {
-      playNoiceSound();
+      playCorrectAnswerSound();
     }
 
     setItems((prevItems) => {

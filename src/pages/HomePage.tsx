@@ -17,6 +17,7 @@ interface HomePageProps {
   onStartAllWeeks: () => void;
   onStartMockExam: () => void;
   onOpenLearn: () => void;
+  onStartRapidQuiz?: (week?: number) => void;
   onReviewResult: (result: QuizResult) => void;
 }
 
@@ -31,6 +32,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onStartAllWeeks,
   onStartMockExam,
   onOpenLearn,
+  onStartRapidQuiz,
   onReviewResult,
 }) => {
   const loadedWeeksCount = weeks.filter((w) => w.isLoaded).length;
@@ -76,6 +78,18 @@ export const HomePage: React.FC<HomePageProps> = ({
               <GraduationCap className="w-4 h-4 shrink-0" />
               <span>Direct Learn Mode</span>
             </button>
+
+            {onStartRapidQuiz && (
+              <button
+                type="button"
+                onClick={() => onStartRapidQuiz(1)}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-zinc-950 font-bold text-xs sm:text-sm shadow-md shadow-amber-500/20 active:scale-95 transition-all cursor-pointer"
+                title="Instant feedback & Telugu meme audio the second you tap any answer"
+              >
+                <Zap className="w-3.5 h-3.5 fill-current shrink-0" />
+                <span>Rapid Quiz ⚡</span>
+              </button>
+            )}
 
             <button
               type="button"

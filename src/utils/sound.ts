@@ -42,7 +42,11 @@ export function subscribeSoundState(listener: SoundListener): () => void {
 
 // Pre-instantiated audio elements with embedded base64 data for instantaneous latency-free playback
 import type { TeluguMeme } from '../data/teluguMemes';
-import { getMemeAudioUrl } from '../data/teluguMemes';
+import { 
+  getMemeAudioUrl, 
+  getRandomCorrectMemeFile, 
+  getRandomWrongMemeFile 
+} from '../data/teluguMemes';
 
 let fahhAudio: HTMLAudioElement | null = null;
 let noiceAudio: HTMLAudioElement | null = null;
@@ -153,6 +157,59 @@ export function playTeluguMemeSound(meme: TeluguMeme): Promise<void> {
     console.warn('Telugu meme audio error:', err);
   }
   return Promise.resolve();
+}
+
+/**
+ * Plays a raw audio file from the public meme directory
+ */
+export function playMemeFileSound(cleanName: string): Promise<void> {
+  if (!getSoundEnabled() || typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+
+  try {
+    stopAllAudios();
+    const url = getMemeAudioUrl(cleanName);
+    currentMemeAudio = new Audio(url);
+    currentMemeAudio.volume = 0.95;
+    const promise = currentMemeAudio.play();
+    if (promise !== undefined) {
+      return promise.catch((err) => {
+        console.warn('Meme audio play prevented:', err);
+      });
+    }
+  } catch (err) {
+    console.warn('Meme audio error:', err);
+  }
+  return Promise.resolve();
+}
+
+/**
+ * Plays a random celebratory Telugu meme / noice for Correct Answers
+ */
+export function playCorrectAnswerSound(): Promise<void> {
+  if (!getSoundEnabled() || typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+  const file = getRandomCorrectMemeFile();
+  if (file === 'NOICE_BASE64') {
+    return playNoiceSound();
+  }
+  return playMemeFileSound(file);
+}
+
+/**
+ * Plays a random savage roast Telugu meme / fahh for Wrong Answers
+ */
+export function playWrongAnswerSound(): Promise<void> {
+  if (!getSoundEnabled() || typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+  const file = getRandomWrongMemeFile();
+  if (file === 'FAHH_BASE64') {
+    return playFahhSound();
+  }
+  return playMemeFileSound(file);
 }
 
 /**
