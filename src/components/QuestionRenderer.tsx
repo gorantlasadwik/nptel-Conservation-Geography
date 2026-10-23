@@ -1,6 +1,16 @@
 import React from 'react';
 import { QuizQuestionItem, QuizMode } from '../types/quiz';
-import { Flag, CheckCircle2, XCircle, ArrowLeft, ArrowRight, HelpCircle, Eye } from 'lucide-react';
+import { 
+  Flag, 
+  CheckCircle2, 
+  XCircle, 
+  ArrowLeft, 
+  ArrowRight, 
+  HelpCircle, 
+  Eye,
+  Volume2,
+  VolumeX 
+} from 'lucide-react';
 import { isQuestionAnswerCorrect } from '../utils/scoring';
 
 interface QuestionRendererProps {
@@ -8,6 +18,8 @@ interface QuestionRendererProps {
   currentIndex: number;
   totalQuestions: number;
   mode: QuizMode;
+  isSoundOn?: boolean;
+  onToggleSound?: () => void;
   onSelectOption: (optionId: string) => void;
   onToggleFlag: () => void;
   onCheckAnswer: () => void;
@@ -20,6 +32,8 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   currentIndex,
   totalQuestions,
   mode,
+  isSoundOn,
+  onToggleSound,
   onSelectOption,
   onToggleFlag,
   onCheckAnswer,
@@ -195,20 +209,38 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
           </kbd>
         </button>
 
-        {/* Center: Check Answer button in Practice Mode */}
+        {/* Center: Check Answer button & Sound Mute Toggle in Practice Mode */}
         {mode === 'practice' && (
-          <button
-            onClick={onCheckAnswer}
-            disabled={selectedOptionIds.length === 0}
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-              isChecked
-                ? 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
-                : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 active:scale-95'
-            } disabled:opacity-40 disabled:cursor-not-allowed`}
-          >
-            <Eye className="w-4 h-4" />
-            <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
-          </button>
+          <div className="w-full sm:w-auto flex items-center justify-center gap-2">
+            <button
+              onClick={onCheckAnswer}
+              disabled={selectedOptionIds.length === 0}
+              className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                isChecked
+                  ? 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 active:scale-95'
+              } disabled:opacity-40 disabled:cursor-not-allowed`}
+            >
+              <Eye className="w-4 h-4" />
+              <span>{isChecked ? 'Re-check Answer' : 'Check Answer'}</span>
+            </button>
+
+            {onToggleSound && (
+              <button
+                type="button"
+                onClick={onToggleSound}
+                className={`p-2.5 rounded-xl border text-xs font-medium transition-all cursor-pointer active:scale-95 shrink-0 ${
+                  isSoundOn
+                    ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/40'
+                    : 'border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={isSoundOn ? 'Sound effects enabled (Click to mute)' : 'Sound effects muted (Click to unmute)'}
+                aria-label="Toggle sound effects in quiz"
+              >
+                {isSoundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+              </button>
+            )}
+          </div>
         )}
 
         {/* Next / Finish Button */}

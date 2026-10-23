@@ -8,7 +8,13 @@ import { ExitConfirmModal } from '../components/ExitConfirmModal';
 import { useTimer } from '../hooks/useTimer';
 import { calculateQuizResult, isQuestionAnswerCorrect } from '../utils/scoring';
 import { saveQuizResult, saveActiveSession, clearActiveSession, getActiveSession } from '../utils/storage';
-import { playFahhSound, playNoiceSound } from '../utils/sound';
+import { 
+  playFahhSound, 
+  playNoiceSound, 
+  getSoundEnabled, 
+  setSoundEnabled, 
+  subscribeSoundState 
+} from '../utils/sound';
 import { X } from 'lucide-react';
 
 interface QuizPageProps {
@@ -45,7 +51,21 @@ export const QuizPage: React.FC<QuizPageProps> = ({
   const [isExitModalOpen, setIsExitModalOpen] = useState<boolean>(false);
   const [isNavigatorOpenOnMobile, setIsNavigatorOpenOnMobile] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isSoundOn, setIsSoundOn] = useState<boolean>(getSoundEnabled);
   const isSubmittingRef = useRef<boolean>(false);
+
+  // Subscribe to external sound state updates
+  useEffect(() => {
+    return subscribeSoundState((enabled) => {
+      setIsSoundOn(enabled);
+    });
+  }, []);
+
+  const handleToggleSound = useCallback(() => {
+    const next = !isSoundOn;
+    setIsSoundOn(next);
+    setSoundEnabled(next);
+  }, [isSoundOn]);
 
   // Accurate drift-free timer
   const countdownSeconds = config.timerType === 'countdown' ? config.countdownMinutes * 60 : 0;
@@ -147,27 +167,30 @@ export const QuizPage: React.FC<QuizPageProps> = ({
 
   // Check answer for current question in Practice Mode
   const handleCheckAnswer = useCallback(() => {
+    const current = items[currentIndex];
+    if (!current) return;
+
+    const isCorrect = isQuestionAnswerCorrect(
+      current.selectedOptionIds,
+      current.question.correctOptionIds
+    );
+
+    // Directly trigger audio playback in response to user click
+    if (!isCorrect) {
+      playFahhSound();
+    } else {
+      playNoiceSound();
+    }
+
     setItems((prevItems) => {
       const copy = [...prevItems];
-      const current = copy[currentIndex];
-      const isCorrect = isQuestionAnswerCorrect(
-        current.selectedOptionIds,
-        current.question.correctOptionIds
-      );
-
-      if (!isCorrect) {
-        playFahhSound();
-      } else {
-        playNoiceSound();
-      }
-
       copy[currentIndex] = {
-        ...current,
+        ...copy[currentIndex],
         isAnswerChecked: true,
       };
       return copy;
     });
-  }, [currentIndex]);
+  }, [currentIndex, items]);
 
   // Navigation handlers
   const handleNext = useCallback(() => {
@@ -261,6 +284,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
         totalQuestions={items.length}
         answeredCount={answeredCount}
         flaggedCount={flaggedCount}
+        isSoundOn={isSoundOn}
+        onToggleSound={handleToggleSound}
         isNavigatorOpenOnMobile={isNavigatorOpenOnMobile}
         onToggleNavigatorMobile={() => setIsNavigatorOpenOnMobile((prev) => !prev)}
         onSubmitClick={() => setIsSubmitModalOpen(true)}
@@ -279,6 +304,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
                 currentIndex={currentIndex}
                 totalQuestions={items.length}
                 mode={config.mode}
+                isSoundOn={isSoundOn}
+                onToggleSound={handleToggleSound}
                 onSelectOption={handleSelectOption}
                 onToggleFlag={handleToggleFlag}
                 onCheckAnswer={handleCheckAnswer}

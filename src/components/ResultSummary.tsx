@@ -20,6 +20,7 @@ import {
   getSoundEnabled, 
   setSoundEnabled, 
   playQuizResultAudio, 
+  playRebelSaabSound,
   playNoiceSound, 
   playFahhSound 
 } from '../utils/sound';
@@ -51,18 +52,19 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   } = result;
 
   const [soundOn, setSoundOn] = useState<boolean>(getSoundEnabled);
-  const isHighScorer = accuracy >= 75 || (totalQuestions > 0 && correctCount === totalQuestions);
+  const isSuperScorer = accuracy > 90 || accuracy >= 90;
+  const isHighScorer = !isSuperScorer && (accuracy >= 75 || (totalQuestions > 0 && correctCount === totalQuestions));
 
   // Trigger celebration confetti and audio on mount
   useEffect(() => {
-    // Play celebratory/reaction audio ("noice" if >= 75% else "fahh")
+    // Play celebratory/reaction audio ("Rebel Saab" if > 90%, "noice" if >= 75%, else "fahh")
     playQuizResultAudio(accuracy, totalQuestions, correctCount);
 
     if (accuracy >= 70) {
       try {
         confetti({
-          particleCount: 80,
-          spread: 70,
+          particleCount: accuracy >= 90 ? 120 : 80,
+          spread: accuracy >= 90 ? 90 : 70,
           origin: { y: 0.6 },
         });
       } catch (e) {
@@ -78,7 +80,9 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
   };
 
   const handleReplayReaction = () => {
-    if (isHighScorer) {
+    if (isSuperScorer) {
+      playRebelSaabSound();
+    } else if (isHighScorer) {
       playNoiceSound();
     } else {
       playFahhSound();
@@ -125,22 +129,32 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
         </p>
 
         {/* Meme Audio Reaction Banner */}
-        <div className={`max-w-md mx-auto mb-8 p-3 sm:p-4 rounded-2xl border flex items-center justify-between gap-3 transition-all ${
-          isHighScorer
+        <div className={`max-w-md mx-auto mb-8 p-3.5 sm:p-4 rounded-2xl border flex items-center justify-between gap-3 transition-all ${
+          isSuperScorer
+            ? 'bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-indigo-500/15 dark:from-amber-950/40 dark:via-purple-950/40 dark:to-indigo-950/40 border-amber-400 dark:border-amber-600/80 text-amber-950 dark:text-amber-100 shadow-md ring-1 ring-amber-400/30'
+            : isHighScorer
             ? 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-emerald-300 dark:border-emerald-800/80 text-emerald-900 dark:text-emerald-100 shadow-sm'
             : 'bg-gradient-to-r from-amber-50 to-rose-50 dark:from-amber-950/40 dark:to-rose-950/40 border-amber-300 dark:border-amber-800/80 text-amber-900 dark:text-amber-100 shadow-sm'
         }`}>
           <div className="flex items-center gap-2.5 text-left">
-            <span className="text-2xl">{isHighScorer ? '🔥' : '💨'}</span>
+            <span className="text-2xl sm:text-3xl">
+              {isSuperScorer ? '👑' : isHighScorer ? '🔥' : '💨'}
+            </span>
             <div>
-              <div className="text-xs sm:text-sm font-black uppercase tracking-wide flex items-center gap-1.5">
-                <span>{isHighScorer ? 'NOICE!' : 'FAHHHH!'}</span>
-                <span className="text-[10px] font-normal opacity-80">
-                  {isHighScorer ? '(Score ≥ 75%)' : '(Score < 75%)'}
+              <div className="text-xs sm:text-sm font-black uppercase tracking-wide flex items-center gap-1.5 flex-wrap">
+                <span>
+                  {isSuperScorer ? 'REBEL SAAB - THE RAJA SAAB!' : isHighScorer ? 'NOICE!' : 'FAHHHH!'}
+                </span>
+                <span className="text-[10px] font-normal opacity-85 px-1.5 py-0.2 rounded-full bg-black/5 dark:bg-white/10">
+                  {isSuperScorer ? '(Score > 90%)' : isHighScorer ? '(Score ≥ 75%)' : '(Score < 75%)'}
                 </span>
               </div>
-              <p className="text-[11px] opacity-80">
-                {isHighScorer ? 'Clean sweep! Great accuracy.' : 'Needs a bit more practice!'}
+              <p className="text-[11px] opacity-85">
+                {isSuperScorer
+                  ? 'Legendary King-Level Performance! The Raja Saab!'
+                  : isHighScorer
+                  ? 'Clean sweep! Great accuracy.'
+                  : 'Needs a bit more practice!'}
               </p>
             </div>
           </div>
@@ -148,8 +162,10 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
           <button
             type="button"
             onClick={handleReplayReaction}
-            className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer active:scale-95 ${
-              isHighScorer
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer active:scale-95 ${
+              isSuperScorer
+                ? 'bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white shadow-xs'
+                : isHighScorer
                 ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs'
                 : 'bg-amber-600 hover:bg-amber-700 text-white shadow-xs'
             }`}

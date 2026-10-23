@@ -1,6 +1,17 @@
 import React from 'react';
 import type { QuizMode, TimerType } from '../types/quiz';
-import { Clock, Flag, CheckCircle, Send, Sparkles, ShieldAlert, LayoutGrid, ArrowLeft } from 'lucide-react';
+import { 
+  Clock, 
+  Flag, 
+  CheckCircle, 
+  Send, 
+  Sparkles, 
+  ShieldAlert, 
+  LayoutGrid, 
+  ArrowLeft,
+  Volume2,
+  VolumeX
+} from 'lucide-react';
 
 interface QuizHeaderProps {
   quizTitle: string;
@@ -13,6 +24,8 @@ interface QuizHeaderProps {
   totalQuestions: number;
   answeredCount: number;
   flaggedCount: number;
+  isSoundOn: boolean;
+  onToggleSound: () => void;
   isNavigatorOpenOnMobile: boolean;
   onToggleNavigatorMobile: () => void;
   onSubmitClick: () => void;
@@ -30,6 +43,8 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
   totalQuestions,
   answeredCount,
   flaggedCount,
+  isSoundOn,
+  onToggleSound,
   isNavigatorOpenOnMobile,
   onToggleNavigatorMobile,
   onSubmitClick,
@@ -82,7 +97,7 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
             </div>
           </div>
 
-          {/* Right: Mobile Navigator toggle, Timer, Counters & Submit */}
+          {/* Right: Sound toggle, Mobile Navigator toggle, Timer, Submit */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             
             {/* Answered & Flagged Stats on larger screens */}
@@ -99,11 +114,36 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
               )}
             </div>
 
+            {/* Mute / Unmute Sound Button in Quiz Header */}
+            <button
+              type="button"
+              onClick={onToggleSound}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all cursor-pointer active:scale-95 ${
+                isSoundOn
+                  ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50'
+                  : 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+              }`}
+              title={isSoundOn ? 'Sound effects are ON (Click to mute)' : 'Sound effects are MUTED (Click to unmute)'}
+              aria-label="Toggle mute audio in quiz"
+            >
+              {isSoundOn ? (
+                <>
+                  <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span className="text-[11px] sm:text-xs">Mute</span>
+                </>
+              ) : (
+                <>
+                  <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-400 shrink-0" />
+                  <span className="text-[11px] sm:text-xs">Unmute</span>
+                </>
+              )}
+            </button>
+
             {/* Mobile Navigator Drawer Toggle button */}
             <button
               type="button"
               onClick={onToggleNavigatorMobile}
-              className={`lg:hidden inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-colors cursor-pointer ${
+              className={`lg:hidden inline-flex items-center gap-1 px-2 py-1.5 rounded-lg border text-xs font-semibold transition-colors cursor-pointer ${
                 isNavigatorOpenOnMobile
                   ? 'bg-indigo-600 text-white border-indigo-600'
                   : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700'
