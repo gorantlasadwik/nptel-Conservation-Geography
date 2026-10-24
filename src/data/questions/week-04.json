@@ -432,5 +432,67 @@
     "explanation": "Replacing incandescent bulbs with energy-efficient LED bulbs reduces power demand and greenhouse gas emissions, which is climate change mitigation.",
     "assets": [],
     "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-04-q015",
+    "week": 4,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "Which of these air masses is generally cool and moist?",
+    "options": [
+      {
+        "id": "A",
+        "text": "mP"
+      },
+      {
+        "id": "B",
+        "text": "cP"
+      },
+      {
+        "id": "C",
+        "text": "cT"
+      },
+      {
+        "id": "D",
+        "text": "mT"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Maritime Polar (mP) air masses originate over high-latitude oceans and are characteristically cool and moist/humid.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-04-q016",
+    "week": 4,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "Which of these air masses is generally cold and dry?",
+    "options": [
+      {
+        "id": "A",
+        "text": "mT"
+      },
+      {
+        "id": "B",
+        "text": "cP"
+      },
+      {
+        "id": "C",
+        "text": "cT"
+      },
+      {
+        "id": "D",
+        "text": "mP"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Continental Polar (cP) air masses originate over high-latitude subpolar continental interiors and are characteristically cold and dry.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

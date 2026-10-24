@@ -401,5 +401,222 @@
     "explanation": "William Morris Davis proposed that landform/physiography development is a function of structure, process, and stage of development.",
     "assets": [],
     "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q014",
+    "week": 6,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "In Koeppen classification, which is hot summer temperature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "h"
+      },
+      {
+        "id": "B",
+        "text": "b"
+      },
+      {
+        "id": "C",
+        "text": "k"
+      },
+      {
+        "id": "D",
+        "text": "a"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "In Köppen classification, 'a' represents hot summer where the average temperature of the warmest month is >= 22°C.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q015",
+    "week": 6,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "In Koeppen classification, which is equatorial climate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "B"
+      },
+      {
+        "id": "B",
+        "text": "D"
+      },
+      {
+        "id": "C",
+        "text": "C"
+      },
+      {
+        "id": "D",
+        "text": "A"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Group A represents Tropical / Equatorial megathermal climates where the mean temperature of all twelve months is 18°C or higher.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q016",
+    "week": 6,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "In Koeppen classification, which is cool summer temperature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "F"
+      },
+      {
+        "id": "B",
+        "text": "T"
+      },
+      {
+        "id": "C",
+        "text": "d"
+      },
+      {
+        "id": "D",
+        "text": "c"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "In Köppen classification, 'c' indicates cool summer with 1 to 3 months having mean temperatures >= 10°C.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q017",
+    "week": 6,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "In Koeppen classification, which is winter dry precipitation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "f"
+      },
+      {
+        "id": "B",
+        "text": "s"
+      },
+      {
+        "id": "C",
+        "text": "w"
+      },
+      {
+        "id": "D",
+        "text": "S"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "In Köppen classification, 'w' designates winter dry precipitation (from German 'wintertrocken').",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q018",
+    "week": 6,
+    "originalQuestionNumber": 18,
+    "type": "single",
+    "question": "In Koeppen classification, which is monsoonal precipitation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "S"
+      },
+      {
+        "id": "B",
+        "text": "W"
+      },
+      {
+        "id": "C",
+        "text": "m"
+      },
+      {
+        "id": "D",
+        "text": "s"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "In Köppen classification, 'm' denotes monsoonal precipitation (e.g., Am tropical monsoon climate).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q019",
+    "week": 6,
+    "originalQuestionNumber": 19,
+    "type": "single",
+    "question": "In Koeppen classification, which is cold arid temperature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "h"
+      },
+      {
+        "id": "B",
+        "text": "b"
+      },
+      {
+        "id": "C",
+        "text": "k"
+      },
+      {
+        "id": "D",
+        "text": "a"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "In dry B climates, 'k' represents cold arid climates where the mean annual temperature is below 18°C (from German 'kalt').",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q020",
+    "week": 6,
+    "originalQuestionNumber": 20,
+    "type": "single",
+    "question": "In Koeppen classification, which is desert precipitation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "S"
+      },
+      {
+        "id": "B",
+        "text": "W"
+      },
+      {
+        "id": "C",
+        "text": "f"
+      },
+      {
+        "id": "D",
+        "text": "s"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "In Köppen classification, 'W' designates true desert arid climate (from German 'Wüste').",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

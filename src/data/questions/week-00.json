@@ -401,5 +401,36 @@
     "explanation": "Preservation focuses on setting aside natural areas and species free from human exploitation and interference, whereas conservation allows sustainable use.",
     "assets": [],
     "source": "myquizprep.pages.dev (Conservation Geography Nov 2025 Week 0)"
+  },
+  {
+    "id": "week-00-q014",
+    "week": 0,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Which of these is commonly observed in primitive societies?",
+    "options": [
+      {
+        "id": "A",
+        "text": "environmental determinism"
+      },
+      {
+        "id": "B",
+        "text": "possibilism"
+      },
+      {
+        "id": "C",
+        "text": "stop and go determinism"
+      },
+      {
+        "id": "D",
+        "text": "neodeterminism"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "In primitive human societies with low technological and economic development, human activities were largely dictated and constrained by physical nature, termed environmental determinism.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]
