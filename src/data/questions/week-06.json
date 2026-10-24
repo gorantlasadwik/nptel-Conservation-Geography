@@ -308,5 +308,98 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 6 Solutions.pdf"
+  },
+  {
+    "id": "week-06-q011",
+    "week": 6,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Which of these is the correct sequence of seasons in India?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hot weather season → South-West monsoon season → Cold weather season → Retreating monsoon season"
+      },
+      {
+        "id": "B",
+        "text": "Hot weather season → Retreating monsoon season → South-West monsoon season → Cold weather season"
+      },
+      {
+        "id": "C",
+        "text": "Hot weather season → South-West monsoon season → Retreating monsoon season → Cold weather season"
+      },
+      {
+        "id": "D",
+        "text": "Hot weather season → Cold weather season → South-West monsoon season → Retreating monsoon season"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The four seasons recognized by the IMD in sequence are: Hot weather (Summer) -> South-West monsoon -> Retreating monsoon -> Cold weather (Winter).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q012",
+    "week": 6,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "India's location is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Equatorial in South, Tropical in North"
+      },
+      {
+        "id": "B",
+        "text": "Tropical in South, Sub-tropical in North"
+      },
+      {
+        "id": "C",
+        "text": "Sub-tropical in South, Tropical in North"
+      },
+      {
+        "id": "D",
+        "text": "Tropical in South, Equatorial in North"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "India is divided by the Tropic of Cancer: the southern half lies in the Tropical zone and the northern half in the Sub-tropical zone.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-06-q013",
+    "week": 6,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Physiography is the outcome of",
+    "options": [
+      {
+        "id": "A",
+        "text": "structure"
+      },
+      {
+        "id": "B",
+        "text": "process"
+      },
+      {
+        "id": "C",
+        "text": "stage of development"
+      },
+      {
+        "id": "D",
+        "text": "all of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "William Morris Davis proposed that landform/physiography development is a function of structure, process, and stage of development.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

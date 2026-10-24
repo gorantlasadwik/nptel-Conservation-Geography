@@ -308,5 +308,98 @@
     "explanation": "Correct answer confirmed from official NPTEL answer key.",
     "assets": [],
     "source": "week 0.txt"
+  },
+  {
+    "id": "week-00-q011",
+    "week": 0,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "The movement of lions across the Gir landscape is an example of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "diffusion"
+      },
+      {
+        "id": "B",
+        "text": "secular dispersal"
+      },
+      {
+        "id": "C",
+        "text": "jump dispersal"
+      },
+      {
+        "id": "D",
+        "text": "drifting"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Diffusion is the gradual expansion of a population over hospitable terrain across generations, such as the natural dispersal of Asiatic lions across the Gir landscape.",
+    "assets": [],
+    "source": "myquizprep.pages.dev (Conservation Geography Nov 2025 Week 0)"
+  },
+  {
+    "id": "week-00-q012",
+    "week": 0,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "Which of these is true?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Wildlife conservation is the same as wildlife preservation"
+      },
+      {
+        "id": "B",
+        "text": "Wildlife conservation is the same as wildlife ecology"
+      },
+      {
+        "id": "C",
+        "text": "Wildlife conservation is the same as environmentalism"
+      },
+      {
+        "id": "D",
+        "text": "none of these"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Wildlife conservation, preservation, ecology, and environmentalism have distinct scientific scopes and definitions; they are not identical.",
+    "assets": [],
+    "source": "myquizprep.pages.dev (Conservation Geography Nov 2025 Week 0)"
+  },
+  {
+    "id": "week-00-q013",
+    "week": 0,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "“allowing some places and some creatures to exist without significant human interference” is the definition of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "conservation"
+      },
+      {
+        "id": "B",
+        "text": "preservation"
+      },
+      {
+        "id": "C",
+        "text": "environmentalism"
+      },
+      {
+        "id": "D",
+        "text": "ecology"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Preservation focuses on setting aside natural areas and species free from human exploitation and interference, whereas conservation allows sustainable use.",
+    "assets": [],
+    "source": "myquizprep.pages.dev (Conservation Geography Nov 2025 Week 0)"
   }
 ]

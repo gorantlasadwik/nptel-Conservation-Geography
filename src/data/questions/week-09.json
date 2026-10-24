@@ -308,5 +308,98 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 9 Solutions.pdf"
+  },
+  {
+    "id": "week-09-q011",
+    "week": 9,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Scarcity of food is a",
+    "options": [
+      {
+        "id": "A",
+        "text": "push factor"
+      },
+      {
+        "id": "B",
+        "text": "chemical factor"
+      },
+      {
+        "id": "C",
+        "text": "demographic factor"
+      },
+      {
+        "id": "D",
+        "text": "pull factor"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Push factors drive people away from their home location; food scarcity is a primary push factor.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-09-q012",
+    "week": 9,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "According to Malthusian model",
+    "options": [
+      {
+        "id": "A",
+        "text": "Population grows in arithmetic progression, food supply increases in geometric progression"
+      },
+      {
+        "id": "B",
+        "text": "Population grows in geometric progression, food supply increases in geometric progression"
+      },
+      {
+        "id": "C",
+        "text": "Population grows in geometric progression, food supply increases in arithmetic progression"
+      },
+      {
+        "id": "D",
+        "text": "Population grows in arithmetic progression, food supply increases in arithmetic progression"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Thomas Malthus proposed that human population increases exponentially (geometric progression) while food production increases linearly (arithmetic progression).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-09-q013",
+    "week": 9,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "The book \"An Essay on the Principle of Population\" was written by",
+    "options": [
+      {
+        "id": "A",
+        "text": "Malthus"
+      },
+      {
+        "id": "B",
+        "text": "Darwin"
+      },
+      {
+        "id": "C",
+        "text": "Owens"
+      },
+      {
+        "id": "D",
+        "text": "Spencer"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Thomas Robert Malthus published 'An Essay on the Principle of Population' in 1798.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

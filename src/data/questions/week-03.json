@@ -308,5 +308,222 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 3 Solutions.docx.pdf"
+  },
+  {
+    "id": "week-03-q011",
+    "week": 3,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "white or colourless hard mineral virtually insoluble in water is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "amphiboles"
+      },
+      {
+        "id": "B",
+        "text": "quartz"
+      },
+      {
+        "id": "C",
+        "text": "pyroxene"
+      },
+      {
+        "id": "D",
+        "text": "feldspar"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Quartz is a hard, white or colourless silicate mineral that is virtually insoluble in water.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q012",
+    "week": 3,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "magnesium iron silicate; a primary component of the Earth's upper mantle is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "feldspar"
+      },
+      {
+        "id": "B",
+        "text": "amphiboles"
+      },
+      {
+        "id": "C",
+        "text": "quartz"
+      },
+      {
+        "id": "D",
+        "text": "olivine"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Olivine is a magnesium iron silicate and a primary constituent of Earth's upper mantle.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q013",
+    "week": 3,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "the points where three or more cirques meet is the definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "cirque"
+      },
+      {
+        "id": "B",
+        "text": "horn"
+      },
+      {
+        "id": "C",
+        "text": "arete"
+      },
+      {
+        "id": "D",
+        "text": "hanging valley"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "A horn is a sharp, pyramid-shaped peak formed when three or more cirques erode headward toward a central point.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q014",
+    "week": 3,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Mechanical action of ocean waves is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "none of the above"
+      },
+      {
+        "id": "B",
+        "text": "biological weathering"
+      },
+      {
+        "id": "C",
+        "text": "physical weathering"
+      },
+      {
+        "id": "D",
+        "text": "chemical weathering"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The mechanical/impact action of ocean waves causes physical disintegration without chemical alteration.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q015",
+    "week": 3,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "deep, long and wide troughs or basins with very steep concave to vertically dropping high walls as its head and sides is the definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "hanging valley"
+      },
+      {
+        "id": "B",
+        "text": "arete"
+      },
+      {
+        "id": "C",
+        "text": "horn"
+      },
+      {
+        "id": "D",
+        "text": "cirque"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "A cirque is a deep, bowl-shaped, steep-sided amphitheatre-like depression carved by glacial erosion.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q016",
+    "week": 3,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "smooth oval-shaped ridge-like features comprised of glacial till, gravel and sand arranged parallel to the direction of ice movement is the definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "glacial till"
+      },
+      {
+        "id": "B",
+        "text": "drumlin"
+      },
+      {
+        "id": "C",
+        "text": "outwash deposit"
+      },
+      {
+        "id": "D",
+        "text": "esker"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "A drumlin is an elongated, oval-shaped hill of glacial till streamlined parallel to the direction of ice movement.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-03-q017",
+    "week": 3,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "Dolomite is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "carbonate rock"
+      },
+      {
+        "id": "B",
+        "text": "siliciclastic rock"
+      },
+      {
+        "id": "C",
+        "text": "phosphatic rock"
+      },
+      {
+        "id": "D",
+        "text": "evaporite rock"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Dolomite is a calcium magnesium carbonate rock, belonging to the carbonate sedimentary rock group.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

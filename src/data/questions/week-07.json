@@ -308,5 +308,129 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 7 Solutions.pdf"
+  },
+  {
+    "id": "week-07-q011",
+    "week": 7,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Soil formation is dependent upon",
+    "options": [
+      {
+        "id": "A",
+        "text": "climate"
+      },
+      {
+        "id": "B",
+        "text": "all of the above"
+      },
+      {
+        "id": "C",
+        "text": "vegetation"
+      },
+      {
+        "id": "D",
+        "text": "time"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Soil formation is governed by Dokuchaev-Jenny factors: parent material, climate, relief/topography, organisms/vegetation, and time.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-07-q012",
+    "week": 7,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "Regur is a term for",
+    "options": [
+      {
+        "id": "A",
+        "text": "black cotton soil"
+      },
+      {
+        "id": "B",
+        "text": "saline soil"
+      },
+      {
+        "id": "C",
+        "text": "red and yellow soil"
+      },
+      {
+        "id": "D",
+        "text": "alluvial soil"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Regur is the traditional Indian name for black cotton soil, famous for moisture retention and basaltic origin.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-07-q013",
+    "week": 7,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "In soil profile, C refers to",
+    "options": [
+      {
+        "id": "A",
+        "text": "topsoil layer"
+      },
+      {
+        "id": "B",
+        "text": "organic surface layer"
+      },
+      {
+        "id": "C",
+        "text": "subsoil layer"
+      },
+      {
+        "id": "D",
+        "text": "substratum layer"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "In a standard soil profile, horizon C represents the weathered parent rock (substratum layer) below the subsoil.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-07-q014",
+    "week": 7,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "\"groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups\" is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "biomes"
+      },
+      {
+        "id": "B",
+        "text": "ecosystems"
+      },
+      {
+        "id": "C",
+        "text": "cells"
+      },
+      {
+        "id": "D",
+        "text": "species"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Ernst Mayr's biological species concept defines a species as groups of actually or potentially interbreeding natural populations reproductively isolated from others.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

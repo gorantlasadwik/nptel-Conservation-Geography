@@ -308,5 +308,222 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 2 Solutions.pdf"
+  },
+  {
+    "id": "week-02-q011",
+    "week": 2,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Mount Vesuvius is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Shield volcano"
+      },
+      {
+        "id": "B",
+        "text": "Caldera"
+      },
+      {
+        "id": "C",
+        "text": "Composite volcano"
+      },
+      {
+        "id": "D",
+        "text": "Flood basalt province"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Mount Vesuvius is a classic example of a composite volcano (stratovolcano).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q012",
+    "week": 2,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "Which of these is an example of endogenic process?",
+    "options": [
+      {
+        "id": "A",
+        "text": "mass movement"
+      },
+      {
+        "id": "B",
+        "text": "weathering"
+      },
+      {
+        "id": "C",
+        "text": "folding"
+      },
+      {
+        "id": "D",
+        "text": "erosion"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Folding is caused by tectonic compressive forces inside the Earth and is an endogenic process.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q013",
+    "week": 2,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Which of these is an example of direct source of information about the Earth?",
+    "options": [
+      {
+        "id": "A",
+        "text": "gravity anomaly"
+      },
+      {
+        "id": "B",
+        "text": "volcanic eruption"
+      },
+      {
+        "id": "C",
+        "text": "earthquake"
+      },
+      {
+        "id": "D",
+        "text": "magnetic survey"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Volcanic eruptions provide direct rock and magma samples from the Earth's interior, making it a direct source of information.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q014",
+    "week": 2,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "In an undisturbed sedimentary strata, bottom layers are older than layers above them. This is known as",
+    "options": [
+      {
+        "id": "A",
+        "text": "Principle of superposition"
+      },
+      {
+        "id": "B",
+        "text": "Principle of inclusions"
+      },
+      {
+        "id": "C",
+        "text": "Principle of lateral continuity"
+      },
+      {
+        "id": "D",
+        "text": "Principle of original horizontality"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "The Principle of Superposition states that in undisturbed sedimentary strata, older layers are at the bottom and younger layers are above.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q015",
+    "week": 2,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "Which of these is a gas giant?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Venus"
+      },
+      {
+        "id": "B",
+        "text": "Mercury"
+      },
+      {
+        "id": "C",
+        "text": "Mars"
+      },
+      {
+        "id": "D",
+        "text": "Saturn"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Saturn and Jupiter are gas giant (Jovian) planets, while Mercury, Venus, Earth, and Mars are terrestrial planets.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q016",
+    "week": 2,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "Krakatoa eruption resulted in the formation of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Flood basalt province"
+      },
+      {
+        "id": "B",
+        "text": "Caldera"
+      },
+      {
+        "id": "C",
+        "text": "Shield volcano"
+      },
+      {
+        "id": "D",
+        "text": "Stratovolcano"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The explosive collapse during the 1883 Krakatoa eruption formed a large caldera.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-02-q017",
+    "week": 2,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "Which of these is true about S waves?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They are the first to reach the surface of the Earth"
+      },
+      {
+        "id": "B",
+        "text": "They are longitudinal in nature"
+      },
+      {
+        "id": "C",
+        "text": "They are transverse in nature"
+      },
+      {
+        "id": "D",
+        "text": "They cannot move through solids, liquids and gases"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Secondary (S) waves are shear / transverse waves that cause particles to vibrate perpendicular to the direction of propagation.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

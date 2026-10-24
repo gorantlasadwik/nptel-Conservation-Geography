@@ -308,5 +308,191 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 8 Solutions.pdf"
+  },
+  {
+    "id": "week-08-q011",
+    "week": 8,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Which of these is not a characteristic of pioneer species",
+    "options": [
+      {
+        "id": "A",
+        "text": "ability to grow on bare rocks"
+      },
+      {
+        "id": "B",
+        "text": "ability to tolerate extreme temperatures"
+      },
+      {
+        "id": "C",
+        "text": "short life span"
+      },
+      {
+        "id": "D",
+        "text": "large size"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Pioneer species in early ecological succession are typically small, fast-growing, stress-tolerant organisms, not large in size.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-08-q012",
+    "week": 8,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "People come to Sessa orchid sanctuary in Arunachal Pradesh to witness orchids, which in this context would be classified as",
+    "options": [
+      {
+        "id": "A",
+        "text": "flagship species"
+      },
+      {
+        "id": "B",
+        "text": "extinct species"
+      },
+      {
+        "id": "C",
+        "text": "keystone species"
+      },
+      {
+        "id": "D",
+        "text": "umbrella species"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Flagship species are charismatic species chosen to raise conservation awareness and attract public support, such as orchids in Sessa Sanctuary.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-08-q013",
+    "week": 8,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Fig tree bears fruits in times when animals do not have much access to food. In this context, it would be a good example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "extinct species"
+      },
+      {
+        "id": "B",
+        "text": "least concern species"
+      },
+      {
+        "id": "C",
+        "text": "keystone species"
+      },
+      {
+        "id": "D",
+        "text": "flagship species"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "A keystone species plays a disproportionately large ecological role relative to its abundance; fig trees provide critical food during lean seasons.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-08-q014",
+    "week": 8,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "The tiger has a home range of several square kilometres, regulates the ecosystem through controlling herbivore populations and trophic cascades, and people come to tiger reserves to watch tigers. Thus, the tiger can be called as",
+    "options": [
+      {
+        "id": "A",
+        "text": "flagship species"
+      },
+      {
+        "id": "B",
+        "text": "all of the above"
+      },
+      {
+        "id": "C",
+        "text": "umbrella species"
+      },
+      {
+        "id": "D",
+        "text": "keystone species"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The tiger functions as an umbrella species (large home range), keystone species (top apex predator regulating herbivore populations), and flagship species (conservation icon).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-08-q015",
+    "week": 8,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "Captive breeding is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "ex-situ conservation"
+      },
+      {
+        "id": "B",
+        "text": "in-situ preservation"
+      },
+      {
+        "id": "C",
+        "text": "ex-situ preservation"
+      },
+      {
+        "id": "D",
+        "text": "in-situ conservation"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Captive breeding takes place outside natural wild habitats, making it an ex-situ conservation method.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-08-q016",
+    "week": 8,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "The climax near Tindni village is being controlled by disturbance by cattle. This is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "edaphic climax"
+      },
+      {
+        "id": "B",
+        "text": "disclimax"
+      },
+      {
+        "id": "C",
+        "text": "climatic climax"
+      },
+      {
+        "id": "D",
+        "text": "catastrophic climax"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "A disclimax (disturbance climax) is a stable plant community maintained by ongoing anthropogenic or animal disturbances such as grazing cattle.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

@@ -308,5 +308,129 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 4 Solutions.pdf"
+  },
+  {
+    "id": "week-04-q011",
+    "week": 4,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Which of these is home to the ozone layer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Thermosphere"
+      },
+      {
+        "id": "B",
+        "text": "Stratosphere"
+      },
+      {
+        "id": "C",
+        "text": "Troposphere"
+      },
+      {
+        "id": "D",
+        "text": "Mesosphere"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The ozone layer is concentrated in the stratosphere, absorbing harmful ultraviolet solar radiation.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-04-q012",
+    "week": 4,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "The ISS orbits in which layer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Stratosphere"
+      },
+      {
+        "id": "B",
+        "text": "Thermosphere"
+      },
+      {
+        "id": "C",
+        "text": "Mesosphere"
+      },
+      {
+        "id": "D",
+        "text": "Troposphere"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The International Space Station (ISS) orbits in the thermosphere (around 400 km altitude).",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-04-q013",
+    "week": 4,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Most of the weather phenomena occur in",
+    "options": [
+      {
+        "id": "A",
+        "text": "Thermosphere"
+      },
+      {
+        "id": "B",
+        "text": "Stratosphere"
+      },
+      {
+        "id": "C",
+        "text": "Troposphere"
+      },
+      {
+        "id": "D",
+        "text": "Mesosphere"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Almost all weather phenomena (clouds, storms, precipitation) occur within the troposphere.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-04-q014",
+    "week": 4,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "The government came up with a regulation that incandescent bulbs be replaced by LED bulbs, so that electricity consumption and release of carbon dioxide from power plants is reduced. In the context of climate change, such an action would be called",
+    "options": [
+      {
+        "id": "A",
+        "text": "adaptation"
+      },
+      {
+        "id": "B",
+        "text": "maladaptation"
+      },
+      {
+        "id": "C",
+        "text": "deceleration"
+      },
+      {
+        "id": "D",
+        "text": "mitigation"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Replacing incandescent bulbs with energy-efficient LED bulbs reduces power demand and greenhouse gas emissions, which is climate change mitigation.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

@@ -308,5 +308,129 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 10 Solutions.pdf"
+  },
+  {
+    "id": "week-10-q011",
+    "week": 10,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "“those resources that may be used in the future” is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "reserve resources"
+      },
+      {
+        "id": "B",
+        "text": "actual resources"
+      },
+      {
+        "id": "C",
+        "text": "potential resources"
+      },
+      {
+        "id": "D",
+        "text": "stock resources"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Potential resources are resources that are known to exist and may be utilized in the future as technology develops.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-10-q012",
+    "week": 10,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "“the part of actual resources that can be developed profitably in the future” is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "stock resources"
+      },
+      {
+        "id": "B",
+        "text": "reserve resources"
+      },
+      {
+        "id": "C",
+        "text": "actual resources"
+      },
+      {
+        "id": "D",
+        "text": "potential resources"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Reserve resources are the surveyed portion of actual resources that can be extracted and developed profitably with current technology in the future.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-10-q013",
+    "week": 10,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Which of these is not a consumptive value?",
+    "options": [
+      {
+        "id": "A",
+        "text": "firewood"
+      },
+      {
+        "id": "B",
+        "text": "education"
+      },
+      {
+        "id": "C",
+        "text": "timber"
+      },
+      {
+        "id": "D",
+        "text": "non-timber forest products"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Consumptive use involves harvesting and consuming physical materials (firewood, timber); education is a non-consumptive value.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-10-q014",
+    "week": 10,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "“those resources that are currently being used after surveying, quantification and qualification” is a definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "potential resources"
+      },
+      {
+        "id": "B",
+        "text": "reserve resources"
+      },
+      {
+        "id": "C",
+        "text": "stock resources"
+      },
+      {
+        "id": "D",
+        "text": "actual resources"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Actual resources are resources that have been surveyed, quantified, and are actively being exploited and utilized.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

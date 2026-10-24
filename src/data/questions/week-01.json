@@ -308,5 +308,191 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 1 Solutions.pdf"
+  },
+  {
+    "id": "week-01-q011",
+    "week": 1,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Which of these is a pillar of sustainability",
+    "options": [
+      {
+        "id": "A",
+        "text": "social sustainability"
+      },
+      {
+        "id": "B",
+        "text": "trans-boundary sustainability"
+      },
+      {
+        "id": "C",
+        "text": "agricultural sustainability"
+      },
+      {
+        "id": "D",
+        "text": "industrial sustainability"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Pillars of sustainability: social, economic, and environmental sustainability.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-01-q012",
+    "week": 1,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "The “subset of physical and biotic environmental factors that permit an animal (or plant) to survive and reproduce” is the definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "biosphere"
+      },
+      {
+        "id": "B",
+        "text": "ecosystem"
+      },
+      {
+        "id": "C",
+        "text": "biome"
+      },
+      {
+        "id": "D",
+        "text": "habitat"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Habitat is the subset of physical and biotic environmental factors that permit an organism to survive and reproduce.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-01-q013",
+    "week": 1,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Soil formation is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "provisioning service"
+      },
+      {
+        "id": "B",
+        "text": "regulating service"
+      },
+      {
+        "id": "C",
+        "text": "cultural service"
+      },
+      {
+        "id": "D",
+        "text": "supporting service"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Soil formation is a supporting ecosystem service as it underpins all other ecosystem services.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-01-q014",
+    "week": 1,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "\"The geographical distribution of a species will be controlled by that environmental factor for which the organism has the narrowest range of tolerance.\" This is the statement for",
+    "options": [
+      {
+        "id": "A",
+        "text": "Liebig's law of the maximum"
+      },
+      {
+        "id": "B",
+        "text": "Shelford's law of tolerance"
+      },
+      {
+        "id": "C",
+        "text": "Shelford's law of intolerance"
+      },
+      {
+        "id": "D",
+        "text": "Liebig's law of the minimum"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Shelford's law of tolerance states that the geographical distribution of a species is controlled by the factor with the narrowest range of tolerance.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-01-q015",
+    "week": 1,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "Biological control of pest populations is an example of",
+    "options": [
+      {
+        "id": "A",
+        "text": "regulating service"
+      },
+      {
+        "id": "B",
+        "text": "provisioning service"
+      },
+      {
+        "id": "C",
+        "text": "cultural service"
+      },
+      {
+        "id": "D",
+        "text": "supporting service"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Biological control of pest populations is a regulating ecosystem service.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-01-q016",
+    "week": 1,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "The regional approach to Geography was developed by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Rene Descartes"
+      },
+      {
+        "id": "B",
+        "text": "Karl Ritter"
+      },
+      {
+        "id": "C",
+        "text": "Eratosthenes"
+      },
+      {
+        "id": "D",
+        "text": "Alexander von Humboldt"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The regional approach to Geography was developed by Karl Ritter, whereas the systematic approach was developed by Alexander von Humboldt.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

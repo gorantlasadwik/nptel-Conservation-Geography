@@ -308,5 +308,191 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 12 Solutions.pdf"
+  },
+  {
+    "id": "week-12-q011",
+    "week": 12,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "“The combination of all the strengths, attributes and resources available within an organisation, community or society to manage and reduce disaster risks and strengthen resilience.” is a definition for",
+    "options": [
+      {
+        "id": "A",
+        "text": "capacity"
+      },
+      {
+        "id": "B",
+        "text": "disaster management"
+      },
+      {
+        "id": "C",
+        "text": "contingency"
+      },
+      {
+        "id": "D",
+        "text": "vulnerability"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Capacity refers to the combination of all strengths, attributes, and resources available to manage disaster risk and build resilience.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-12-q012",
+    "week": 12,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "“A serious disruption of the functioning of a community or a society at any scale due to hazardous events interacting with conditions of exposure, vulnerability and capacity, leading to one or more of the following: human, material, economic and environmental losses and impacts.” is a definition for",
+    "options": [
+      {
+        "id": "A",
+        "text": "vulnerability"
+      },
+      {
+        "id": "B",
+        "text": "exposure"
+      },
+      {
+        "id": "C",
+        "text": "hazard"
+      },
+      {
+        "id": "D",
+        "text": "disaster"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "A disaster is a serious disruption of a community's functioning exceeding its coping capacity.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-12-q013",
+    "week": 12,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "The frequency of flyovers is an indicator of",
+    "options": [
+      {
+        "id": "A",
+        "text": "spectral resolution"
+      },
+      {
+        "id": "B",
+        "text": "radiometric resolution"
+      },
+      {
+        "id": "C",
+        "text": "spatial resolution"
+      },
+      {
+        "id": "D",
+        "text": "temporal resolution"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Temporal resolution refers to the revisit time or frequency at which a satellite or sensor flies over and acquires imagery of the same location.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-12-q014",
+    "week": 12,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Which of these uses imputed willingness to pay?",
+    "options": [
+      {
+        "id": "A",
+        "text": "travel cost method"
+      },
+      {
+        "id": "B",
+        "text": "contingent valuation method"
+      },
+      {
+        "id": "C",
+        "text": "market price method"
+      },
+      {
+        "id": "D",
+        "text": "replacement cost method"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "The replacement cost method imputes economic value based on how much it costs to replace or restore an ecosystem service.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-12-q015",
+    "week": 12,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "“The situation of people, infrastructure, housing, production capacities and other tangible human assets located in hazard-prone areas.” is a definition for",
+    "options": [
+      {
+        "id": "A",
+        "text": "disaster"
+      },
+      {
+        "id": "B",
+        "text": "hazard"
+      },
+      {
+        "id": "C",
+        "text": "vulnerability"
+      },
+      {
+        "id": "D",
+        "text": "exposure"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Exposure refers to the inventory of people, infrastructure, housing, and assets present in hazard-prone zones.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-12-q016",
+    "week": 12,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "Bathymetric LiDAR uses",
+    "options": [
+      {
+        "id": "A",
+        "text": "far infrared light"
+      },
+      {
+        "id": "B",
+        "text": "near infrared light"
+      },
+      {
+        "id": "C",
+        "text": "orange light"
+      },
+      {
+        "id": "D",
+        "text": "green light"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Bathymetric LiDAR uses green laser wavelengths (around 532 nm) because green light penetrates water columns effectively to map bathymetry.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

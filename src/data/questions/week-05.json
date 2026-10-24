@@ -308,5 +308,222 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 5 Solutions.pdf"
+  },
+  {
+    "id": "week-05-q011",
+    "week": 5,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Which of these is not a prominent tidal pattern?",
+    "options": [
+      {
+        "id": "A",
+        "text": "mixed semidiurnal"
+      },
+      {
+        "id": "B",
+        "text": "diurnal"
+      },
+      {
+        "id": "C",
+        "text": "mixed diurnal"
+      },
+      {
+        "id": "D",
+        "text": "semidiurnal"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The main tidal patterns are diurnal, semidiurnal, and mixed semidiurnal; 'mixed diurnal' is not a recognised tidal pattern.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q012",
+    "week": 5,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "Continental slope has a gradient of",
+    "options": [
+      {
+        "id": "A",
+        "text": "0-1 degree"
+      },
+      {
+        "id": "B",
+        "text": "1-2 degree"
+      },
+      {
+        "id": "C",
+        "text": "2-5 degree"
+      },
+      {
+        "id": "D",
+        "text": "5-10 degree"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The continental slope connects the continental shelf to the deep ocean floor and typically has a gradient of 2 to 5 degrees.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q013",
+    "week": 5,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Equal density curves are called",
+    "options": [
+      {
+        "id": "A",
+        "text": "isotherm curves"
+      },
+      {
+        "id": "B",
+        "text": "isopycnal curves"
+      },
+      {
+        "id": "C",
+        "text": "isohaline curves"
+      },
+      {
+        "id": "D",
+        "text": "isobuoyant curves"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Curves connecting points of equal density in seawater are called isopycnals.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q014",
+    "week": 5,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Which of these is a minor feature of the ocean floor?",
+    "options": [
+      {
+        "id": "A",
+        "text": "continental slope"
+      },
+      {
+        "id": "B",
+        "text": "abyssal plain"
+      },
+      {
+        "id": "C",
+        "text": "continental shelf"
+      },
+      {
+        "id": "D",
+        "text": "guyot"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Guyots (flat-topped submerged volcanic seamounts) are minor relief features of the ocean floor compared to major features like shelves and abyssal plains.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q015",
+    "week": 5,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "In the sea, a layer where the temperature decreases rapidly from the mixed upper layer to the cold deeper layer is called",
+    "options": [
+      {
+        "id": "A",
+        "text": "isopycnal"
+      },
+      {
+        "id": "B",
+        "text": "thermocline"
+      },
+      {
+        "id": "C",
+        "text": "thermohaline"
+      },
+      {
+        "id": "D",
+        "text": "thermophil"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The thermocline is the oceanic water layer where water temperature decreases rapidly with depth.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q016",
+    "week": 5,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "\"mountains with pointed summits rising from the sea floor, but not reaching the surface of the ocean\" is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "seamount"
+      },
+      {
+        "id": "B",
+        "text": "oceanic deep / trench"
+      },
+      {
+        "id": "C",
+        "text": "atoll"
+      },
+      {
+        "id": "D",
+        "text": "mid-oceanic ridge"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "A seamount is an underwater mountain rising from the seafloor that does not reach the ocean surface.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-05-q017",
+    "week": 5,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "\"relatively steep-sided, narrow, deep basins\" is a description of",
+    "options": [
+      {
+        "id": "A",
+        "text": "atoll"
+      },
+      {
+        "id": "B",
+        "text": "seamount"
+      },
+      {
+        "id": "C",
+        "text": "oceanic deep / trench"
+      },
+      {
+        "id": "D",
+        "text": "mid-oceanic ridge"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "Ocean trenches (deeps) are steep-sided, narrow, elongated depressions on the ocean floor.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]

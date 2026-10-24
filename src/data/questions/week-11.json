@@ -308,5 +308,222 @@
     "explanation": "Official NPTEL verified solution key.",
     "assets": [],
     "source": "Conservation Geography Week 11 Solutions.pdf"
+  },
+  {
+    "id": "week-11-q011",
+    "week": 11,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "Varanasi can best be categorised as",
+    "options": [
+      {
+        "id": "A",
+        "text": "mining town"
+      },
+      {
+        "id": "B",
+        "text": "educational town"
+      },
+      {
+        "id": "C",
+        "text": "garrison town"
+      },
+      {
+        "id": "D",
+        "text": "religious town"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Varanasi is historically famous as one of India's prominent religious and cultural centres.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q012",
+    "week": 11,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "\"the price of a good that prevails in the world market for that good” is the definition of",
+    "options": [
+      {
+        "id": "A",
+        "text": "domestic price"
+      },
+      {
+        "id": "B",
+        "text": "export price"
+      },
+      {
+        "id": "C",
+        "text": "world price"
+      },
+      {
+        "id": "D",
+        "text": "import price"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The world price is the price of a good determined in the international market by global supply and demand.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q013",
+    "week": 11,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "Visakhapatnam can best be categorised as",
+    "options": [
+      {
+        "id": "A",
+        "text": "commercial town"
+      },
+      {
+        "id": "B",
+        "text": "transport town"
+      },
+      {
+        "id": "C",
+        "text": "industrial town"
+      },
+      {
+        "id": "D",
+        "text": "administrative town"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Visakhapatnam is a major natural seaport and transport hub on India's eastern coast.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q014",
+    "week": 11,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Rain gardens are primarily meant to",
+    "options": [
+      {
+        "id": "A",
+        "text": "increase water flow to streams"
+      },
+      {
+        "id": "B",
+        "text": "reduce water usage"
+      },
+      {
+        "id": "C",
+        "text": "protect existing water sources"
+      },
+      {
+        "id": "D",
+        "text": "increase recharge to groundwater"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "explanation": "Rain gardens are vegetated depressions designed to capture stormwater runoff and promote infiltration and groundwater recharge.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q015",
+    "week": 11,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "Which of these correctly represents the process of habitat fragmentation and loss?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Original forest → Dissection → Attrition → Fragmentation → Perforation"
+      },
+      {
+        "id": "B",
+        "text": "Original forest → Dissection → Perforation → Fragmentation → Attrition"
+      },
+      {
+        "id": "C",
+        "text": "Original forest → Dissection → Perforation → Attrition → Fragmentation"
+      },
+      {
+        "id": "D",
+        "text": "Original forest → Dissection → Fragmentation → Perforation → Attrition"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Habitat fragmentation follows a progression: original continuous forest -> dissection (by roads) -> perforation -> fragmentation -> attrition.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q016",
+    "week": 11,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "Bhilai can best be categorised as",
+    "options": [
+      {
+        "id": "A",
+        "text": "administrative town"
+      },
+      {
+        "id": "B",
+        "text": "industrial town"
+      },
+      {
+        "id": "C",
+        "text": "commercial town"
+      },
+      {
+        "id": "D",
+        "text": "transport town"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Bhilai developed around the Bhilai Steel Plant, classifying it primarily as an industrial town.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
+  },
+  {
+    "id": "week-11-q017",
+    "week": 11,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "New Delhi can best be categorised as",
+    "options": [
+      {
+        "id": "A",
+        "text": "transport town"
+      },
+      {
+        "id": "B",
+        "text": "industrial town"
+      },
+      {
+        "id": "C",
+        "text": "administrative town"
+      },
+      {
+        "id": "D",
+        "text": "commercial town"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "New Delhi is the national capital of India, classified as an administrative town.",
+    "assets": [],
+    "source": "NPTEL Quiz Application.pdf"
   }
 ]
