@@ -1,0 +1,777 @@
+[
+  {
+    "id": "week-inf-q001",
+    "week": 99,
+    "originalQuestionNumber": 1,
+    "type": "single",
+    "question": "Geography as an academic discipline is fundamentally defined by Richard Hartshorne as the study of:",
+    "options": [
+      {
+        "id": "A",
+        "text": "physical landforms and weathering"
+      },
+      {
+        "id": "B",
+        "text": "areal differentiation"
+      },
+      {
+        "id": "C",
+        "text": "climate variability"
+      },
+      {
+        "id": "D",
+        "text": "planetary motion"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Richard Hartshorne famously defined geography as 'the study of areal differentiation of the earth surface' — analysing how and why different regions of the Earth differ from one another.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q002",
+    "week": 99,
+    "originalQuestionNumber": 2,
+    "type": "single",
+    "question": "The ecological zone of transition between two distinct biomes or communities, exhibiting high species richness, is called an:",
+    "options": [
+      {
+        "id": "A",
+        "text": "ecotone"
+      },
+      {
+        "id": "B",
+        "text": "ecotype"
+      },
+      {
+        "id": "C",
+        "text": "ecospecies"
+      },
+      {
+        "id": "D",
+        "text": "ecosphere"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "An ecotone is a transition boundary between two biological communities (e.g., mangrove between terrestrial and marine systems, or marshland between aquatic and grassland biomes).",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q003",
+    "week": 99,
+    "originalQuestionNumber": 3,
+    "type": "single",
+    "question": "The seismic discontinuity that separates the Earth's crust from the underlying upper mantle is known as the:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gutenberg discontinuity"
+      },
+      {
+        "id": "B",
+        "text": "Lehmann discontinuity"
+      },
+      {
+        "id": "C",
+        "text": "Mohorovičić discontinuity"
+      },
+      {
+        "id": "D",
+        "text": "Conrad discontinuity"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The Mohorovičić discontinuity (Moho) marks the compositional boundary between the crust and the denser peridotite mantle, characterized by an abrupt increase in seismic wave velocities.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q004",
+    "week": 99,
+    "originalQuestionNumber": 4,
+    "type": "single",
+    "question": "The point inside the Earth's lithosphere where seismic energy is initially released during an earthquake is termed the:",
+    "options": [
+      {
+        "id": "A",
+        "text": "epicenter"
+      },
+      {
+        "id": "B",
+        "text": "focus (hypocenter)"
+      },
+      {
+        "id": "C",
+        "text": "fault plane"
+      },
+      {
+        "id": "D",
+        "text": "seismic gap"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The focus (or hypocenter) is the subterranean point of initial tectonic rupture, whereas the epicenter is the point on the Earth's surface directly vertically above the focus.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q005",
+    "week": 99,
+    "originalQuestionNumber": 5,
+    "type": "single",
+    "question": "The Mid-Atlantic Ridge is a classic geographic example of which type of tectonic plate boundary?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Convergent boundary"
+      },
+      {
+        "id": "B",
+        "text": "Divergent boundary"
+      },
+      {
+        "id": "C",
+        "text": "Transform fault boundary"
+      },
+      {
+        "id": "D",
+        "text": "Subduction zone"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The Mid-Atlantic Ridge is a constructive divergent boundary where tectonic plates pull apart and upwelling magma generates new oceanic lithosphere.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q006",
+    "week": 99,
+    "originalQuestionNumber": 6,
+    "type": "single",
+    "question": "On Mohs scale of mineral hardness, which of the following represents the softest mineral with a hardness rating of 1?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gypsum"
+      },
+      {
+        "id": "B",
+        "text": "Talc"
+      },
+      {
+        "id": "C",
+        "text": "Calcite"
+      },
+      {
+        "id": "D",
+        "text": "Fluorite"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Talc is assigned a hardness value of 1 (the softest standard mineral on Mohs scale), while Diamond is assigned 10.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q007",
+    "week": 99,
+    "originalQuestionNumber": 7,
+    "type": "single",
+    "question": "Mushroom rocks (pedestal rocks) commonly found in desert environments are erosional landforms created primarily by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "glacial plucking"
+      },
+      {
+        "id": "B",
+        "text": "aeolian wind abrasion"
+      },
+      {
+        "id": "C",
+        "text": "fluvial downcutting"
+      },
+      {
+        "id": "D",
+        "text": "coastal hydraulic action"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Wind-driven saltating sand grains travel close to the desert ground surface, intensely undercutting and abrading rock bases into mushroom-like pedestal structures.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q008",
+    "week": 99,
+    "originalQuestionNumber": 8,
+    "type": "single",
+    "question": "Limestone caves featuring speleothems such as stalactites and stalagmites are characteristic of which landscape type?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Karst topography"
+      },
+      {
+        "id": "B",
+        "text": "Badland topography"
+      },
+      {
+        "id": "C",
+        "text": "Glacial topography"
+      },
+      {
+        "id": "D",
+        "text": "Volcanic plateau"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Karst topography forms by chemical dissolution of soluble rocks like limestone and dolomite by carbonic groundwater, creating sinkholes, underground caverns, stalactites, and stalagmites.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q009",
+    "week": 99,
+    "originalQuestionNumber": 9,
+    "type": "single",
+    "question": "The fraction of incoming solar radiation reflected back into space by the Earth's surface and atmosphere without heating the planet is known as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "insolation"
+      },
+      {
+        "id": "B",
+        "text": "albedo"
+      },
+      {
+        "id": "C",
+        "text": "lapse rate"
+      },
+      {
+        "id": "D",
+        "text": "greenhouse effect"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Albedo is the measure of diffuse reflectivity of solar radiation; Earth's planetary albedo averages approximately 0.30 (30%).",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q010",
+    "week": 99,
+    "originalQuestionNumber": 10,
+    "type": "single",
+    "question": "The low-latitude atmospheric circulation cell where warm air rises near the Equator, moves poleward aloft, and descends around 30° latitude is the:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ferrel cell"
+      },
+      {
+        "id": "B",
+        "text": "Polar cell"
+      },
+      {
+        "id": "C",
+        "text": "Hadley cell"
+      },
+      {
+        "id": "D",
+        "text": "Walker cell"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "explanation": "The Hadley cell is the dominant tropical meridional circulation cell driving trade winds towards the ITCZ and giving rise to the subtropical desert belts at 30° latitude.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q011",
+    "week": 99,
+    "originalQuestionNumber": 11,
+    "type": "single",
+    "question": "In the Koeppen climate classification system, the code 'Af' designates which climate category?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tropical wet / Rainforest climate"
+      },
+      {
+        "id": "B",
+        "text": "Tropical savanna climate"
+      },
+      {
+        "id": "C",
+        "text": "Humid subtropical climate"
+      },
+      {
+        "id": "D",
+        "text": "Dry semi-arid steppe"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "In Koeppen's scheme, 'A' indicates a tropical megathermal climate and 'f' indicates year-round precipitation with no dry season (feucht / moist).",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q012",
+    "week": 99,
+    "originalQuestionNumber": 12,
+    "type": "single",
+    "question": "Spring tides with the greatest tidal range occur during which astronomical alignment of the Sun, Earth, and Moon?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Quadrature (right angle)"
+      },
+      {
+        "id": "B",
+        "text": "Syzygy (straight-line alignment at New and Full Moon)"
+      },
+      {
+        "id": "C",
+        "text": "Apogee"
+      },
+      {
+        "id": "D",
+        "text": "Perihelion"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "During syzygy (at New Moon and Full Moon), the Sun, Earth, and Moon align in a straight line, compounding their gravitational forces to create maximal tidal amplitude (spring tides).",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q013",
+    "week": 99,
+    "originalQuestionNumber": 13,
+    "type": "single",
+    "question": "The Humboldt Current, which plays a major role in upwelling and the El Niño Southern Oscillation (ENSO), is a:",
+    "options": [
+      {
+        "id": "A",
+        "text": "warm current flowing poleward along eastern Australia"
+      },
+      {
+        "id": "B",
+        "text": "cold current flowing northward along the western coast of South America"
+      },
+      {
+        "id": "C",
+        "text": "warm current flowing in the Indian Ocean"
+      },
+      {
+        "id": "D",
+        "text": "cold current in the Arctic Ocean"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The Humboldt (Peru) Current is an eastern boundary cold ocean current flowing equatorward along Chile and Peru, fostering one of the most productive marine upwelling fisheries in the world.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q014",
+    "week": 99,
+    "originalQuestionNumber": 14,
+    "type": "single",
+    "question": "Winter rainfall experienced in the plains of north-western India and snowfall in the western Himalayas is primarily brought by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "South-West monsoon winds"
+      },
+      {
+        "id": "B",
+        "text": "Western Disturbances originating in the Mediterranean"
+      },
+      {
+        "id": "C",
+        "text": "Tropical cyclones from Bay of Bengal"
+      },
+      {
+        "id": "D",
+        "text": "Kalbaisakhi storms"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Western Disturbances are extratropical cyclonic systems originating over the Mediterranean Sea and steered eastward by the westerly subtropical jet stream, vital for Rabi crops like wheat.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q015",
+    "week": 99,
+    "originalQuestionNumber": 15,
+    "type": "single",
+    "question": "A river drainage pattern where tributaries join the main river at almost right angles, guided by alternating bands of hard and soft rock, is called:",
+    "options": [
+      {
+        "id": "A",
+        "text": "dendritic drainage"
+      },
+      {
+        "id": "B",
+        "text": "trellis drainage"
+      },
+      {
+        "id": "C",
+        "text": "radial drainage"
+      },
+      {
+        "id": "D",
+        "text": "centripetal drainage"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Trellis drainage patterns form in folded geological structures (anticlines and synclines) where secondary streams join the primary trunk river at near 90-degree right angles.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q016",
+    "week": 99,
+    "originalQuestionNumber": 16,
+    "type": "single",
+    "question": "Intensely leached soils formed under conditions of high temperature and alternating wet and dry seasons, rich in iron and aluminium oxides, are:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chernozem soils"
+      },
+      {
+        "id": "B",
+        "text": "Laterite soils"
+      },
+      {
+        "id": "C",
+        "text": "Aridisols"
+      },
+      {
+        "id": "D",
+        "text": "Histosols"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Laterite soils result from intense tropical leaching (laterization) where silica is washed away, leaving insoluble residual hydrated oxides of iron and aluminium.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q017",
+    "week": 99,
+    "originalQuestionNumber": 17,
+    "type": "single",
+    "question": "According to the Intermediate Disturbance Hypothesis (IDH) proposed by Joseph Connell, species diversity reaches a maximum when:",
+    "options": [
+      {
+        "id": "A",
+        "text": "disturbance is completely absent"
+      },
+      {
+        "id": "B",
+        "text": "disturbance occurs at intermediate frequency and intensity"
+      },
+      {
+        "id": "C",
+        "text": "disturbance is catastrophic and continuous"
+      },
+      {
+        "id": "D",
+        "text": "competitive exclusion is maximal"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "At intermediate levels of disturbance, colonization by pioneer species is maintained while competitive dominant species are prevented from driving weaker competitors to extinction.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q018",
+    "week": 99,
+    "originalQuestionNumber": 18,
+    "type": "single",
+    "question": "Which international treaty adopted in 1971 provides the foundational global framework for the conservation and wise use of wetlands?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ramsar Convention"
+      },
+      {
+        "id": "B",
+        "text": "Basel Convention"
+      },
+      {
+        "id": "C",
+        "text": "Bonn Convention"
+      },
+      {
+        "id": "D",
+        "text": "Montreal Protocol"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "The Ramsar Convention on Wetlands of International Importance was signed in Ramsar, Iran in 1971 to promote wetland conservation and ecological health.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q019",
+    "week": 99,
+    "originalQuestionNumber": 19,
+    "type": "single",
+    "question": "A species whose protection automatically extends conservation benefits to numerous other co-occurring species across a wide geographical area is termed an:",
+    "options": [
+      {
+        "id": "A",
+        "text": "pioneer species"
+      },
+      {
+        "id": "B",
+        "text": "umbrella species"
+      },
+      {
+        "id": "C",
+        "text": "alien invasive species"
+      },
+      {
+        "id": "D",
+        "text": "endemic species"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Umbrella species have extensive home range requirements; protecting enough continuous wilderness to sustain them indirectly protects the entire ecological community underneath.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q020",
+    "week": 99,
+    "originalQuestionNumber": 20,
+    "type": "single",
+    "question": "In the Demographic Transition Model, Stage 2 (Early Expanding) is marked by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "high birth rate and high death rate"
+      },
+      {
+        "id": "B",
+        "text": "high birth rate and rapidly declining death rate"
+      },
+      {
+        "id": "C",
+        "text": "low birth rate and low death rate"
+      },
+      {
+        "id": "D",
+        "text": "declining birth rate and rising death rate"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Stage 2 is the demographic explosion phase, where improvements in medical care, clean water, and sanitation slash death rates while traditional fertility rates remain high.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q021",
+    "week": 99,
+    "originalQuestionNumber": 21,
+    "type": "single",
+    "question": "Soil conservation structures comprising low ridges and ditches constructed along contours across slopes to capture runoff and prevent erosion are:",
+    "options": [
+      {
+        "id": "A",
+        "text": "shelterbelts"
+      },
+      {
+        "id": "B",
+        "text": "contour bunds"
+      },
+      {
+        "id": "C",
+        "text": "crop rotations"
+      },
+      {
+        "id": "D",
+        "text": "clear-cutting"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Contour bunds divide hillside slopes into manageable catchment lengths, retarding surface runoff velocity and preventing sheet and rill erosion.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q022",
+    "week": 99,
+    "originalQuestionNumber": 22,
+    "type": "single",
+    "question": "According to Alfred Weber's classical Theory of the Location of Industries, when the Material Index (MI) of raw materials is greater than 1 (weight-losing), the industry should locate:",
+    "options": [
+      {
+        "id": "A",
+        "text": "at the consumer market"
+      },
+      {
+        "id": "B",
+        "text": "near the source of raw materials"
+      },
+      {
+        "id": "C",
+        "text": "at an intermediate transhipment port"
+      },
+      {
+        "id": "D",
+        "text": "anywhere arbitrarily"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "When Material Index > 1, raw materials lose substantial weight during manufacture (e.g. iron smelting, sugar production); locating at the raw material deposit saves transportation expenditure.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q023",
+    "week": 99,
+    "originalQuestionNumber": 23,
+    "type": "single",
+    "question": "Specially designed structures such as overpasses and underpasses lined with native vegetation to maintain ecological connectivity across roadways are known as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "ecoducts / green bridges"
+      },
+      {
+        "id": "B",
+        "text": "flyovers"
+      },
+      {
+        "id": "C",
+        "text": "culverts"
+      },
+      {
+        "id": "D",
+        "text": "bypasses"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "explanation": "Ecoducts / green bridges provide safe passages for wildlife across busy linear transportation infrastructure, significantly reducing animal roadkill and habitat fragmentation.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q024",
+    "week": 99,
+    "originalQuestionNumber": 24,
+    "type": "single",
+    "question": "In remote sensing image processing, the Normalized Difference Vegetation Index (NDVI) is mathematically calculated using which spectral bands?",
+    "options": [
+      {
+        "id": "A",
+        "text": "(Blue - Red) / (Blue + Red)"
+      },
+      {
+        "id": "B",
+        "text": "(NIR - Red) / (NIR + Red)"
+      },
+      {
+        "id": "C",
+        "text": "(Thermal - Green) / (Thermal + Green)"
+      },
+      {
+        "id": "D",
+        "text": "(SWIR - Blue) / (SWIR + Blue)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "Chlorophyll pigments absorb Red light, while leaf internal mesophyll structures strongly reflect Near-Infrared (NIR) light, making (NIR - Red) / (NIR + Red) the standard NDVI formula.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  },
+  {
+    "id": "week-inf-q025",
+    "week": 99,
+    "originalQuestionNumber": 25,
+    "type": "single",
+    "question": "In geographic information systems (GIS), a data model that represents spatial features as continuous grids of cells or pixels, each containing a specific value, is called:",
+    "options": [
+      {
+        "id": "A",
+        "text": "vector model"
+      },
+      {
+        "id": "B",
+        "text": "raster model"
+      },
+      {
+        "id": "C",
+        "text": "network model"
+      },
+      {
+        "id": "D",
+        "text": "relational model"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "explanation": "The raster model represents geographic space as an array of georeferenced grid cells (pixels) suitable for continuous fields like satellite imagery and digital elevation models.",
+    "assets": [],
+    "source": "NPTEL Conservation Geography Master Archives"
+  }
+]

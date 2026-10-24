@@ -393,8 +393,8 @@ export const QuizPage: React.FC<QuizPageProps> = ({
   const unansweredCount = items.length - answeredCount;
 
   const quizTitle = config.selectedWeeks.length === 1
-    ? `Week ${config.selectedWeeks[0]} Practice`
-    : config.selectedWeeks.length === 13
+    ? (config.selectedWeeks[0] === 99 ? 'Week ∞ Practice (Infinity Bank)' : `Week ${config.selectedWeeks[0]} Practice`)
+    : config.selectedWeeks.length >= 13
     ? 'All Weeks Quiz'
     : 'Custom Week Quiz';
 

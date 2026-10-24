@@ -100,8 +100,8 @@ export const QuizHeader: React.FC<QuizHeaderProps> = ({
               </div>
               <p className="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 truncate hidden sm:block">
                 {selectedWeeks.length === 1
-                  ? `Week ${selectedWeeks[0]}`
-                  : `Weeks: ${selectedWeeks.join(', ')}`}
+                  ? (selectedWeeks[0] === 99 ? 'Week ∞ (Infinity Bank)' : `Week ${selectedWeeks[0]}`)
+                  : `Weeks: ${selectedWeeks.map((w) => w === 99 ? '∞' : w).join(', ')}`}
               </p>
             </div>
           </div>

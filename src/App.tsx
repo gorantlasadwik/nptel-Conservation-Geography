@@ -136,9 +136,10 @@ export function App() {
 
   // Quick Start single week directly in practice mode
   const handleQuickStartWeek = useCallback((week: number) => {
+    const matchWeek = weeks.find((w) => w.week === week);
     const config: QuizConfig = {
       selectedWeeks: [week],
-      questionCount: 10,
+      questionCount: matchWeek ? matchWeek.totalQuestions : 10,
       shuffleQuestions: false,
       shuffleOptions: false,
       mode: 'practice',
@@ -146,7 +147,7 @@ export function App() {
       countdownMinutes: 15,
     };
     handleStartQuiz(config);
-  }, [handleStartQuiz]);
+  }, [weeks, handleStartQuiz]);
 
   // Open configuration modal for a specific week
   const handleConfigureWeek = useCallback((week: number) => {

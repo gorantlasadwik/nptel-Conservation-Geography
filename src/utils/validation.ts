@@ -42,12 +42,13 @@ export function validateQuestionBank(questions: Question[]): ValidationReport {
     }
 
     // Check Week Number
-    if (q.week === undefined || q.week === null || q.week < 0 || q.week > 12) {
+    const isValidWeek = q.week !== undefined && q.week !== null && ((q.week >= 0 && q.week <= 12) || q.week === 99);
+    if (!isValidWeek) {
       issues.push({
         severity: 'error',
         questionId: q.id,
         week: q.week,
-        message: `Invalid week number: ${q.week} (must be between 0 and 12)`,
+        message: `Invalid week number: ${q.week} (must be between 0 and 12, or 99 for Infinity)`,
       });
     } else {
       if (!seenWeekQuestions.has(q.week)) {

@@ -14,6 +14,7 @@ import week09 from '../data/questions/week-09.json';
 import week10 from '../data/questions/week-10.json';
 import week11 from '../data/questions/week-11.json';
 import week12 from '../data/questions/week-12.json';
+import weekInfinity from '../data/questions/week-infinity.json';
 
 const questionsByWeek: Record<number, Question[]> = {
   0: week00 as Question[],
@@ -29,13 +30,14 @@ const questionsByWeek: Record<number, Question[]> = {
   10: week10 as Question[],
   11: week11 as Question[],
   12: week12 as Question[],
+  99: weekInfinity as Question[],
 };
 
 export const COURSE_INFO = {
   code: "NPTEL-ENV-01",
   name: "Conservation Geography",
   instructor: "NPTEL Faculty",
-  totalWeeks: 13,
+  totalWeeks: 14,
 };
 
 export function getAllWeeks(): WeekMetadata[] {
@@ -70,7 +72,8 @@ export function getQuestionsForWeeks(weeks: number[]): Question[] {
 
 export function getAllLoadedQuestions(): Question[] {
   const all: Question[] = [];
-  for (let w = 0; w <= 12; w++) {
+  const weekKeys = Object.keys(questionsByWeek).map(Number).sort((a, b) => a - b);
+  for (const w of weekKeys) {
     if (questionsByWeek[w]) {
       all.push(...questionsByWeek[w]);
     }

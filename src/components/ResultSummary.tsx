@@ -85,7 +85,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
 
   const isSingleWeek = result.config?.selectedWeeks?.length === 1;
   const currentWeek = isSingleWeek ? result.config.selectedWeeks[0] : null;
-  const nextWeek = currentWeek !== null && currentWeek >= 0 && currentWeek < 12 ? currentWeek + 1 : null;
+  const nextWeek = currentWeek !== null && currentWeek >= 0 && currentWeek < 12 ? currentWeek + 1 : currentWeek === 12 ? 99 : null;
   
   // Rebel Saab is strictly played ONLY on 100% score
   const isPerfectScore = accuracy >= 100 || (totalQuestions > 0 && correctCount === totalQuestions && accuracy >= 99.5);
@@ -320,9 +320,9 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
                 onStartNextWeek(nextWeek);
               }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/30 ring-2 ring-emerald-500/50 active:scale-95 transition-all cursor-pointer"
-              title={`Start practicing Week ${nextWeek} directly`}
+              title={`Start practicing ${nextWeek === 99 ? 'Week ∞ (Infinity Bank)' : `Week ${nextWeek}`} directly`}
             >
-              <span>Practice Next Week (Week {nextWeek})</span>
+              <span>Practice Next Week ({nextWeek === 99 ? 'Week ∞' : `Week ${nextWeek}`})</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           )}
@@ -398,7 +398,7 @@ export const ResultSummary: React.FC<ResultSummaryProps> = ({
                 {perWeekStats.map((stat) => (
                   <tr key={stat.week} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-colors">
                     <td className="py-3 px-3 sm:px-4 font-semibold text-zinc-900 dark:text-zinc-100">
-                      Week {stat.week}
+                      {stat.week === 99 ? 'Week ∞' : `Week ${stat.week}`}
                     </td>
                     <td className="py-3 px-3 sm:px-4 text-zinc-600 dark:text-zinc-400">
                       {stat.total}

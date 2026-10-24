@@ -219,7 +219,7 @@ export const QuizSetupModal: React.FC<QuizSetupModalProps> = ({
                     ) : (
                       <Square className="w-4 h-4 text-zinc-400 shrink-0" />
                     )}
-                    <span className="truncate">Week {w.week} ({w.totalQuestions})</span>
+                    <span className="truncate">{w.week === 99 ? 'Week ∞' : `Week ${w.week}`} ({w.totalQuestions})</span>
                   </div>
                 );
               })}

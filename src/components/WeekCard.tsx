@@ -39,8 +39,12 @@ export const WeekCard: React.FC<WeekCardProps> = ({
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-zinc-700/60">
-              Week {week}
+            <span className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${
+              week === 99
+                ? 'bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-700 shadow-xs'
+                : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200/60 dark:border-zinc-700/60'
+            }`}>
+              {week === 99 ? 'Week ∞' : `Week ${week}`}
             </span>
 
             {/* Manual User Done Toggle Button */}
@@ -108,16 +112,16 @@ export const WeekCard: React.FC<WeekCardProps> = ({
           className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-[0.98]"
         >
           <Play className="w-3.5 h-3.5 fill-current" />
-          Practice Week
+          {week === 99 ? 'Practice Infinity' : 'Practice Week'}
         </button>
 
         {onRapidStart && (
           <button
             onClick={() => onRapidStart(week)}
             disabled={!isLoaded}
-            title={`Start Rapid Quiz for Lab ${week}`}
+            title={week === 99 ? 'Start Rapid Quiz for Week ∞' : `Start Rapid Quiz for Lab ${week}`}
             className="p-2 rounded-lg border border-amber-300 dark:border-amber-700/60 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-95"
-            aria-label={`Rapid Quiz for Week ${week}`}
+            aria-label={week === 99 ? 'Rapid Quiz for Week ∞' : `Rapid Quiz for Week ${week}`}
           >
             <Zap className="w-4 h-4 fill-current" />
           </button>

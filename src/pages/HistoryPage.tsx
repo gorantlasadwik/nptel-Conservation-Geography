@@ -71,10 +71,10 @@ export const HistoryPage: React.FC<HistoryPageProps> = ({
         <div className="space-y-4">
           {results.map((res) => {
             const weeksLabel = res.config.selectedWeeks.length === 1
-              ? `Week ${res.config.selectedWeeks[0]}`
-              : res.config.selectedWeeks.length === 13
-              ? 'All 13 Weeks'
-              : `${res.config.selectedWeeks.length} Weeks (${res.config.selectedWeeks.join(', ')})`;
+              ? (res.config.selectedWeeks[0] === 99 ? 'Week ∞ (Infinity Bank)' : `Week ${res.config.selectedWeeks[0]}`)
+              : res.config.selectedWeeks.length >= 13
+              ? 'All Weeks'
+              : `${res.config.selectedWeeks.length} Weeks (${res.config.selectedWeeks.map((w) => w === 99 ? '∞' : w).join(', ')})`;
 
             return (
               <div

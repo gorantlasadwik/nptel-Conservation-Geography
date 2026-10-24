@@ -83,7 +83,7 @@ export const CustomQuizPage: React.FC<CustomQuizPageProps> = ({
             Build Custom Quiz
           </h1>
           <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            Select any combination of weeks from Week 0 through Week 12
+            Select any combination of weeks from Week 0 through Week 12 plus Week ∞
           </p>
         </div>
 
@@ -131,6 +131,12 @@ export const CustomQuizPage: React.FC<CustomQuizPageProps> = ({
               Weeks 7–12
             </button>
             <button
+              onClick={() => setSelectedWeeks([99])}
+              className="px-2.5 py-1 rounded-lg bg-purple-100 dark:bg-purple-950/80 font-bold text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800/80 hover:bg-purple-200 transition-colors cursor-pointer"
+            >
+              Week ∞
+            </button>
+            <button
               onClick={handleClearSelection}
               className="px-2.5 py-1 rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer"
             >
@@ -162,7 +168,7 @@ export const CustomQuizPage: React.FC<CustomQuizPageProps> = ({
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-zinc-900 dark:text-zinc-100">
-                        Week {w.week}
+                        {w.week === 99 ? 'Week ∞' : `Week ${w.week}`}
                       </span>
                       <span className="text-[11px] text-zinc-500">
                         {w.totalQuestions} Qs

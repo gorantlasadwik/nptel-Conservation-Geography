@@ -178,7 +178,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                   </span>
                 </div>
                 <p className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
-                  1-Click start across all 13 course assignments
+                  1-Click start across all course assignments & Infinity Bank
                 </p>
               </div>
             </div>
@@ -206,7 +206,7 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                 onClick={handleSelectAll}
                 className="px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-semibold cursor-pointer transition-colors"
               >
-                All (13)
+                All ({weeks.length})
               </button>
               <button
                 type="button"
@@ -221,6 +221,13 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                 className="px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-semibold cursor-pointer transition-colors"
               >
                 Weeks 7–12
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedWeeks([99])}
+                className="px-2 py-0.5 rounded-lg bg-purple-100 dark:bg-purple-950/80 hover:bg-purple-200 text-purple-700 dark:text-purple-300 font-bold border border-purple-300 dark:border-purple-800/80 cursor-pointer transition-colors"
+              >
+                Week ∞
               </button>
               <button
                 type="button"
@@ -270,9 +277,11 @@ export const RapidLabSelectModal: React.FC<RapidLabSelectModalProps> = ({
                         <span className={`text-xs font-bold px-2 py-0.5 rounded transition-colors ${
                           isSelected
                             ? 'bg-amber-500 text-zinc-950'
+                            : w.week === 99
+                            ? 'bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800/80'
                             : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
                         }`}>
-                          Lab {w.week}
+                          {w.week === 99 ? 'Lab ∞' : `Lab ${w.week}`}
                         </span>
                         {isDone && (
                           <span className="inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/80 shrink-0">

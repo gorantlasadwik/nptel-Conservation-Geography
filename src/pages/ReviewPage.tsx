@@ -173,7 +173,7 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                      Week {q.week} • Q{q.originalQuestionNumber}
+                      {q.week === 99 ? 'Week ∞' : `Week ${q.week}`} • Q{q.originalQuestionNumber}
                     </span>
 
                     {q.isCorrect ? (

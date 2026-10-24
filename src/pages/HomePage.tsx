@@ -62,7 +62,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/80 text-[11px] sm:text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3">
             <Sparkles className="w-3.5 h-3.5 shrink-0" />
-            <span className="truncate">NPTEL Conservation Geography (Week 0–12)</span>
+            <span className="truncate">NPTEL Conservation Geography (Week 0–12 & Week ∞)</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight mb-3">
@@ -73,7 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </h1>
 
           <p className="text-xs sm:text-sm lg:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 max-w-2xl">
-            A high-performance practice application for NPTEL assignments. Master questions from Week 0 through Week 12 with authentic solutions, custom multi-week quizzes, and timed mock test simulations.
+            A high-performance practice application for NPTEL assignments. Master questions from Week 0 through Week 12 plus the Week ∞ Infinity Bank with authentic solutions, custom multi-week quizzes, and timed mock test simulations.
           </p>
 
           {/* Quick Action Buttons (Responsive Grid on Mobile) */}
@@ -216,7 +216,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 mb-2">
                     <span className="font-semibold text-zinc-700 dark:text-zinc-300">
                       {res.config.selectedWeeks.length === 1
-                        ? `Week ${res.config.selectedWeeks[0]}`
+                        ? (res.config.selectedWeeks[0] === 99 ? 'Week ∞' : `Week ${res.config.selectedWeeks[0]}`)
                         : `${res.config.selectedWeeks.length} Weeks`}
                     </span>
                     <span className="text-[11px]">{res.completedAt.split(',')[0]}</span>

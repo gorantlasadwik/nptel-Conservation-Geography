@@ -81,7 +81,7 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
             btnClass += ' ring-2 ring-indigo-500 dark:ring-indigo-400 ring-offset-2 dark:ring-offset-zinc-900';
           }
 
-          let titleText = `Question ${idx + 1} (Week ${item.question.week})`;
+          let titleText = `Question ${idx + 1} (${item.question.week === 99 ? 'Week ∞' : `Week ${item.question.week}`})`;
           if (isAnswered) {
             titleText += isCorrect ? ' - Correct' : ' - Incorrect';
           }
